@@ -1,0 +1,642 @@
+{
+  "match_id": "match_41bb6ee1",
+  "match_name": "gameplay_1_60fps_720p_45sec",
+  "map_name": "Unknown",
+  "rounds": [
+    {
+      "round_number": 1,
+      "events": [
+        {
+          "timestamp": 0.0,
+          "event_type": "plant",
+          "position": null,
+          "description": "Plant banner activated."
+        },
+        {
+          "timestamp": 0.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 0.8,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 1.0,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 1.2,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 3.4,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 4.2,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 4.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 4.8,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 5.0,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 5.4,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 5.4,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 5.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 6.0,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 6.0,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 6.8,
+          "event_type": "plant",
+          "position": null,
+          "description": "Plant banner activated."
+        },
+        {
+          "timestamp": 7.2,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 7.4,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 7.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 7.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 14.4,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 14.4,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 14.4,
+          "event_type": "plant",
+          "position": null,
+          "description": "Plant banner activated."
+        },
+        {
+          "timestamp": 15.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 17.4,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 17.4,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 17.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 18.0,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 19.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 19.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 19.8,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 20.2,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 20.4,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 22.4,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 22.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 22.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 22.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 22.8,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 22.8,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 23.0,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 23.2,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 23.2,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 23.4,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 23.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 23.8,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 24.2,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 24.4,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 24.4,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 24.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 24.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 24.8,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 24.8,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 25.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 25.8,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 25.8,
+          "event_type": "plant",
+          "position": null,
+          "description": "Plant banner activated."
+        },
+        {
+          "timestamp": 26.0,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 26.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 27.4,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 27.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 27.8,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 29.8,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 30.0,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 31.2,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 31.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 31.8,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 31.8,
+          "event_type": "plant",
+          "position": null,
+          "description": "Plant banner activated."
+        },
+        {
+          "timestamp": 33.2,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 33.2,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 33.4,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 33.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 33.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 33.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 33.8,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 33.8,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 33.8,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 34.0,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 36.2,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 36.8,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 36.8,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 37.8,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 39.0,
+          "event_type": "plant",
+          "position": null,
+          "description": "Plant banner activated."
+        },
+        {
+          "timestamp": 40.8,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 41.0,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 41.2,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 41.2,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 41.2,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 41.4,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 41.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 41.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 41.8,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 41.8,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 42.0,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 42.2,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 42.2,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 42.4,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 43.4,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 43.4,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 43.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 43.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 43.6,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 43.8,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 44.0,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 44.0,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 44.0,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        },
+        {
+          "timestamp": 44.4,
+          "event_type": "kill",
+          "position": null,
+          "description": "New kill-feed row detected."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3082 @@
+{
+  "match_id": "match_ec65311c",
+  "match_name": "gameplay_1_60fps_720p_45sec",
+  "map_name": "Unknown",
+  "rounds": [
+    {
+      "round_number": 1,
+      "events": [
+        {
+          "timestamp": 0.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9917,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 0.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7073,
+            "y": 0.7964,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 0.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6789,
+            "y": 0.7661,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 0.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.878,
+            "y": 0.7357,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 0.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.705,
+            "y": 0.6929,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 0.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7749,
+            "y": 0.5411,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 0.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8092,
+            "y": 0.1839,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 0.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.5391,
+            "y": 0.2036,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 1.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6682,
+            "y": 0.9911,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 1.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.436,
+            "y": 0.9911,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 1.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7038,
+            "y": 0.9714,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 1.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7536,
+            "y": 0.9536,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 1.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.4787,
+            "y": 0.9071,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 1.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.705,
+            "y": 0.9232,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 1.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9384,
+            "y": 0.8714,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 1.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.2512,
+            "y": 0.8714,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 1.0,
+          "event_type": "kill",
+          "position": {
+            "x": 0.6682,
+            "y": 0.9911,
+            "weight": 1
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.101)."
+        },
+        {
+          "timestamp": 1.0,
+          "event_type": "plant",
+          "position": {
+            "x": 0.6682,
+            "y": 0.9911,
+            "weight": 1
+          },
+          "description": "Plant inferred from top-bar region change (score=0.288)."
+        },
+        {
+          "timestamp": 1.0,
+          "event_type": "ace",
+          "position": {
+            "x": 0.6682,
+            "y": 0.9911,
+            "weight": 1
+          },
+          "description": "Ace/banner inferred from center region change (score=0.157)."
+        },
+        {
+          "timestamp": 2.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.4858,
+            "y": 0.9875,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 2.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6268,
+            "y": 0.8768,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 2.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.1398,
+            "y": 0.8357,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 2.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.0213,
+            "y": 0.8071,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 2.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6647,
+            "y": 0.7071,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 2.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.3649,
+            "y": 0.6464,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 2.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.1327,
+            "y": 0.6429,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 2.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8175,
+            "y": 0.6214,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 3.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.0107,
+            "y": 0.9107,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 3.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8294,
+            "y": 0.8,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 3.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9917,
+            "y": 0.8286,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 3.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8318,
+            "y": 0.7643,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 3.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8602,
+            "y": 0.7607,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 3.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7393,
+            "y": 0.7107,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 3.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9964,
+            "y": 0.7179,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 3.0,
+          "event_type": "kill",
+          "position": {
+            "x": 0.0107,
+            "y": 0.9107,
+            "weight": 1
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.474)."
+        },
+        {
+          "timestamp": 4.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9763,
+            "y": 0.8714,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 4.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9917,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 4.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8732,
+            "y": 0.6875,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 4.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8436,
+            "y": 0.6607,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 4.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7239,
+            "y": 0.65,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 4.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7014,
+            "y": 0.65,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 4.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.2121,
+            "y": 0.6,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 4.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7974,
+            "y": 0.5357,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 5.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9135,
+            "y": 0.9875,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 5.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9941,
+            "y": 0.8429,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 5.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9739,
+            "y": 0.7036,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 5.0,
+          "event_type": "kill",
+          "position": {
+            "x": 0.9135,
+            "y": 0.9875,
+            "weight": 1
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.415)."
+        },
+        {
+          "timestamp": 6.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.1374,
+            "y": 0.9839,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 6.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.0379,
+            "y": 0.9839,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 6.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.09,
+            "y": 0.9571,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 6.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9917,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 6.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.1588,
+            "y": 0.7464,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 6.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8507,
+            "y": 0.675,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 6.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.641,
+            "y": 0.5875,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 6.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.0853,
+            "y": 0.5571,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 7.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.2204,
+            "y": 0.9464,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 7.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.1398,
+            "y": 0.9286,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 7.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.3448,
+            "y": 0.7554,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 7.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.2346,
+            "y": 0.75,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 7.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.3152,
+            "y": 0.7339,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 7.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7512,
+            "y": 0.6696,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 7.0,
+          "event_type": "kill",
+          "position": {
+            "x": 0.2204,
+            "y": 0.9464,
+            "weight": 1
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.292)."
+        },
+        {
+          "timestamp": 8.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.4645,
+            "y": 0.9946,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 8.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.3957,
+            "y": 0.925,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 8.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.4739,
+            "y": 0.9071,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 8.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.1066,
+            "y": 0.8964,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 8.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.3863,
+            "y": 0.8714,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 8.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8175,
+            "y": 0.8357,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 8.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.981,
+            "y": 0.8232,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 8.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.4028,
+            "y": 0.8071,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 9.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9917,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 9.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8483,
+            "y": 0.6786,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 9.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.2607,
+            "y": 0.6464,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 9.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6552,
+            "y": 0.6089,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 9.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7855,
+            "y": 0.5607,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 9.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7725,
+            "y": 0.5411,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 9.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.3602,
+            "y": 0.4875,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 9.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.2382,
+            "y": 0.475,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 9.0,
+          "event_type": "kill",
+          "position": {
+            "x": 0.9917,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.121)."
+        },
+        {
+          "timestamp": 10.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.3981,
+            "y": 0.9946,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 10.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.3412,
+            "y": 0.9946,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 10.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.3033,
+            "y": 0.9946,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 10.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.2607,
+            "y": 0.9929,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 10.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.5024,
+            "y": 0.9857,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 10.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.218,
+            "y": 0.8982,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 10.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.0178,
+            "y": 0.8893,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 10.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.1398,
+            "y": 0.85,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 10.0,
+          "event_type": "plant",
+          "position": {
+            "x": 0.3981,
+            "y": 0.9946,
+            "weight": 1
+          },
+          "description": "Plant inferred from top-bar region change (score=0.105)."
+        },
+        {
+          "timestamp": 11.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6256,
+            "y": 0.9946,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 11.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7239,
+            "y": 0.9375,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 11.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9431,
+            "y": 0.9,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 11.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7192,
+            "y": 0.8786,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 11.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.1611,
+            "y": 0.8714,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 11.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9846,
+            "y": 0.8893,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 11.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8009,
+            "y": 0.8554,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 12.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.5071,
+            "y": 0.9946,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 12.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.2133,
+            "y": 0.9946,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 12.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7346,
+            "y": 0.9839,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 12.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9218,
+            "y": 0.9357,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 12.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.2085,
+            "y": 0.9411,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 12.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.3791,
+            "y": 0.8875,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 12.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.4336,
+            "y": 0.8679,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 12.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.2085,
+            "y": 0.825,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 13.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7938,
+            "y": 0.8625,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 13.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8306,
+            "y": 0.8589,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 13.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.846,
+            "y": 0.8071,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 13.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9917,
+            "y": 0.7786,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 13.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9254,
+            "y": 0.7429,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 13.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8081,
+            "y": 0.7339,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 13.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.3448,
+            "y": 0.7232,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 13.0,
+          "event_type": "kill",
+          "position": {
+            "x": 0.7938,
+            "y": 0.8625,
+            "weight": 1
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.304)."
+        },
+        {
+          "timestamp": 14.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8246,
+            "y": 0.9875,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 14.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.09,
+            "y": 0.9821,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 14.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.1422,
+            "y": 0.8893,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 14.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8578,
+            "y": 0.7786,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 14.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7701,
+            "y": 0.7607,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 14.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9621,
+            "y": 0.7375,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 15.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9917,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 15.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.846,
+            "y": 0.6679,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 15.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7441,
+            "y": 0.6071,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 15.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6682,
+            "y": 0.55,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 15.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7346,
+            "y": 0.4875,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 15.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.2773,
+            "y": 0.0286,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 15.0,
+          "event_type": "kill",
+          "position": {
+            "x": 0.9917,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.219)."
+        },
+        {
+          "timestamp": 15.0,
+          "event_type": "ace",
+          "position": {
+            "x": 0.9917,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Ace/banner inferred from center region change (score=0.134)."
+        },
+        {
+          "timestamp": 16.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9775,
+            "y": 0.7179,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 16.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9787,
+            "y": 0.6464,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 16.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9336,
+            "y": 0.6071,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 16.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9964,
+            "y": 0.5786,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 17.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.936,
+            "y": 0.9429,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 17.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9917,
+            "y": 0.8,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 17.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8199,
+            "y": 0.7607,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 17.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8531,
+            "y": 0.7143,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 17.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.846,
+            "y": 0.6679,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 17.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7867,
+            "y": 0.6714,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 17.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7571,
+            "y": 0.65,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 17.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7844,
+            "y": 0.6143,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 18.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9621,
+            "y": 0.8411,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 18.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6754,
+            "y": 0.7071,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 18.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.987,
+            "y": 0.6196,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 18.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7393,
+            "y": 0.6071,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 18.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6588,
+            "y": 0.55,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 18.0,
+          "event_type": "plant",
+          "position": {
+            "x": 0.9621,
+            "y": 0.8411,
+            "weight": 1
+          },
+          "description": "Plant inferred from top-bar region change (score=0.380)."
+        },
+        {
+          "timestamp": 19.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7168,
+            "y": 0.9946,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 19.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.391,
+            "y": 0.9946,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 19.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.3365,
+            "y": 0.9946,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 19.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.4384,
+            "y": 0.9893,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 19.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.2559,
+            "y": 0.9839,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 19.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.3839,
+            "y": 0.8946,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 19.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8294,
+            "y": 0.85,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 19.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9917,
+            "y": 0.8,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 19.0,
+          "event_type": "kill",
+          "position": {
+            "x": 0.7168,
+            "y": 0.9946,
+            "weight": 1
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.375)."
+        },
+        {
+          "timestamp": 20.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8531,
+            "y": 0.675,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 20.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7607,
+            "y": 0.65,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 20.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7417,
+            "y": 0.6071,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 20.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.654,
+            "y": 0.5429,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 20.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8412,
+            "y": 0.5321,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 20.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8104,
+            "y": 0.5321,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 20.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.3934,
+            "y": 0.1589,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 21.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9917,
+            "y": 0.7929,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 21.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6398,
+            "y": 0.7143,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 21.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8543,
+            "y": 0.5786,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 21.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8246,
+            "y": 0.5768,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 22.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8531,
+            "y": 0.675,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 22.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.763,
+            "y": 0.6464,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 22.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.1066,
+            "y": 0.6571,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 22.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7393,
+            "y": 0.6071,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 22.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7844,
+            "y": 0.5982,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 22.0,
+          "event_type": "kill",
+          "position": {
+            "x": 0.8531,
+            "y": 0.675,
+            "weight": 1
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.257)."
+        },
+        {
+          "timestamp": 23.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9941,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 23.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.3128,
+            "y": 0.7339,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 23.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6552,
+            "y": 0.7143,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 23.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.2832,
+            "y": 0.65,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 23.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9787,
+            "y": 0.625,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 23.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8341,
+            "y": 0.5696,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 24.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8258,
+            "y": 0.9607,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 24.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8555,
+            "y": 0.8143,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 24.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8483,
+            "y": 0.6714,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 24.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6588,
+            "y": 0.55,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 25.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6185,
+            "y": 0.9321,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 25.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.4265,
+            "y": 0.9,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 25.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9917,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 25.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.3957,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 25.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6481,
+            "y": 0.7214,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 25.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.763,
+            "y": 0.5571,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 25.0,
+          "event_type": "kill",
+          "position": {
+            "x": 0.6185,
+            "y": 0.9321,
+            "weight": 1
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.112)."
+        },
+        {
+          "timestamp": 25.0,
+          "event_type": "ace",
+          "position": {
+            "x": 0.6185,
+            "y": 0.9321,
+            "weight": 1
+          },
+          "description": "Ace/banner inferred from center region change (score=0.243)."
+        },
+        {
+          "timestamp": 26.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9194,
+            "y": 0.9946,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 26.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9941,
+            "y": 0.9696,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 26.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9763,
+            "y": 0.9429,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 26.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8519,
+            "y": 0.675,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 26.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.763,
+            "y": 0.65,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 26.0,
+          "event_type": "plant",
+          "position": {
+            "x": 0.9194,
+            "y": 0.9946,
+            "weight": 1
+          },
+          "description": "Plant inferred from top-bar region change (score=0.137)."
+        },
+        {
+          "timestamp": 27.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.3365,
+            "y": 0.9946,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 27.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.4171,
+            "y": 0.9911,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 27.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.737,
+            "y": 0.9857,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 27.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.641,
+            "y": 0.9804,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 27.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6884,
+            "y": 0.9821,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 27.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.2393,
+            "y": 0.9839,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 27.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.846,
+            "y": 0.9643,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 28.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.4846,
+            "y": 0.9143,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 28.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.4514,
+            "y": 0.9107,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 28.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.0142,
+            "y": 0.8964,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 28.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7014,
+            "y": 0.8446,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 28.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.0438,
+            "y": 0.8321,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 28.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.3685,
+            "y": 0.8125,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 28.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.3318,
+            "y": 0.8071,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 29.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.2701,
+            "y": 0.9357,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 29.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9917,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 29.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.3649,
+            "y": 0.7286,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 29.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6469,
+            "y": 0.7214,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 29.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8519,
+            "y": 0.675,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 29.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9775,
+            "y": 0.65,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 29.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9431,
+            "y": 0.6464,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 30.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.0427,
+            "y": 0.7286,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 30.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8199,
+            "y": 0.6036,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 30.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6493,
+            "y": 0.5429,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 30.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7938,
+            "y": 0.5304,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 30.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9799,
+            "y": 0.5321,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 31.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9917,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 31.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6517,
+            "y": 0.7214,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 31.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.0083,
+            "y": 0.7179,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 31.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.0486,
+            "y": 0.6732,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 31.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8507,
+            "y": 0.6786,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 31.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.0036,
+            "y": 0.6321,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 31.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7855,
+            "y": 0.5625,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 32.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7642,
+            "y": 0.6464,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 32.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6943,
+            "y": 0.5679,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 32.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6588,
+            "y": 0.5536,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 32.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.2891,
+            "y": 0.0268,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 32.0,
+          "event_type": "kill",
+          "position": {
+            "x": 0.7642,
+            "y": 0.6464,
+            "weight": 1
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.101)."
+        },
+        {
+          "timestamp": 33.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8483,
+            "y": 0.9911,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 33.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6706,
+            "y": 0.9875,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 33.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6351,
+            "y": 0.9875,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 33.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.4976,
+            "y": 0.9857,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 33.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.2654,
+            "y": 0.9857,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 33.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.2085,
+            "y": 0.9857,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 33.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7441,
+            "y": 0.9429,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 33.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.4052,
+            "y": 0.9,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 34.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9917,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 34.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6517,
+            "y": 0.7179,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 34.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8531,
+            "y": 0.6714,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 34.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6517,
+            "y": 0.5571,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 34.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.4372,
+            "y": 0.1964,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 34.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6185,
+            "y": 0.0643,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 34.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.2536,
+            "y": 0.0268,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 34.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.2986,
+            "y": 0.025,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 34.0,
+          "event_type": "kill",
+          "position": {
+            "x": 0.9917,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.374)."
+        },
+        {
+          "timestamp": 34.0,
+          "event_type": "plant",
+          "position": {
+            "x": 0.9917,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Plant inferred from top-bar region change (score=0.324)."
+        },
+        {
+          "timestamp": 35.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7855,
+            "y": 0.5321,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 35.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8898,
+            "y": 0.2518,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 35.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6445,
+            "y": 0.1714,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 35.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.0664,
+            "y": 0.0518,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 35.0,
+          "event_type": "ace",
+          "position": {
+            "x": 0.7855,
+            "y": 0.5321,
+            "weight": 1
+          },
+          "description": "Ace/banner inferred from center region change (score=0.118)."
+        },
+        {
+          "timestamp": 36.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.0687,
+            "y": 0.9804,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 36.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9917,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 36.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6517,
+            "y": 0.7179,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 36.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8531,
+            "y": 0.675,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 36.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.064,
+            "y": 0.6429,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 36.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6517,
+            "y": 0.55,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 37.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7749,
+            "y": 0.5339,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 37.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8104,
+            "y": 0.5286,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 37.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6102,
+            "y": 0.3946,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 37.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.0829,
+            "y": 0.3321,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 38.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9941,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 38.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6517,
+            "y": 0.725,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 38.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8495,
+            "y": 0.6714,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 38.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8199,
+            "y": 0.6071,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 38.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.1931,
+            "y": 0.6107,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 38.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7441,
+            "y": 0.6071,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 38.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9467,
+            "y": 0.6,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 38.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.654,
+            "y": 0.5536,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 38.0,
+          "event_type": "kill",
+          "position": {
+            "x": 0.9941,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.168)."
+        },
+        {
+          "timestamp": 39.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9846,
+            "y": 0.8429,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 39.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9242,
+            "y": 0.7357,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 39.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8081,
+            "y": 0.7286,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 39.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8626,
+            "y": 0.7071,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 39.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7879,
+            "y": 0.6911,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 40.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.0498,
+            "y": 0.9429,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 40.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.0948,
+            "y": 0.9,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 40.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9917,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 40.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.654,
+            "y": 0.725,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 40.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.0521,
+            "y": 0.7571,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 40.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8555,
+            "y": 0.675,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 40.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7867,
+            "y": 0.6125,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 40.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8199,
+            "y": 0.6071,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 40.0,
+          "event_type": "kill",
+          "position": {
+            "x": 0.0498,
+            "y": 0.9429,
+            "weight": 1
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.190)."
+        },
+        {
+          "timestamp": 41.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.763,
+            "y": 0.6321,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 41.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.737,
+            "y": 0.5893,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 41.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6682,
+            "y": 0.5625,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 42.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9917,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 42.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.654,
+            "y": 0.7214,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 42.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8483,
+            "y": 0.675,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 42.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8175,
+            "y": 0.5321,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 42.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7749,
+            "y": 0.5321,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 42.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.5391,
+            "y": 0.1732,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 42.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.2986,
+            "y": 0.0268,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 42.0,
+          "event_type": "kill",
+          "position": {
+            "x": 0.9917,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.180)."
+        },
+        {
+          "timestamp": 42.0,
+          "event_type": "plant",
+          "position": {
+            "x": 0.9917,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Plant inferred from top-bar region change (score=0.175)."
+        },
+        {
+          "timestamp": 43.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8175,
+            "y": 0.6071,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 43.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7382,
+            "y": 0.6107,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 43.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6588,
+            "y": 0.5571,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 44.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.9917,
+            "y": 0.7893,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 44.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6517,
+            "y": 0.7214,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 44.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8555,
+            "y": 0.6714,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 44.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8175,
+            "y": 0.5321,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        },
+        {
+          "timestamp": 44.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7749,
+            "y": 0.5321,
+            "weight": 1
+          },
+          "description": "Minimap activity point detected."
+        }
+      ]
+    }
+  ]
+}

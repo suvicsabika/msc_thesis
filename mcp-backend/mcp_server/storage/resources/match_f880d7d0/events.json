@@ -1,0 +1,462 @@
+{
+  "match_id": "match_f880d7d0",
+  "match_name": "gameplay_1_60fps_720p_45sec",
+  "map_name": "Unknown",
+  "rounds": [
+    {
+      "round_number": 1,
+      "events": [
+        {
+          "timestamp": 0.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6757,
+            "y": 0.4103,
+            "weight": 8
+          },
+          "description": "Sampled minimap activity anchor."
+        },
+        {
+          "timestamp": 0.6,
+          "event_type": "ace",
+          "position": {
+            "x": 0.8405,
+            "y": 0.6871,
+            "weight": 5
+          },
+          "description": "Ace/banner inferred from center region change (score=0.104)."
+        },
+        {
+          "timestamp": 0.8,
+          "event_type": "plant",
+          "position": {
+            "x": 0.596,
+            "y": 0.6151,
+            "weight": 7
+          },
+          "description": "Plant inferred from top-bar region change (score=0.105)."
+        },
+        {
+          "timestamp": 1.8,
+          "event_type": "kill",
+          "position": {
+            "x": 0.6734,
+            "y": 0.547,
+            "weight": 6
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.281)."
+        },
+        {
+          "timestamp": 3.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6497,
+            "y": 0.6792,
+            "weight": 6
+          },
+          "description": "Sampled minimap activity anchor."
+        },
+        {
+          "timestamp": 3.6,
+          "event_type": "kill",
+          "position": {
+            "x": 0.5037,
+            "y": 0.6397,
+            "weight": 8
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.165)."
+        },
+        {
+          "timestamp": 5.2,
+          "event_type": "kill",
+          "position": {
+            "x": 0.778,
+            "y": 0.455,
+            "weight": 5
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.210)."
+        },
+        {
+          "timestamp": 6.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.3444,
+            "y": 0.5381,
+            "weight": 3
+          },
+          "description": "Sampled minimap activity anchor."
+        },
+        {
+          "timestamp": 7.0,
+          "event_type": "kill",
+          "position": {
+            "x": 0.372,
+            "y": 0.371,
+            "weight": 8
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.313)."
+        },
+        {
+          "timestamp": 8.6,
+          "event_type": "kill",
+          "position": {
+            "x": 0.6415,
+            "y": 0.6018,
+            "weight": 7
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.175)."
+        },
+        {
+          "timestamp": 9.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6225,
+            "y": 0.3638,
+            "weight": 7
+          },
+          "description": "Sampled minimap activity anchor."
+        },
+        {
+          "timestamp": 11.6,
+          "event_type": "kill",
+          "position": {
+            "x": 0.6902,
+            "y": 0.4351,
+            "weight": 6
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.249)."
+        },
+        {
+          "timestamp": 12.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.7091,
+            "y": 0.369,
+            "weight": 6
+          },
+          "description": "Sampled minimap activity anchor."
+        },
+        {
+          "timestamp": 12.0,
+          "event_type": "plant",
+          "position": {
+            "x": 0.7091,
+            "y": 0.369,
+            "weight": 6
+          },
+          "description": "Plant inferred from top-bar region change (score=0.105)."
+        },
+        {
+          "timestamp": 13.4,
+          "event_type": "kill",
+          "position": {
+            "x": 0.5717,
+            "y": 0.6621,
+            "weight": 8
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.282)."
+        },
+        {
+          "timestamp": 14.4,
+          "event_type": "ace",
+          "position": {
+            "x": 0.6495,
+            "y": 0.4518,
+            "weight": 7
+          },
+          "description": "Ace/banner inferred from center region change (score=0.136)."
+        },
+        {
+          "timestamp": 15.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6495,
+            "y": 0.4518,
+            "weight": 7
+          },
+          "description": "Sampled minimap activity anchor."
+        },
+        {
+          "timestamp": 15.4,
+          "event_type": "kill",
+          "position": {
+            "x": 0.9291,
+            "y": 0.4114,
+            "weight": 5
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.207)."
+        },
+        {
+          "timestamp": 18.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.5038,
+            "y": 0.2675,
+            "weight": 5
+          },
+          "description": "Sampled minimap activity anchor."
+        },
+        {
+          "timestamp": 18.2,
+          "event_type": "kill",
+          "position": {
+            "x": 0.3689,
+            "y": 0.4833,
+            "weight": 8
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.349)."
+        },
+        {
+          "timestamp": 20.0,
+          "event_type": "kill",
+          "position": {
+            "x": 0.8581,
+            "y": 0.3518,
+            "weight": 4
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.187)."
+        },
+        {
+          "timestamp": 20.0,
+          "event_type": "plant",
+          "position": {
+            "x": 0.8581,
+            "y": 0.3518,
+            "weight": 4
+          },
+          "description": "Plant inferred from top-bar region change (score=0.346)."
+        },
+        {
+          "timestamp": 21.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8095,
+            "y": 0.6545,
+            "weight": 4
+          },
+          "description": "Sampled minimap activity anchor."
+        },
+        {
+          "timestamp": 21.6,
+          "event_type": "kill",
+          "position": {
+            "x": 0.4583,
+            "y": 0.3274,
+            "weight": 6
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.162)."
+        },
+        {
+          "timestamp": 24.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.5948,
+            "y": 0.0996,
+            "weight": 4
+          },
+          "description": "Sampled minimap activity anchor."
+        },
+        {
+          "timestamp": 24.8,
+          "event_type": "ace",
+          "position": {
+            "x": 0.8882,
+            "y": 0.4869,
+            "weight": 6
+          },
+          "description": "Ace/banner inferred from center region change (score=0.130)."
+        },
+        {
+          "timestamp": 25.0,
+          "event_type": "kill",
+          "position": {
+            "x": 0.4643,
+            "y": 0.2781,
+            "weight": 8
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.123)."
+        },
+        {
+          "timestamp": 27.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.5569,
+            "y": 0.6768,
+            "weight": 5
+          },
+          "description": "Sampled minimap activity anchor."
+        },
+        {
+          "timestamp": 27.2,
+          "event_type": "kill",
+          "position": {
+            "x": 0.4218,
+            "y": 0.527,
+            "weight": 8
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.147)."
+        },
+        {
+          "timestamp": 29.8,
+          "event_type": "plant",
+          "position": {
+            "x": 0.3796,
+            "y": 0.2952,
+            "weight": 7
+          },
+          "description": "Plant inferred from top-bar region change (score=0.126)."
+        },
+        {
+          "timestamp": 30.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.5274,
+            "y": 0.4455,
+            "weight": 8
+          },
+          "description": "Sampled minimap activity anchor."
+        },
+        {
+          "timestamp": 30.0,
+          "event_type": "kill",
+          "position": {
+            "x": 0.5274,
+            "y": 0.4455,
+            "weight": 8
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.101)."
+        },
+        {
+          "timestamp": 32.4,
+          "event_type": "kill",
+          "position": {
+            "x": 0.7743,
+            "y": 0.5191,
+            "weight": 6
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.113)."
+        },
+        {
+          "timestamp": 33.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.4609,
+            "y": 0.4288,
+            "weight": 8
+          },
+          "description": "Sampled minimap activity anchor."
+        },
+        {
+          "timestamp": 34.0,
+          "event_type": "kill",
+          "position": {
+            "x": 0.5279,
+            "y": 0.1303,
+            "weight": 2
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.255)."
+        },
+        {
+          "timestamp": 36.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6497,
+            "y": 0.3708,
+            "weight": 3
+          },
+          "description": "Sampled minimap activity anchor."
+        },
+        {
+          "timestamp": 36.4,
+          "event_type": "kill",
+          "position": {
+            "x": 0.5869,
+            "y": 0.3696,
+            "weight": 3
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.152)."
+        },
+        {
+          "timestamp": 36.6,
+          "event_type": "ace",
+          "position": {
+            "x": 0.7045,
+            "y": 0.5486,
+            "weight": 5
+          },
+          "description": "Ace/banner inferred from center region change (score=0.109)."
+        },
+        {
+          "timestamp": 38.0,
+          "event_type": "kill",
+          "position": {
+            "x": 0.534,
+            "y": 0.3431,
+            "weight": 7
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.227)."
+        },
+        {
+          "timestamp": 38.2,
+          "event_type": "plant",
+          "position": {
+            "x": 0.5905,
+            "y": 0.429,
+            "weight": 8
+          },
+          "description": "Plant inferred from top-bar region change (score=0.086)."
+        },
+        {
+          "timestamp": 39.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.6017,
+            "y": 0.4955,
+            "weight": 8
+          },
+          "description": "Sampled minimap activity anchor."
+        },
+        {
+          "timestamp": 39.8,
+          "event_type": "kill",
+          "position": {
+            "x": 0.4491,
+            "y": 0.3152,
+            "weight": 4
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.217)."
+        },
+        {
+          "timestamp": 41.4,
+          "event_type": "kill",
+          "position": {
+            "x": 0.7273,
+            "y": 0.4165,
+            "weight": 8
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.192)."
+        },
+        {
+          "timestamp": 42.0,
+          "event_type": "unknown",
+          "position": {
+            "x": 0.8227,
+            "y": 0.6262,
+            "weight": 3
+          },
+          "description": "Sampled minimap activity anchor."
+        },
+        {
+          "timestamp": 43.6,
+          "event_type": "kill",
+          "position": {
+            "x": 0.3536,
+            "y": 0.4828,
+            "weight": 5
+          },
+          "description": "Kill inferred from kill-feed region change (score=0.132)."
+        }
+      ]
+    }
+  ]
+}

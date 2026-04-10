@@ -1,0 +1,1 @@
+npx -y @modelcontextprotocol/inspector .venv\Scripts\python.exe -m mcp_server.server

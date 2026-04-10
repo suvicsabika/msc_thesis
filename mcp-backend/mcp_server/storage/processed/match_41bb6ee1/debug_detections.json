@@ -1,0 +1,4843 @@
+[
+  {
+    "frame_idx": 0,
+    "timestamp": 0.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 0
+    },
+    "plant_debug": {
+      "bright_ratio": 0.6962,
+      "active": true
+    },
+    "emitted_now": [
+      "PLANT"
+    ]
+  },
+  {
+    "frame_idx": 6,
+    "timestamp": 0.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 0
+    },
+    "plant_debug": {
+      "bright_ratio": 0.6744,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 12,
+    "timestamp": 0.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 0
+    },
+    "plant_debug": {
+      "bright_ratio": 0.5154,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 18,
+    "timestamp": 0.6,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            297,
+            122,
+            457,
+            238
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 1
+    },
+    "plant_debug": {
+      "bright_ratio": 0.4519,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 24,
+    "timestamp": 0.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            273,
+            170,
+            480,
+            226
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 2
+    },
+    "plant_debug": {
+      "bright_ratio": 0.2918,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 30,
+    "timestamp": 1.0,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            235,
+            70
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 3
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0056,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 36,
+    "timestamp": 1.2,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            361,
+            80
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.5272,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 42,
+    "timestamp": 1.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.6676,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 48,
+    "timestamp": 1.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.619,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 54,
+    "timestamp": 1.8,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.3919,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 60,
+    "timestamp": 2.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.8845,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 66,
+    "timestamp": 2.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.8796,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 72,
+    "timestamp": 2.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.903,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 78,
+    "timestamp": 2.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.9598,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 84,
+    "timestamp": 2.8,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.982,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 90,
+    "timestamp": 3.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.9958,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 96,
+    "timestamp": 3.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.9796,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 102,
+    "timestamp": 3.4,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            142,
+            149,
+            238
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 5
+    },
+    "plant_debug": {
+      "bright_ratio": 0.898,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 108,
+    "timestamp": 3.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 5
+    },
+    "plant_debug": {
+      "bright_ratio": 0.6882,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 114,
+    "timestamp": 3.8,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 5
+    },
+    "plant_debug": {
+      "bright_ratio": 0.7544,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 120,
+    "timestamp": 4.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 5
+    },
+    "plant_debug": {
+      "bright_ratio": 0.2626,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 126,
+    "timestamp": 4.2,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            239,
+            64
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0017,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 132,
+    "timestamp": 4.4,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            239,
+            66
+          ],
+          "status": "MATCHED",
+          "score": 5.19
+        }
+      ],
+      "row_count": 1,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0016,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 138,
+    "timestamp": 4.6,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            239,
+            80
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0014,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 144,
+    "timestamp": 4.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            235,
+            58
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0017,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 150,
+    "timestamp": 5.0,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            235,
+            56
+          ],
+          "status": "MATCHED",
+          "score": 15.4
+        },
+        {
+          "bbox": [
+            0,
+            64,
+            480,
+            120
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 2,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0012,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 156,
+    "timestamp": 5.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0015,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 162,
+    "timestamp": 5.4,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            241,
+            60
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            68,
+            480,
+            128
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 2,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0014,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 168,
+    "timestamp": 5.6,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            239,
+            58
+          ],
+          "status": "MATCHED",
+          "score": 14.0
+        },
+        {
+          "bbox": [
+            0,
+            60,
+            480,
+            126
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 2,
+      "track_count": 8
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0013,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 174,
+    "timestamp": 5.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            237,
+            58
+          ],
+          "status": "MATCHED",
+          "score": 6.66
+        },
+        {
+          "bbox": [
+            0,
+            60,
+            480,
+            126
+          ],
+          "status": "MATCHED",
+          "score": 1.78
+        }
+      ],
+      "row_count": 2,
+      "track_count": 8
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0013,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 180,
+    "timestamp": 6.0,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            237,
+            56
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            68,
+            480,
+            160
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 2,
+      "track_count": 10
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0012,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 186,
+    "timestamp": 6.2,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            237,
+            56
+          ],
+          "status": "MATCHED",
+          "score": 0.83
+        },
+        {
+          "bbox": [
+            0,
+            64,
+            480,
+            160
+          ],
+          "status": "MATCHED",
+          "score": 9.32
+        }
+      ],
+      "row_count": 2,
+      "track_count": 10
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0014,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 192,
+    "timestamp": 6.4,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            2,
+            243,
+            56
+          ],
+          "status": "MATCHED",
+          "score": 8.34
+        }
+      ],
+      "row_count": 1,
+      "track_count": 10
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0025,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 198,
+    "timestamp": 6.6,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            2,
+            237,
+            56
+          ],
+          "status": "MATCHED",
+          "score": 6.84
+        },
+        {
+          "bbox": [
+            0,
+            70,
+            480,
+            160
+          ],
+          "status": "MATCHED",
+          "score": 13.39
+        }
+      ],
+      "row_count": 2,
+      "track_count": 10
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0741,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 204,
+    "timestamp": 6.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            2,
+            239,
+            56
+          ],
+          "status": "MATCHED",
+          "score": 6.12
+        },
+        {
+          "bbox": [
+            0,
+            68,
+            480,
+            160
+          ],
+          "status": "MATCHED",
+          "score": 8.22
+        }
+      ],
+      "row_count": 2,
+      "track_count": 10
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1075,
+      "active": true
+    },
+    "emitted_now": [
+      "PLANT"
+    ]
+  },
+  {
+    "frame_idx": 210,
+    "timestamp": 7.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 10
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0812,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 216,
+    "timestamp": 7.2,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            237,
+            58
+          ],
+          "status": "MATCHED",
+          "score": 7.82
+        },
+        {
+          "bbox": [
+            0,
+            68,
+            480,
+            162
+          ],
+          "status": "MATCHED",
+          "score": 5.99
+        },
+        {
+          "bbox": [
+            0,
+            111,
+            167,
+            153
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 3,
+      "track_count": 11
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1392,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 222,
+    "timestamp": 7.4,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            243,
+            72
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            68,
+            480,
+            160
+          ],
+          "status": "MATCHED",
+          "score": 8.16
+        }
+      ],
+      "row_count": 2,
+      "track_count": 12
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1495,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 228,
+    "timestamp": 7.6,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            2,
+            237,
+            70
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            64,
+            480,
+            162
+          ],
+          "status": "MATCHED",
+          "score": 11.21
+        },
+        {
+          "bbox": [
+            0,
+            111,
+            122,
+            152
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 3,
+      "track_count": 13
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1072,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 234,
+    "timestamp": 7.8,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 13
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1073,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 240,
+    "timestamp": 8.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 13
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1126,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 246,
+    "timestamp": 8.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 13
+    },
+    "plant_debug": {
+      "bright_ratio": 0.119,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 252,
+    "timestamp": 8.4,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            235,
+            58
+          ],
+          "status": "MATCHED",
+          "score": 8.41
+        }
+      ],
+      "row_count": 1,
+      "track_count": 13
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1262,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 258,
+    "timestamp": 8.6,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            239,
+            58
+          ],
+          "status": "MATCHED",
+          "score": 5.09
+        },
+        {
+          "bbox": [
+            0,
+            70,
+            480,
+            162
+          ],
+          "status": "MATCHED",
+          "score": 14.28
+        }
+      ],
+      "row_count": 2,
+      "track_count": 12
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1381,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 264,
+    "timestamp": 8.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            239,
+            58
+          ],
+          "status": "MATCHED",
+          "score": 1.5
+        }
+      ],
+      "row_count": 1,
+      "track_count": 11
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1389,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 270,
+    "timestamp": 9.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 11
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1456,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 276,
+    "timestamp": 9.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 9
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1509,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 282,
+    "timestamp": 9.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 9
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1576,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 288,
+    "timestamp": 9.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 8
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1639,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 294,
+    "timestamp": 9.8,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1696,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 300,
+    "timestamp": 10.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1758,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 306,
+    "timestamp": 10.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.18,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 312,
+    "timestamp": 10.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.192,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 318,
+    "timestamp": 10.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0014,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 324,
+    "timestamp": 10.8,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0013,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 330,
+    "timestamp": 11.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.003,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 336,
+    "timestamp": 11.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0204,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 342,
+    "timestamp": 11.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 5
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0234,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 348,
+    "timestamp": 11.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0357,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 354,
+    "timestamp": 11.8,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 2
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0264,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 360,
+    "timestamp": 12.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 2
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0242,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 366,
+    "timestamp": 12.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 2
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0259,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 372,
+    "timestamp": 12.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 2
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0273,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 378,
+    "timestamp": 12.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 2
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0293,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 384,
+    "timestamp": 12.8,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 1
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0337,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 390,
+    "timestamp": 13.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 0
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0315,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 396,
+    "timestamp": 13.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 0
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0351,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 402,
+    "timestamp": 13.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 0
+    },
+    "plant_debug": {
+      "bright_ratio": 0.025,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 408,
+    "timestamp": 13.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 0
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0249,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 414,
+    "timestamp": 13.8,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 0
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0246,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 420,
+    "timestamp": 14.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 0
+    },
+    "plant_debug": {
+      "bright_ratio": 0.038,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 426,
+    "timestamp": 14.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 0
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0397,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 432,
+    "timestamp": 14.4,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            6,
+            237,
+            54
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            72,
+            480,
+            116
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 2,
+      "track_count": 2
+    },
+    "plant_debug": {
+      "bright_ratio": 0.7021,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL",
+      "PLANT"
+    ]
+  },
+  {
+    "frame_idx": 438,
+    "timestamp": 14.6,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            6,
+            237,
+            54
+          ],
+          "status": "MATCHED",
+          "score": 6.01
+        },
+        {
+          "bbox": [
+            0,
+            70,
+            480,
+            116
+          ],
+          "status": "MATCHED",
+          "score": 7.75
+        }
+      ],
+      "row_count": 2,
+      "track_count": 2
+    },
+    "plant_debug": {
+      "bright_ratio": 0.5653,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 444,
+    "timestamp": 14.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            6,
+            237,
+            54
+          ],
+          "status": "MATCHED",
+          "score": 7.35
+        },
+        {
+          "bbox": [
+            0,
+            70,
+            480,
+            116
+          ],
+          "status": "MATCHED",
+          "score": 3.25
+        }
+      ],
+      "row_count": 2,
+      "track_count": 2
+    },
+    "plant_debug": {
+      "bright_ratio": 0.3494,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 450,
+    "timestamp": 15.0,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            6,
+            235,
+            54
+          ],
+          "status": "MATCHED",
+          "score": 5.6
+        },
+        {
+          "bbox": [
+            0,
+            72,
+            480,
+            116
+          ],
+          "status": "MATCHED",
+          "score": 8.49
+        }
+      ],
+      "row_count": 2,
+      "track_count": 2
+    },
+    "plant_debug": {
+      "bright_ratio": 0.2355,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 456,
+    "timestamp": 15.2,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            6,
+            235,
+            54
+          ],
+          "status": "MATCHED",
+          "score": 4.49
+        },
+        {
+          "bbox": [
+            0,
+            72,
+            480,
+            116
+          ],
+          "status": "MATCHED",
+          "score": 1.28
+        }
+      ],
+      "row_count": 2,
+      "track_count": 2
+    },
+    "plant_debug": {
+      "bright_ratio": 0.2367,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 462,
+    "timestamp": 15.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 2
+    },
+    "plant_debug": {
+      "bright_ratio": 0.5038,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 468,
+    "timestamp": 15.6,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            126,
+            247,
+            238
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 3
+    },
+    "plant_debug": {
+      "bright_ratio": 0.3953,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 474,
+    "timestamp": 15.8,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 3
+    },
+    "plant_debug": {
+      "bright_ratio": 0.5157,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 480,
+    "timestamp": 16.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 3
+    },
+    "plant_debug": {
+      "bright_ratio": 0.6365,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 486,
+    "timestamp": 16.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 3
+    },
+    "plant_debug": {
+      "bright_ratio": 0.8007,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 492,
+    "timestamp": 16.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 3
+    },
+    "plant_debug": {
+      "bright_ratio": 0.9496,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 498,
+    "timestamp": 16.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 3
+    },
+    "plant_debug": {
+      "bright_ratio": 0.8445,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 504,
+    "timestamp": 16.8,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 3
+    },
+    "plant_debug": {
+      "bright_ratio": 0.8538,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 510,
+    "timestamp": 17.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 3
+    },
+    "plant_debug": {
+      "bright_ratio": 0.6921,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 516,
+    "timestamp": 17.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 3
+    },
+    "plant_debug": {
+      "bright_ratio": 0.8104,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 522,
+    "timestamp": 17.4,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            6,
+            241,
+            56
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            66,
+            480,
+            122
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 2,
+      "track_count": 5
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0014,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 528,
+    "timestamp": 17.6,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            237,
+            56
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            70,
+            480,
+            120
+          ],
+          "status": "MATCHED",
+          "score": 14.99
+        }
+      ],
+      "row_count": 2,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0013,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 534,
+    "timestamp": 17.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            237,
+            56
+          ],
+          "status": "MATCHED",
+          "score": 6.53
+        },
+        {
+          "bbox": [
+            0,
+            66,
+            480,
+            122
+          ],
+          "status": "MATCHED",
+          "score": 13.79
+        }
+      ],
+      "row_count": 2,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0278,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 540,
+    "timestamp": 18.0,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            237,
+            56
+          ],
+          "status": "MATCHED",
+          "score": 6.45
+        },
+        {
+          "bbox": [
+            0,
+            58,
+            480,
+            124
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 2,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1421,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 546,
+    "timestamp": 18.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0279,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 552,
+    "timestamp": 18.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.028,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 558,
+    "timestamp": 18.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.028,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 564,
+    "timestamp": 18.8,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.026,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 570,
+    "timestamp": 19.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0171,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 576,
+    "timestamp": 19.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0122,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 582,
+    "timestamp": 19.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 5
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0092,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 588,
+    "timestamp": 19.6,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            4,
+            241,
+            56
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            56,
+            480,
+            178
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 2,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.096,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 594,
+    "timestamp": 19.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            237,
+            64
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.3238,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 600,
+    "timestamp": 20.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.7004,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 606,
+    "timestamp": 20.2,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            67,
+            164,
+            311,
+            238
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 8
+    },
+    "plant_debug": {
+      "bright_ratio": 0.8118,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 612,
+    "timestamp": 20.4,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            37,
+            166,
+            245,
+            238
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 9
+    },
+    "plant_debug": {
+      "bright_ratio": 0.889,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 618,
+    "timestamp": 20.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 9
+    },
+    "plant_debug": {
+      "bright_ratio": 0.9369,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 624,
+    "timestamp": 20.8,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 9
+    },
+    "plant_debug": {
+      "bright_ratio": 0.8924,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 630,
+    "timestamp": 21.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 9
+    },
+    "plant_debug": {
+      "bright_ratio": 0.8871,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 636,
+    "timestamp": 21.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 9
+    },
+    "plant_debug": {
+      "bright_ratio": 0.8861,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 642,
+    "timestamp": 21.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 9
+    },
+    "plant_debug": {
+      "bright_ratio": 0.8746,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 648,
+    "timestamp": 21.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 8
+    },
+    "plant_debug": {
+      "bright_ratio": 0.4936,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 654,
+    "timestamp": 21.8,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 8
+    },
+    "plant_debug": {
+      "bright_ratio": 0.3811,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 660,
+    "timestamp": 22.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.3805,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 666,
+    "timestamp": 22.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 5
+    },
+    "plant_debug": {
+      "bright_ratio": 0.3447,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 672,
+    "timestamp": 22.4,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            327,
+            188,
+            480,
+            238
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.2045,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 678,
+    "timestamp": 22.6,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            4,
+            239,
+            56
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            62,
+            480,
+            168
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            72,
+            137,
+            113
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 3,
+      "track_count": 9
+    },
+    "plant_debug": {
+      "bright_ratio": 0.204,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL",
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 684,
+    "timestamp": 22.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            235,
+            60
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            68,
+            480,
+            160
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 2,
+      "track_count": 11
+    },
+    "plant_debug": {
+      "bright_ratio": 0.202,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 690,
+    "timestamp": 23.0,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            233,
+            58
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 12
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1984,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 696,
+    "timestamp": 23.2,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            265,
+            114
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            70,
+            480,
+            192
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 2,
+      "track_count": 14
+    },
+    "plant_debug": {
+      "bright_ratio": 0.2041,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 702,
+    "timestamp": 23.4,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            4,
+            235,
+            56
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            70,
+            480,
+            156
+          ],
+          "status": "MATCHED",
+          "score": 17.0
+        }
+      ],
+      "row_count": 2,
+      "track_count": 15
+    },
+    "plant_debug": {
+      "bright_ratio": 0.2013,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 708,
+    "timestamp": 23.6,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            4,
+            239,
+            56
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            70,
+            480,
+            160
+          ],
+          "status": "MATCHED",
+          "score": 8.39
+        }
+      ],
+      "row_count": 2,
+      "track_count": 16
+    },
+    "plant_debug": {
+      "bright_ratio": 0.2012,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 714,
+    "timestamp": 23.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            235,
+            56
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            70,
+            480,
+            160
+          ],
+          "status": "MATCHED",
+          "score": 6.81
+        }
+      ],
+      "row_count": 2,
+      "track_count": 15
+    },
+    "plant_debug": {
+      "bright_ratio": 0.204,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 720,
+    "timestamp": 24.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 14
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0041,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 726,
+    "timestamp": 24.2,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            233,
+            56
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            70,
+            480,
+            160
+          ],
+          "status": "MATCHED",
+          "score": 3.13
+        }
+      ],
+      "row_count": 2,
+      "track_count": 15
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0011,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 732,
+    "timestamp": 24.4,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            237,
+            54
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            68,
+            480,
+            160
+          ],
+          "status": "MATCHED",
+          "score": 6.89
+        },
+        {
+          "bbox": [
+            0,
+            71,
+            116,
+            114
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 3,
+      "track_count": 16
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0019,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 738,
+    "timestamp": 24.6,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            4,
+            237,
+            54
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            104,
+            480,
+            160
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 2,
+      "track_count": 17
+    },
+    "plant_debug": {
+      "bright_ratio": 0.002,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 744,
+    "timestamp": 24.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            4,
+            239,
+            64
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            104,
+            480,
+            162
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 2,
+      "track_count": 19
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0019,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 750,
+    "timestamp": 25.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 19
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0013,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 756,
+    "timestamp": 25.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 19
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0013,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 762,
+    "timestamp": 25.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 19
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0013,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 768,
+    "timestamp": 25.6,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            239,
+            62
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 20
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0013,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 774,
+    "timestamp": 25.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            4,
+            237,
+            58
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 21
+    },
+    "plant_debug": {
+      "bright_ratio": 0.107,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL",
+      "PLANT"
+    ]
+  },
+  {
+    "frame_idx": 780,
+    "timestamp": 26.0,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            241,
+            60
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 22
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1505,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 786,
+    "timestamp": 26.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 22
+    },
+    "plant_debug": {
+      "bright_ratio": 0.6338,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 792,
+    "timestamp": 26.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 22
+    },
+    "plant_debug": {
+      "bright_ratio": 0.5605,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 798,
+    "timestamp": 26.6,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            206,
+            131,
+            238
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 22
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0384,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 804,
+    "timestamp": 26.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            208,
+            117,
+            238
+          ],
+          "status": "MATCHED",
+          "score": 12.03
+        }
+      ],
+      "row_count": 1,
+      "track_count": 19
+    },
+    "plant_debug": {
+      "bright_ratio": 0.2468,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 810,
+    "timestamp": 27.0,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            208,
+            125,
+            238
+          ],
+          "status": "MATCHED",
+          "score": 17.88
+        }
+      ],
+      "row_count": 1,
+      "track_count": 18
+    },
+    "plant_debug": {
+      "bright_ratio": 0.2748,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 816,
+    "timestamp": 27.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 17
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0016,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 822,
+    "timestamp": 27.4,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            6,
+            233,
+            58
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 16
+    },
+    "plant_debug": {
+      "bright_ratio": 0.003,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 828,
+    "timestamp": 27.6,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            4,
+            237,
+            56
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 16
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0037,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 834,
+    "timestamp": 27.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            6,
+            237,
+            56
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 16
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0011,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 840,
+    "timestamp": 28.0,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            4,
+            233,
+            56
+          ],
+          "status": "MATCHED",
+          "score": 16.28
+        }
+      ],
+      "row_count": 1,
+      "track_count": 15
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0011,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 846,
+    "timestamp": 28.2,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            4,
+            235,
+            56
+          ],
+          "status": "MATCHED",
+          "score": 8.08
+        }
+      ],
+      "row_count": 1,
+      "track_count": 15
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0018,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 852,
+    "timestamp": 28.4,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            4,
+            233,
+            56
+          ],
+          "status": "MATCHED",
+          "score": 7.92
+        }
+      ],
+      "row_count": 1,
+      "track_count": 14
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0015,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 858,
+    "timestamp": 28.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 11
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0011,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 864,
+    "timestamp": 28.8,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 9
+    },
+    "plant_debug": {
+      "bright_ratio": 0.001,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 870,
+    "timestamp": 29.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.001,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 876,
+    "timestamp": 29.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.001,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 882,
+    "timestamp": 29.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0012,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 888,
+    "timestamp": 29.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.001,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 894,
+    "timestamp": 29.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            4,
+            237,
+            56
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0019,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 900,
+    "timestamp": 30.0,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            6,
+            241,
+            64
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0015,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 906,
+    "timestamp": 30.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0013,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 912,
+    "timestamp": 30.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0013,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 918,
+    "timestamp": 30.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.2822,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 924,
+    "timestamp": 30.8,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1637,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 930,
+    "timestamp": 31.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0016,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 936,
+    "timestamp": 31.2,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            239,
+            56
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0014,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 942,
+    "timestamp": 31.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0012,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 948,
+    "timestamp": 31.6,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            132,
+            385,
+            238
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0012,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 954,
+    "timestamp": 31.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            118,
+            369,
+            238
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.8862,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL",
+      "PLANT"
+    ]
+  },
+  {
+    "frame_idx": 960,
+    "timestamp": 32.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.8812,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 966,
+    "timestamp": 32.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.4734,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 972,
+    "timestamp": 32.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0017,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 978,
+    "timestamp": 32.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 5
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0013,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 984,
+    "timestamp": 32.8,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 5
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0646,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 990,
+    "timestamp": 33.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 5
+    },
+    "plant_debug": {
+      "bright_ratio": 0.374,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 996,
+    "timestamp": 33.2,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            233,
+            56
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            351,
+            134,
+            480,
+            238
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 2,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.2813,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 1002,
+    "timestamp": 33.4,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            322,
+            96
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 8
+    },
+    "plant_debug": {
+      "bright_ratio": 0.7619,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 1008,
+    "timestamp": 33.6,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            480,
+            119
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            124,
+            371,
+            238
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            239,
+            180,
+            385,
+            238
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 3,
+      "track_count": 11
+    },
+    "plant_debug": {
+      "bright_ratio": 0.6732,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL",
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 1014,
+    "timestamp": 33.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            480,
+            112
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            211,
+            140,
+            480,
+            238
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            156,
+            161,
+            238
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 3,
+      "track_count": 14
+    },
+    "plant_debug": {
+      "bright_ratio": 0.6501,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL",
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 1020,
+    "timestamp": 34.0,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            124,
+            158,
+            407,
+            238
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 14
+    },
+    "plant_debug": {
+      "bright_ratio": 0.4431,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 1026,
+    "timestamp": 34.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 13
+    },
+    "plant_debug": {
+      "bright_ratio": 0.7017,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1032,
+    "timestamp": 34.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 13
+    },
+    "plant_debug": {
+      "bright_ratio": 0.9045,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1038,
+    "timestamp": 34.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 13
+    },
+    "plant_debug": {
+      "bright_ratio": 0.9381,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1044,
+    "timestamp": 34.8,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 13
+    },
+    "plant_debug": {
+      "bright_ratio": 0.9449,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1050,
+    "timestamp": 35.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 13
+    },
+    "plant_debug": {
+      "bright_ratio": 0.9325,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1056,
+    "timestamp": 35.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 12
+    },
+    "plant_debug": {
+      "bright_ratio": 0.9121,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1062,
+    "timestamp": 35.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 12
+    },
+    "plant_debug": {
+      "bright_ratio": 0.8923,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1068,
+    "timestamp": 35.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 12
+    },
+    "plant_debug": {
+      "bright_ratio": 0.9587,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1074,
+    "timestamp": 35.8,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 11
+    },
+    "plant_debug": {
+      "bright_ratio": 0.9752,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1080,
+    "timestamp": 36.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 10
+    },
+    "plant_debug": {
+      "bright_ratio": 0.9705,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1086,
+    "timestamp": 36.2,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            150,
+            231,
+            238
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 11
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0011,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 1092,
+    "timestamp": 36.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 11
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0029,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1098,
+    "timestamp": 36.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 11
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1355,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1104,
+    "timestamp": 36.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            191,
+            0,
+            480,
+            98
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            3,
+            8,
+            145,
+            52
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 2,
+      "track_count": 13
+    },
+    "plant_debug": {
+      "bright_ratio": 0.3435,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 1110,
+    "timestamp": 37.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 13
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1288,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1116,
+    "timestamp": 37.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 13
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0012,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1122,
+    "timestamp": 37.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 11
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0012,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1128,
+    "timestamp": 37.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 10
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0011,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1134,
+    "timestamp": 37.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            99,
+            8,
+            229,
+            48
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 8
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1622,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 1140,
+    "timestamp": 38.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 5
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0107,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1146,
+    "timestamp": 38.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0134,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1152,
+    "timestamp": 38.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0028,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1158,
+    "timestamp": 38.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.001,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1164,
+    "timestamp": 38.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            3,
+            10,
+            229,
+            52
+          ],
+          "status": "MATCHED",
+          "score": 17.75
+        }
+      ],
+      "row_count": 1,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0027,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1170,
+    "timestamp": 39.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.5176,
+      "active": true
+    },
+    "emitted_now": [
+      "PLANT"
+    ]
+  },
+  {
+    "frame_idx": 1176,
+    "timestamp": 39.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0011,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1182,
+    "timestamp": 39.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.001,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1188,
+    "timestamp": 39.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0009,
+      "active": false
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1194,
+    "timestamp": 39.8,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.7179,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1200,
+    "timestamp": 40.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.6651,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1206,
+    "timestamp": 40.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.5742,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1212,
+    "timestamp": 40.4,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 3
+    },
+    "plant_debug": {
+      "bright_ratio": 0.6621,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1218,
+    "timestamp": 40.6,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 3
+    },
+    "plant_debug": {
+      "bright_ratio": 0.4019,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1224,
+    "timestamp": 40.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            72,
+            480,
+            114
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 4
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0501,
+      "active": false
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 1230,
+    "timestamp": 41.0,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            8,
+            229,
+            52
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            72,
+            480,
+            114
+          ],
+          "status": "MATCHED",
+          "score": 14.49
+        }
+      ],
+      "row_count": 2,
+      "track_count": 3
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0982,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 1236,
+    "timestamp": 41.2,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            6,
+            231,
+            54
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            69,
+            480,
+            144
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            176,
+            140,
+            238
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 3,
+      "track_count": 6
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0961,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL",
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 1242,
+    "timestamp": 41.4,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            72,
+            480,
+            114
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 7
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0976,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 1248,
+    "timestamp": 41.6,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            4,
+            251,
+            56
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            135,
+            116,
+            281,
+            238
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 2,
+      "track_count": 9
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1361,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 1254,
+    "timestamp": 41.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            4,
+            249,
+            56
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            54,
+            480,
+            130
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 2,
+      "track_count": 11
+    },
+    "plant_debug": {
+      "bright_ratio": 0.2104,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 1260,
+    "timestamp": 42.0,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            4,
+            249,
+            56
+          ],
+          "status": "MATCHED",
+          "score": 9.61
+        },
+        {
+          "bbox": [
+            0,
+            66,
+            480,
+            118
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 2,
+      "track_count": 12
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1187,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 1266,
+    "timestamp": 42.2,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            8,
+            231,
+            52
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            64,
+            480,
+            118
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 2,
+      "track_count": 14
+    },
+    "plant_debug": {
+      "bright_ratio": 0.2792,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 1272,
+    "timestamp": 42.4,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            58,
+            480,
+            118
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 15
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0868,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 1278,
+    "timestamp": 42.6,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            71,
+            480,
+            117
+          ],
+          "status": "MATCHED",
+          "score": 16.09
+        }
+      ],
+      "row_count": 1,
+      "track_count": 15
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0938,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1284,
+    "timestamp": 42.8,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 15
+    },
+    "plant_debug": {
+      "bright_ratio": 0.188,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1290,
+    "timestamp": 43.0,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 14
+    },
+    "plant_debug": {
+      "bright_ratio": 0.1964,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1296,
+    "timestamp": 43.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 14
+    },
+    "plant_debug": {
+      "bright_ratio": 0.095,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1302,
+    "timestamp": 43.4,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            6,
+            229,
+            54
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            71,
+            480,
+            114
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 2,
+      "track_count": 16
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0916,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 1308,
+    "timestamp": 43.6,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            236,
+            16
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            6,
+            231,
+            54
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            64,
+            480,
+            142
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 3,
+      "track_count": 19
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0974,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL",
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 1314,
+    "timestamp": 43.8,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            6,
+            480,
+            120
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 20
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0957,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 1320,
+    "timestamp": 44.0,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            0,
+            371,
+            54
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            0,
+            48,
+            480,
+            170
+          ],
+          "status": "NEW",
+          "score": null
+        },
+        {
+          "bbox": [
+            266,
+            180,
+            476,
+            238
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 3,
+      "track_count": 23
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0972,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL",
+      "KILL",
+      "KILL"
+    ]
+  },
+  {
+    "frame_idx": 1326,
+    "timestamp": 44.2,
+    "kill_debug": {
+      "rows": [],
+      "row_count": 0,
+      "track_count": 23
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0986,
+      "active": true
+    },
+    "emitted_now": []
+  },
+  {
+    "frame_idx": 1332,
+    "timestamp": 44.4,
+    "kill_debug": {
+      "rows": [
+        {
+          "bbox": [
+            0,
+            2,
+            237,
+            66
+          ],
+          "status": "NEW",
+          "score": null
+        }
+      ],
+      "row_count": 1,
+      "track_count": 24
+    },
+    "plant_debug": {
+      "bright_ratio": 0.0992,
+      "active": true
+    },
+    "emitted_now": [
+      "KILL"
+    ]
+  }
+]
