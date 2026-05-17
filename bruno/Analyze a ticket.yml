@@ -1,0 +1,15 @@
+info:
+  name: Analyze a ticket
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:8000/api/tickets/MCP-FB1FDAC9/analyze
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

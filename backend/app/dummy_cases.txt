@@ -1,0 +1,48 @@
+1.
+Eve	
+eve@company.eu
+Production API is down for all customers
+Bug
+Bug	Our production API has been returning 500 errors for all requests for the last 20 minutes. Multiple enterprise customers are unable to log in, process data, or access their dashboards. This is affecting our live business operations and needs immediate attention.
+
+2.
+Emma
+emma@company.eu
+Question about upgrading billing plan
+Billing
+We are currently on the Standard plan and would like advice on whether upgrading to the Business plan makes sense for our company. Could you explain the pricing difference, included support options, and whether annual billing provides any discount?
+
+3.
+Mark
+mark@company.eu
+Add dark mode to admin dashboard
+Feature Request
+It would be helpful if the admin dashboard supported dark mode. Some of our team members work late hours and would prefer a darker interface. This is not urgent, but it would improve the user experience.
+
+4.
+Laura 
+laura@company.eu
+Payment gateway timeout during checkout
+Bug
+Customers are unable to complete payments because the checkout process times out after submitting card details. We have already received several complaints, and this is directly blocking sales on our live platform. Please investigate urgently.
+
+5.
+Peter
+peter@company.eu
+Clarification needed about invoice tax details
+Billing / Consulting
+We received our latest invoice, but we would like clarification about how VAT was calculated for our subscription. Could you confirm whether the tax rate is based on our billing address and explain how this appears on future invoices?
+
+6.
+Sophie
+sophie@company.eu
+Export user activity logs as CSV
+Feature Request
+It would be useful to have an option to export user activity logs from the admin panel as a CSV file. This would help our internal reporting process, but there is no immediate deadline for it.
+
+7.
+Alen
+Alen@company.eu
+Unable to access any of the backend's API endpoints
+Bug
+Dear Support, I am Alen from the Frontend team. Due to numerous 404 HTTP error codes, we are unable to access any of the backend API endpoints. This is a show stopper situation for us and we cannot proceed further! We have to deliver the solution very soon to the Customer and the deadline cannot  be post poned!Please refer to the error logs in the backend.Thanks,Alen from Frontent
