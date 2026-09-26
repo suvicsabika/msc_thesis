@@ -51,9 +51,5 @@ def get_db() -> Generator[Session, None, None]:
     request gets its own SQLAlchemy session that is cleaned up automatically.
     """
 
-    db = SessionLocal()
-
-    try:
+    with SessionLocal() as db:
         yield db
-    finally:
-        db.close()

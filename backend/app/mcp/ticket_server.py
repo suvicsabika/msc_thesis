@@ -1,9 +1,9 @@
-import json
 """MCP Ticket Server implementation for local ticket analysis resources and tools.
 
 This module defines resources and tools exposed to the host-side MCP client.
 """
 
+import json
 from datetime import datetime, timezone
 from typing import Literal
 
@@ -366,9 +366,9 @@ def ticket_triage_prompt(ticket_id: str) -> str:
     return (
         f"Analyze support ticket {ticket_id}. "
         f"First read ticket://{ticket_id}/raw. "
-        f"Then decide the classification, sentiment, intent, priority, and response draft. "
-        f"Use MCP tools to save the resulting ticket state. "
-        f"The response draft must require human approval before it can be sent."
+        "Then decide the classification, sentiment, intent, priority, and response draft. "
+        "Use MCP tools to save the resulting ticket state. "
+        "The response draft must require human approval before it can be sent."
     )
 
 
@@ -378,7 +378,7 @@ def response_review_prompt(ticket_id: str) -> str:
 
     return (
         f"Review the saved response draft for ticket {ticket_id}. "
-        f"Check whether it is accurate, polite, concise, and safe to send to the customer."
+        "Check whether it is accurate, polite, concise, and safe to send to the customer."
     )
 
 

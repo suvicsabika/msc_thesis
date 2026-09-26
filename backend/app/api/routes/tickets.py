@@ -6,11 +6,11 @@ from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 from app.db.database import get_db
+from app.models.response_draft import ResponseDraftModel
 from app.models.ticket import TicketModel
+from app.schemas.response_draft import ResponseDraftRead
 from app.schemas.ticket import TicketCreate, TicketRead
 from app.services.ticket_analysis_workflow import analyze_ticket_with_mcp_workflow
-from app.models.response_draft import ResponseDraftModel
-from app.schemas.response_draft import ResponseDraftRead
 
 
 logger = logging.getLogger(__name__)
@@ -24,6 +24,17 @@ def create_ticket_id() -> str:
     """Create a short unique ticket identifier."""
 
     return f"MCP-{uuid4().hex[:8].upper()}"
+
+
+def get_ticket_or_404(ticket_id: str, db: Session) -> TicketModel:
+    """Fetch a ticket or return the API's standard not-found error."""
+    ticket = db.get(TicketModel, ticket_id)
+    if ticket is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Ticket not found.",
+        )
+    return ticket
 
 
 async def run_ticket_analysis_job(ticket_id: str) -> None:
@@ -126,15 +137,7 @@ async def analyze_ticket(ticket_id: str):
     description="Returns the full stored support ticket data for the given ticket ID.",
 )
 def get_ticket(ticket_id: str, db: Session = Depends(get_db)):
-    ticket = db.get(TicketModel, ticket_id)
-
-    if ticket is None:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Ticket not found.",
-        )
-
-    return ticket
+    return get_ticket_or_404(ticket_id, db)
 
 
 @router.get(
@@ -144,13 +147,7 @@ def get_ticket(ticket_id: str, db: Session = Depends(get_db)):
     description="Returns the latest saved AI-generated response draft for a ticket, if one exists.",
 )
 def get_latest_ticket_draft(ticket_id: str, db: Session = Depends(get_db)):
-    ticket = db.get(TicketModel, ticket_id)
-
-    if ticket is None:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Ticket not found.",
-        )
+    get_ticket_or_404(ticket_id, db)
 
     return (
         db.query(ResponseDraftModel)

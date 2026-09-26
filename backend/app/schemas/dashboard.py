@@ -38,15 +38,6 @@ class WorkflowActivityItem(BaseModel):
     color: str
 
 
-class DashboardSummary(BaseModel):
-    kpis: DashboardKpis
-    priorityDistribution: PriorityDistribution
-    sentimentBreakdown: SentimentBreakdown
-    slaCountdown: SlaCountdown
-    workflowActivity: list[WorkflowActivityItem]
-    trends: DashboardTrends
-
-
 class DashboardTrendMetric(BaseModel):
     changePercent: float | None
     label: str
@@ -59,3 +50,12 @@ class DashboardTrends(BaseModel):
     highPriorityTickets: DashboardTrendMetric
     slaAtRiskTickets: DashboardTrendMetric
     negativeSentimentTickets: DashboardTrendMetric
+
+
+class DashboardSummary(BaseModel):
+    kpis: DashboardKpis
+    priorityDistribution: PriorityDistribution
+    sentimentBreakdown: SentimentBreakdown
+    slaCountdown: SlaCountdown
+    workflowActivity: list[WorkflowActivityItem]
+    trends: DashboardTrends

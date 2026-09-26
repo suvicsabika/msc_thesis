@@ -8,9 +8,8 @@ decision through MCP tool calls.
 
 import asyncio
 import logging
-from typing import Any
-
-from pydantic import AnyUrl
+from collections.abc import Awaitable
+from typing import Any, TypeVar
 
 from app.ai.openai_client import analyze_ticket_with_openai
 from app.ai.schemas import TicketAnalysisWorkflowResult
@@ -21,9 +20,14 @@ logger = logging.getLogger(__name__)
 
 MCP_STEP_TIMEOUT_SECONDS = 25
 OPENAI_STEP_TIMEOUT_SECONDS = 60
+StepResult = TypeVar("StepResult")
 
 
-async def run_step(label: str, awaitable, timeout_seconds: int = MCP_STEP_TIMEOUT_SECONDS):
+async def run_step(
+    label: str,
+    awaitable: Awaitable[StepResult],
+    timeout_seconds: int = MCP_STEP_TIMEOUT_SECONDS,
+) -> StepResult:
     """Run an async workflow step with logging and timeout protection."""
 
     logger.info("Workflow step started | step=%s", label)
@@ -108,73 +112,57 @@ async def analyze_ticket_with_mcp_workflow(ticket_id: str) -> TicketAnalysisWork
             decision.priority,
         )
 
-        tool_results = []
-
-        tool_results.append(
-            await call_mcp_tool_logged(
-                mcp_client,
+        tool_calls = [
+            (
                 "set_ticket_classification",
                 {
-                    "ticket_id": ticket_id,
                     "category": decision.category,
                     "confidence": decision.classificationConfidence,
                     "reason": decision.classificationReason,
                 },
-            )
-        )
-
-        tool_results.append(
-            await call_mcp_tool_logged(
-                mcp_client,
+            ),
+            (
                 "set_ticket_sentiment",
                 {
-                    "ticket_id": ticket_id,
                     "sentiment": decision.sentiment,
                     "score": decision.sentimentScore,
                     "reason": decision.sentimentReason,
                 },
-            )
-        )
-
-        tool_results.append(
-            await call_mcp_tool_logged(
-                mcp_client,
+            ),
+            (
                 "set_ticket_intent",
                 {
-                    "ticket_id": ticket_id,
                     "intent": decision.customerIntent,
                     "confidence": decision.intentConfidence,
                 },
-            )
-        )
-
-        tool_results.append(
-            await call_mcp_tool_logged(
-                mcp_client,
+            ),
+            (
                 "set_ticket_priority",
                 {
-                    "ticket_id": ticket_id,
                     "priority": decision.priority,
                     "sla": decision.sla,
                     "sla_state": decision.slaState,
                     "confidence": decision.priorityConfidence,
                     "reason": decision.priorityReason,
                 },
-            )
-        )
-
-        tool_results.append(
-            await call_mcp_tool_logged(
-                mcp_client,
+            ),
+            (
                 "save_response_draft",
                 {
-                    "ticket_id": ticket_id,
                     "draft": decision.responseDraft,
                     "requires_approval": True,
                     "reason": decision.responseDraftReason,
                 },
+            ),
+        ]
+
+        # Keep writes sequential so failures stop the remaining workflow steps.
+        tool_results = []
+        for tool_name, arguments in tool_calls:
+            result = await call_mcp_tool_logged(
+                mcp_client, tool_name, {"ticket_id": ticket_id, **arguments}
             )
-        )
+            tool_results.append(result)
 
         logger.info("MCP workflow completed | ticket_id=%s", ticket_id)
 

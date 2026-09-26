@@ -1,8 +1,11 @@
 """Helpers for building dashboard summaries and trend metrics from ticket records."""
 
+from collections import Counter
+from collections.abc import Callable, Sequence
 from datetime import datetime, timedelta, timezone
-from typing import Callable, Literal
+from typing import Literal
 
+from app.models.ticket import TicketModel
 from app.schemas.dashboard import (
     DashboardKpis,
     DashboardSummary,
@@ -10,8 +13,8 @@ from app.schemas.dashboard import (
     SentimentBreakdown,
     SlaCountdown,
     WorkflowActivityItem,
-    DashboardTrendMetric, 
-    DashboardTrends
+    DashboardTrendMetric,
+    DashboardTrends,
 )
 
 
@@ -72,27 +75,25 @@ def build_sparkline_points(values: list[int]) -> str:
 
 
 def count_tickets_in_period(
-    tickets,
+    tickets: Sequence[TicketModel],
     start_date: datetime,
     end_date: datetime,
-    predicate: Callable,
+    predicate: Callable[[TicketModel], bool],
 ) -> int:
     """Count tickets matching a predicate within a time window."""
 
-    return len(
-        [
-            ticket
-            for ticket in tickets
-            if start_date <= normalize_datetime(ticket.createdAt) < end_date
-            and predicate(ticket)
-        ]
+    return sum(
+        1
+        for ticket in tickets
+        if start_date <= normalize_datetime(ticket.createdAt) < end_date
+        and predicate(ticket)
     )
 
 
 def build_daily_counts(
-    tickets,
+    tickets: Sequence[TicketModel],
     start_date: datetime,
-    predicate: Callable,
+    predicate: Callable[[TicketModel], bool],
 ) -> list[int]:
     """Build daily ticket counts for the next seven days using a predicate."""
 
@@ -115,10 +116,10 @@ def build_daily_counts(
 
 
 def build_trend_metric(
-    tickets,
+    tickets: Sequence[TicketModel],
     now: datetime,
-    predicate: Callable,
-    label: str,
+    predicate: Callable[[TicketModel], bool],
+    label: str = "last 7 days vs previous 7 days",
 ) -> DashboardTrendMetric:
     """Create a dashboard trend metric for a ticket subset over a recent period."""
     current_start = now - timedelta(days=7)
@@ -159,7 +160,7 @@ def build_trend_metric(
     )
 
 
-def build_dashboard_trends(tickets) -> DashboardTrends:
+def build_dashboard_trends(tickets: Sequence[TicketModel]) -> DashboardTrends:
     """Build the dashboard trend section summarizing ticket changes over time."""
 
     now = datetime.now(timezone.utc)
@@ -169,74 +170,51 @@ def build_dashboard_trends(tickets) -> DashboardTrends:
             tickets=tickets,
             now=now,
             predicate=lambda ticket: ticket.status != "Resolved",
-            label="last 7 days vs previous 7 days",
         ),
         highPriorityTickets=build_trend_metric(
             tickets=tickets,
             now=now,
             predicate=lambda ticket: ticket.priority in ["High", "Very High"],
-            label="last 7 days vs previous 7 days",
         ),
         slaAtRiskTickets=build_trend_metric(
             tickets=tickets,
             now=now,
             predicate=lambda ticket: ticket.slaState == "critical",
-            label="last 7 days vs previous 7 days",
         ),
         negativeSentimentTickets=build_trend_metric(
             tickets=tickets,
             now=now,
             predicate=lambda ticket: ticket.sentiment == "Negative",
-            label="last 7 days vs previous 7 days",
         ),
     )
 
-def build_dashboard_summary(tickets) -> DashboardSummary:
+
+def build_dashboard_summary(tickets: Sequence[TicketModel]) -> DashboardSummary:
     """Aggregate ticket data into the full dashboard summary response."""
 
-    open_tickets = [
-        ticket for ticket in tickets
-        if ticket.status != "Resolved"
-    ]
-
-    high_priority_tickets = [
-        ticket for ticket in tickets
-        if ticket.priority == "High"
-    ]
-
-    sla_at_risk_tickets = [
-        ticket for ticket in tickets
-        if ticket.slaState == "critical"
-    ]
-
-    negative_sentiment_tickets = [
-        ticket for ticket in tickets
-        if ticket.sentiment == "Negative"
-    ]
-
-    resolved_tickets = [
-        ticket for ticket in tickets
-        if ticket.status == "Resolved"
-    ]
+    priorities = Counter(ticket.priority for ticket in tickets)
+    sentiments = Counter(ticket.sentiment for ticket in tickets)
+    sla_states = Counter(ticket.slaState for ticket in tickets)
+    statuses = Counter(ticket.status for ticket in tickets)
 
     priority_distribution = PriorityDistribution(
-        veryHigh=len([ticket for ticket in tickets if ticket.priority == "Very High"]),
-        high=len([ticket for ticket in tickets if ticket.priority == "High"]),
-        medium=len([ticket for ticket in tickets if ticket.priority == "Medium"]),
-        low=len([ticket for ticket in tickets if ticket.priority == "Low"]),
+        veryHigh=priorities["Very High"],
+        high=priorities["High"],
+        medium=priorities["Medium"],
+        low=priorities["Low"],
     )
 
     sentiment_breakdown = SentimentBreakdown(
-        negative=len([ticket for ticket in tickets if ticket.sentiment == "Negative"]),
-        neutral=len([ticket for ticket in tickets if ticket.sentiment == "Neutral"]),
-        positive=len([ticket for ticket in tickets if ticket.sentiment == "Positive"]),
+        negative=sentiments["Negative"],
+        neutral=sentiments["Neutral"],
+        positive=sentiments["Positive"],
         unknown=0,
     )
 
     sla_countdown = SlaCountdown(
-        atRisk=len([ticket for ticket in tickets if ticket.slaState == "critical"]),
-        dueSoon=len([ticket for ticket in tickets if ticket.slaState == "warning"]),
-        onTrack=len([ticket for ticket in tickets if ticket.slaState == "safe"]),
+        atRisk=sla_states["critical"],
+        dueSoon=sla_states["warning"],
+        onTrack=sla_states["safe"],
     )
 
     workflow_activity = [
@@ -251,15 +229,15 @@ def build_dashboard_summary(tickets) -> DashboardSummary:
 
     return DashboardSummary(
         kpis=DashboardKpis(
-            openTickets=len(open_tickets),
-            highPriorityTickets=len(high_priority_tickets),
-            slaAtRiskTickets=len(sla_at_risk_tickets),
-            negativeSentimentTickets=len(negative_sentiment_tickets),
-            resolvedToday=len(resolved_tickets),
+            openTickets=len(tickets) - statuses["Resolved"],
+            highPriorityTickets=priorities["High"],
+            slaAtRiskTickets=sla_states["critical"],
+            negativeSentimentTickets=sentiments["Negative"],
+            resolvedToday=statuses["Resolved"],
         ),
         priorityDistribution=priority_distribution,
         sentimentBreakdown=sentiment_breakdown,
         slaCountdown=sla_countdown,
         workflowActivity=workflow_activity,
-        trends=build_dashboard_trends(tickets)
+        trends=build_dashboard_trends(tickets),
     )
