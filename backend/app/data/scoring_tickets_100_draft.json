@@ -1,0 +1,1202 @@
+[
+  {
+    "id": "SCORE-001",
+    "subject": "Cannot sign in to my account",
+    "body": "My password is accepted on the login page, but I am redirected back to the sign-in screen and cannot access the workspace. This concerns our main workspace.",
+    "customer": "Evaluation Customer 001",
+    "customerEmail": "evaluation.customer.001@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-002",
+    "subject": "MFA verification code is not arriving",
+    "body": "I requested several verification codes, but none of them arrived by email, so I cannot complete the login process. This concerns our main workspace.",
+    "customer": "Evaluation Customer 002",
+    "customerEmail": "evaluation.customer.002@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-003",
+    "subject": "How can I invite a new user?",
+    "body": "I need instructions for inviting a new colleague and assigning the correct workspace access. This concerns our main workspace.",
+    "customer": "Evaluation Customer 003",
+    "customerEmail": "evaluation.customer.003@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-004",
+    "subject": "Permission denied for shared report",
+    "body": "The report was shared with me, but opening it displays a permission denied message. This concerns our main workspace.",
+    "customer": "Evaluation Customer 004",
+    "customerEmail": "evaluation.customer.004@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-005",
+    "subject": "Charged twice for the same subscription",
+    "body": "Two identical subscription charges appear on our card statement for the current billing period. This concerns our main workspace.",
+    "customer": "Evaluation Customer 005",
+    "customerEmail": "evaluation.customer.005@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-006",
+    "subject": "Need a copy of last month's invoice",
+    "body": "Could you provide the invoice for the previous billing period for our accounting team? This concerns our main workspace.",
+    "customer": "Evaluation Customer 006",
+    "customerEmail": "evaluation.customer.006@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-007",
+    "subject": "Question about plan pricing",
+    "body": "I would like to understand the difference between the current plan and the next subscription tier. This concerns our main workspace.",
+    "customer": "Evaluation Customer 007",
+    "customerEmail": "evaluation.customer.007@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-008",
+    "subject": "Unexpected automatic renewal",
+    "body": "Our subscription renewed even though we intended to cancel it, and I would like the charge reviewed. This concerns our main workspace.",
+    "customer": "Evaluation Customer 008",
+    "customerEmail": "evaluation.customer.008@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-009",
+    "subject": "API returns 401 with a valid key",
+    "body": "Requests to the API started returning HTTP 401 even though the API key is active and has not changed. This concerns our main workspace.",
+    "customer": "Evaluation Customer 009",
+    "customerEmail": "evaluation.customer.009@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-010",
+    "subject": "Production webhooks are not delivered",
+    "body": "No production webhook events have been delivered for the last hour, blocking our order-processing integration. This concerns our main workspace.",
+    "customer": "Evaluation Customer 010",
+    "customerEmail": "evaluation.customer.010@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Negative",
+      "priority": "Very High"
+    }
+  },
+  {
+    "id": "SCORE-011",
+    "subject": "Question about API pagination",
+    "body": "Please explain how to request the next page when the API response contains a continuation cursor. This concerns our main workspace.",
+    "customer": "Evaluation Customer 011",
+    "customerEmail": "evaluation.customer.011@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-012",
+    "subject": "API requests receive rate-limit errors",
+    "body": "Our normal request volume now receives HTTP 429 responses even though usage is below the documented limit. This concerns our main workspace.",
+    "customer": "Evaluation Customer 012",
+    "customerEmail": "evaluation.customer.012@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-013",
+    "subject": "Save button does not update the record",
+    "body": "Clicking Save closes the form, but the edited values are missing when the record is opened again. This concerns our main workspace.",
+    "customer": "Evaluation Customer 013",
+    "customerEmail": "evaluation.customer.013@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-014",
+    "subject": "CSV export crashes for every user",
+    "body": "The export action fails with an error for all users in our workspace, so the team cannot download required data. This concerns our main workspace.",
+    "customer": "Evaluation Customer 014",
+    "customerEmail": "evaluation.customer.014@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-015",
+    "subject": "Typo in the settings page",
+    "body": "The account settings page contains a spelling mistake in the notification description. This concerns our main workspace.",
+    "customer": "Evaluation Customer 015",
+    "customerEmail": "evaluation.customer.015@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-016",
+    "subject": "Changes disappear after page refresh",
+    "body": "Newly entered values appear to save successfully but disappear immediately after refreshing the page. This concerns our main workspace.",
+    "customer": "Evaluation Customer 016",
+    "customerEmail": "evaluation.customer.016@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-017",
+    "subject": "Request for dark mode",
+    "body": "It would be helpful to have a dark theme for users who work in the application at night. This concerns our main workspace.",
+    "customer": "Evaluation Customer 017",
+    "customerEmail": "evaluation.customer.017@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-018",
+    "subject": "Request for bulk record export",
+    "body": "Please consider adding an option to export multiple selected records in a single operation. This concerns our main workspace.",
+    "customer": "Evaluation Customer 018",
+    "customerEmail": "evaluation.customer.018@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-019",
+    "subject": "Request for additional SSO provider",
+    "body": "We would like native support for another SAML identity provider for our enterprise rollout. This concerns our main workspace.",
+    "customer": "Evaluation Customer 019",
+    "customerEmail": "evaluation.customer.019@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Neutral",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-020",
+    "subject": "Dashboard loads very slowly",
+    "body": "The dashboard now takes around twenty seconds to open, while other parts of the application load normally. This concerns our main workspace.",
+    "customer": "Evaluation Customer 020",
+    "customerEmail": "evaluation.customer.020@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-021",
+    "subject": "Production requests time out",
+    "body": "All requests in our production integration are timing out and the business workflow is currently blocked. This concerns our main workspace.",
+    "customer": "Evaluation Customer 021",
+    "customerEmail": "evaluation.customer.021@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Negative",
+      "priority": "Very High"
+    }
+  },
+  {
+    "id": "SCORE-022",
+    "subject": "Large report takes several minutes",
+    "body": "Generating the monthly report takes more than five minutes and significantly delays the team. This concerns our main workspace.",
+    "customer": "Evaluation Customer 022",
+    "customerEmail": "evaluation.customer.022@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-023",
+    "subject": "Update company address",
+    "body": "Please tell me where an administrator can update the company address shown in the account profile. This concerns our main workspace.",
+    "customer": "Evaluation Customer 023",
+    "customerEmail": "evaluation.customer.023@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-024",
+    "subject": "Change notification preferences",
+    "body": "I would like to disable weekly summary emails while keeping security notifications enabled. This concerns our main workspace.",
+    "customer": "Evaluation Customer 024",
+    "customerEmail": "evaluation.customer.024@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-025",
+    "subject": "Thank you for resolving the issue",
+    "body": "The previous problem is resolved and everything works correctly now. Thank you for the quick assistance. This concerns our main workspace.",
+    "customer": "Evaluation Customer 025",
+    "customerEmail": "evaluation.customer.025@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Positive",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-026",
+    "subject": "Follow-up: Cannot sign in to my account",
+    "body": "My password is accepted on the login page, but I am redirected back to the sign-in screen and cannot access the workspace. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 026",
+    "customerEmail": "evaluation.customer.026@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-027",
+    "subject": "Follow-up: MFA verification code is not arriving",
+    "body": "I requested several verification codes, but none of them arrived by email, so I cannot complete the login process. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 027",
+    "customerEmail": "evaluation.customer.027@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-028",
+    "subject": "Follow-up: How can I invite a new user?",
+    "body": "I need instructions for inviting a new colleague and assigning the correct workspace access. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 028",
+    "customerEmail": "evaluation.customer.028@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-029",
+    "subject": "Follow-up: Permission denied for shared report",
+    "body": "The report was shared with me, but opening it displays a permission denied message. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 029",
+    "customerEmail": "evaluation.customer.029@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-030",
+    "subject": "Follow-up: Charged twice for the same subscription",
+    "body": "Two identical subscription charges appear on our card statement for the current billing period. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 030",
+    "customerEmail": "evaluation.customer.030@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-031",
+    "subject": "Follow-up: Need a copy of last month's invoice",
+    "body": "Could you provide the invoice for the previous billing period for our accounting team? I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 031",
+    "customerEmail": "evaluation.customer.031@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-032",
+    "subject": "Follow-up: Question about plan pricing",
+    "body": "I would like to understand the difference between the current plan and the next subscription tier. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 032",
+    "customerEmail": "evaluation.customer.032@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-033",
+    "subject": "Follow-up: Unexpected automatic renewal",
+    "body": "Our subscription renewed even though we intended to cancel it, and I would like the charge reviewed. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 033",
+    "customerEmail": "evaluation.customer.033@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-034",
+    "subject": "Follow-up: API returns 401 with a valid key",
+    "body": "Requests to the API started returning HTTP 401 even though the API key is active and has not changed. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 034",
+    "customerEmail": "evaluation.customer.034@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-035",
+    "subject": "Follow-up: Production webhooks are not delivered",
+    "body": "No production webhook events have been delivered for the last hour, blocking our order-processing integration. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 035",
+    "customerEmail": "evaluation.customer.035@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Negative",
+      "priority": "Very High"
+    }
+  },
+  {
+    "id": "SCORE-036",
+    "subject": "Follow-up: Question about API pagination",
+    "body": "Please explain how to request the next page when the API response contains a continuation cursor. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 036",
+    "customerEmail": "evaluation.customer.036@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-037",
+    "subject": "Follow-up: API requests receive rate-limit errors",
+    "body": "Our normal request volume now receives HTTP 429 responses even though usage is below the documented limit. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 037",
+    "customerEmail": "evaluation.customer.037@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-038",
+    "subject": "Follow-up: Save button does not update the record",
+    "body": "Clicking Save closes the form, but the edited values are missing when the record is opened again. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 038",
+    "customerEmail": "evaluation.customer.038@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-039",
+    "subject": "Follow-up: CSV export crashes for every user",
+    "body": "The export action fails with an error for all users in our workspace, so the team cannot download required data. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 039",
+    "customerEmail": "evaluation.customer.039@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-040",
+    "subject": "Follow-up: Typo in the settings page",
+    "body": "The account settings page contains a spelling mistake in the notification description. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 040",
+    "customerEmail": "evaluation.customer.040@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-041",
+    "subject": "Follow-up: Changes disappear after page refresh",
+    "body": "Newly entered values appear to save successfully but disappear immediately after refreshing the page. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 041",
+    "customerEmail": "evaluation.customer.041@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-042",
+    "subject": "Follow-up: Request for dark mode",
+    "body": "It would be helpful to have a dark theme for users who work in the application at night. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 042",
+    "customerEmail": "evaluation.customer.042@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-043",
+    "subject": "Follow-up: Request for bulk record export",
+    "body": "Please consider adding an option to export multiple selected records in a single operation. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 043",
+    "customerEmail": "evaluation.customer.043@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-044",
+    "subject": "Follow-up: Request for additional SSO provider",
+    "body": "We would like native support for another SAML identity provider for our enterprise rollout. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 044",
+    "customerEmail": "evaluation.customer.044@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Neutral",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-045",
+    "subject": "Follow-up: Dashboard loads very slowly",
+    "body": "The dashboard now takes around twenty seconds to open, while other parts of the application load normally. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 045",
+    "customerEmail": "evaluation.customer.045@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-046",
+    "subject": "Follow-up: Production requests time out",
+    "body": "All requests in our production integration are timing out and the business workflow is currently blocked. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 046",
+    "customerEmail": "evaluation.customer.046@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Negative",
+      "priority": "Very High"
+    }
+  },
+  {
+    "id": "SCORE-047",
+    "subject": "Follow-up: Large report takes several minutes",
+    "body": "Generating the monthly report takes more than five minutes and significantly delays the team. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 047",
+    "customerEmail": "evaluation.customer.047@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-048",
+    "subject": "Follow-up: Update company address",
+    "body": "Please tell me where an administrator can update the company address shown in the account profile. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 048",
+    "customerEmail": "evaluation.customer.048@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-049",
+    "subject": "Follow-up: Change notification preferences",
+    "body": "I would like to disable weekly summary emails while keeping security notifications enabled. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 049",
+    "customerEmail": "evaluation.customer.049@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-050",
+    "subject": "Follow-up: Thank you for resolving the issue",
+    "body": "The previous problem is resolved and everything works correctly now. Thank you for the quick assistance. I tested the behavior again after signing out and back in.",
+    "customer": "Evaluation Customer 050",
+    "customerEmail": "evaluation.customer.050@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Positive",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-051",
+    "subject": "Workspace report: Cannot sign in to my account",
+    "body": "My password is accepted on the login page, but I am redirected back to the sign-in screen and cannot access the workspace. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 051",
+    "customerEmail": "evaluation.customer.051@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-052",
+    "subject": "Workspace report: MFA verification code is not arriving",
+    "body": "I requested several verification codes, but none of them arrived by email, so I cannot complete the login process. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 052",
+    "customerEmail": "evaluation.customer.052@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-053",
+    "subject": "Workspace report: How can I invite a new user?",
+    "body": "I need instructions for inviting a new colleague and assigning the correct workspace access. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 053",
+    "customerEmail": "evaluation.customer.053@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-054",
+    "subject": "Workspace report: Permission denied for shared report",
+    "body": "The report was shared with me, but opening it displays a permission denied message. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 054",
+    "customerEmail": "evaluation.customer.054@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-055",
+    "subject": "Workspace report: Charged twice for the same subscription",
+    "body": "Two identical subscription charges appear on our card statement for the current billing period. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 055",
+    "customerEmail": "evaluation.customer.055@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-056",
+    "subject": "Workspace report: Need a copy of last month's invoice",
+    "body": "Could you provide the invoice for the previous billing period for our accounting team? Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 056",
+    "customerEmail": "evaluation.customer.056@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-057",
+    "subject": "Workspace report: Question about plan pricing",
+    "body": "I would like to understand the difference between the current plan and the next subscription tier. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 057",
+    "customerEmail": "evaluation.customer.057@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-058",
+    "subject": "Workspace report: Unexpected automatic renewal",
+    "body": "Our subscription renewed even though we intended to cancel it, and I would like the charge reviewed. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 058",
+    "customerEmail": "evaluation.customer.058@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-059",
+    "subject": "Workspace report: API returns 401 with a valid key",
+    "body": "Requests to the API started returning HTTP 401 even though the API key is active and has not changed. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 059",
+    "customerEmail": "evaluation.customer.059@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-060",
+    "subject": "Workspace report: Production webhooks are not delivered",
+    "body": "No production webhook events have been delivered for the last hour, blocking our order-processing integration. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 060",
+    "customerEmail": "evaluation.customer.060@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Negative",
+      "priority": "Very High"
+    }
+  },
+  {
+    "id": "SCORE-061",
+    "subject": "Workspace report: Question about API pagination",
+    "body": "Please explain how to request the next page when the API response contains a continuation cursor. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 061",
+    "customerEmail": "evaluation.customer.061@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-062",
+    "subject": "Workspace report: API requests receive rate-limit errors",
+    "body": "Our normal request volume now receives HTTP 429 responses even though usage is below the documented limit. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 062",
+    "customerEmail": "evaluation.customer.062@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-063",
+    "subject": "Workspace report: Save button does not update the record",
+    "body": "Clicking Save closes the form, but the edited values are missing when the record is opened again. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 063",
+    "customerEmail": "evaluation.customer.063@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-064",
+    "subject": "Workspace report: CSV export crashes for every user",
+    "body": "The export action fails with an error for all users in our workspace, so the team cannot download required data. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 064",
+    "customerEmail": "evaluation.customer.064@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-065",
+    "subject": "Workspace report: Typo in the settings page",
+    "body": "The account settings page contains a spelling mistake in the notification description. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 065",
+    "customerEmail": "evaluation.customer.065@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-066",
+    "subject": "Workspace report: Changes disappear after page refresh",
+    "body": "Newly entered values appear to save successfully but disappear immediately after refreshing the page. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 066",
+    "customerEmail": "evaluation.customer.066@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-067",
+    "subject": "Workspace report: Request for dark mode",
+    "body": "It would be helpful to have a dark theme for users who work in the application at night. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 067",
+    "customerEmail": "evaluation.customer.067@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-068",
+    "subject": "Workspace report: Request for bulk record export",
+    "body": "Please consider adding an option to export multiple selected records in a single operation. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 068",
+    "customerEmail": "evaluation.customer.068@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-069",
+    "subject": "Workspace report: Request for additional SSO provider",
+    "body": "We would like native support for another SAML identity provider for our enterprise rollout. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 069",
+    "customerEmail": "evaluation.customer.069@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Neutral",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-070",
+    "subject": "Workspace report: Dashboard loads very slowly",
+    "body": "The dashboard now takes around twenty seconds to open, while other parts of the application load normally. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 070",
+    "customerEmail": "evaluation.customer.070@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-071",
+    "subject": "Workspace report: Production requests time out",
+    "body": "All requests in our production integration are timing out and the business workflow is currently blocked. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 071",
+    "customerEmail": "evaluation.customer.071@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Negative",
+      "priority": "Very High"
+    }
+  },
+  {
+    "id": "SCORE-072",
+    "subject": "Workspace report: Large report takes several minutes",
+    "body": "Generating the monthly report takes more than five minutes and significantly delays the team. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 072",
+    "customerEmail": "evaluation.customer.072@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-073",
+    "subject": "Workspace report: Update company address",
+    "body": "Please tell me where an administrator can update the company address shown in the account profile. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 073",
+    "customerEmail": "evaluation.customer.073@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-074",
+    "subject": "Workspace report: Change notification preferences",
+    "body": "I would like to disable weekly summary emails while keeping security notifications enabled. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 074",
+    "customerEmail": "evaluation.customer.074@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-075",
+    "subject": "Workspace report: Thank you for resolving the issue",
+    "body": "The previous problem is resolved and everything works correctly now. Thank you for the quick assistance. Another team member confirmed the same behavior or requirement.",
+    "customer": "Evaluation Customer 075",
+    "customerEmail": "evaluation.customer.075@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Positive",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-076",
+    "subject": "Support request: Cannot sign in to my account",
+    "body": "My password is accepted on the login page, but I am redirected back to the sign-in screen and cannot access the workspace. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 076",
+    "customerEmail": "evaluation.customer.076@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-077",
+    "subject": "Support request: MFA verification code is not arriving",
+    "body": "I requested several verification codes, but none of them arrived by email, so I cannot complete the login process. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 077",
+    "customerEmail": "evaluation.customer.077@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-078",
+    "subject": "Support request: How can I invite a new user?",
+    "body": "I need instructions for inviting a new colleague and assigning the correct workspace access. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 078",
+    "customerEmail": "evaluation.customer.078@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-079",
+    "subject": "Support request: Permission denied for shared report",
+    "body": "The report was shared with me, but opening it displays a permission denied message. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 079",
+    "customerEmail": "evaluation.customer.079@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-080",
+    "subject": "Support request: Charged twice for the same subscription",
+    "body": "Two identical subscription charges appear on our card statement for the current billing period. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 080",
+    "customerEmail": "evaluation.customer.080@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-081",
+    "subject": "Support request: Need a copy of last month's invoice",
+    "body": "Could you provide the invoice for the previous billing period for our accounting team? Please advise on the next supported step.",
+    "customer": "Evaluation Customer 081",
+    "customerEmail": "evaluation.customer.081@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-082",
+    "subject": "Support request: Question about plan pricing",
+    "body": "I would like to understand the difference between the current plan and the next subscription tier. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 082",
+    "customerEmail": "evaluation.customer.082@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-083",
+    "subject": "Support request: Unexpected automatic renewal",
+    "body": "Our subscription renewed even though we intended to cancel it, and I would like the charge reviewed. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 083",
+    "customerEmail": "evaluation.customer.083@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-084",
+    "subject": "Support request: API returns 401 with a valid key",
+    "body": "Requests to the API started returning HTTP 401 even though the API key is active and has not changed. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 084",
+    "customerEmail": "evaluation.customer.084@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-085",
+    "subject": "Support request: Production webhooks are not delivered",
+    "body": "No production webhook events have been delivered for the last hour, blocking our order-processing integration. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 085",
+    "customerEmail": "evaluation.customer.085@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Negative",
+      "priority": "Very High"
+    }
+  },
+  {
+    "id": "SCORE-086",
+    "subject": "Support request: Question about API pagination",
+    "body": "Please explain how to request the next page when the API response contains a continuation cursor. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 086",
+    "customerEmail": "evaluation.customer.086@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-087",
+    "subject": "Support request: API requests receive rate-limit errors",
+    "body": "Our normal request volume now receives HTTP 429 responses even though usage is below the documented limit. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 087",
+    "customerEmail": "evaluation.customer.087@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-088",
+    "subject": "Support request: Save button does not update the record",
+    "body": "Clicking Save closes the form, but the edited values are missing when the record is opened again. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 088",
+    "customerEmail": "evaluation.customer.088@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-089",
+    "subject": "Support request: CSV export crashes for every user",
+    "body": "The export action fails with an error for all users in our workspace, so the team cannot download required data. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 089",
+    "customerEmail": "evaluation.customer.089@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-090",
+    "subject": "Support request: Typo in the settings page",
+    "body": "The account settings page contains a spelling mistake in the notification description. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 090",
+    "customerEmail": "evaluation.customer.090@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-091",
+    "subject": "Support request: Changes disappear after page refresh",
+    "body": "Newly entered values appear to save successfully but disappear immediately after refreshing the page. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 091",
+    "customerEmail": "evaluation.customer.091@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-092",
+    "subject": "Support request: Request for dark mode",
+    "body": "It would be helpful to have a dark theme for users who work in the application at night. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 092",
+    "customerEmail": "evaluation.customer.092@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-093",
+    "subject": "Support request: Request for bulk record export",
+    "body": "Please consider adding an option to export multiple selected records in a single operation. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 093",
+    "customerEmail": "evaluation.customer.093@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-094",
+    "subject": "Support request: Request for additional SSO provider",
+    "body": "We would like native support for another SAML identity provider for our enterprise rollout. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 094",
+    "customerEmail": "evaluation.customer.094@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Neutral",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-095",
+    "subject": "Support request: Dashboard loads very slowly",
+    "body": "The dashboard now takes around twenty seconds to open, while other parts of the application load normally. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 095",
+    "customerEmail": "evaluation.customer.095@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-096",
+    "subject": "Support request: Production requests time out",
+    "body": "All requests in our production integration are timing out and the business workflow is currently blocked. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 096",
+    "customerEmail": "evaluation.customer.096@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Negative",
+      "priority": "Very High"
+    }
+  },
+  {
+    "id": "SCORE-097",
+    "subject": "Support request: Large report takes several minutes",
+    "body": "Generating the monthly report takes more than five minutes and significantly delays the team. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 097",
+    "customerEmail": "evaluation.customer.097@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-098",
+    "subject": "Support request: Update company address",
+    "body": "Please tell me where an administrator can update the company address shown in the account profile. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 098",
+    "customerEmail": "evaluation.customer.098@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-099",
+    "subject": "Support request: Change notification preferences",
+    "body": "I would like to disable weekly summary emails while keeping security notifications enabled. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 099",
+    "customerEmail": "evaluation.customer.099@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-100",
+    "subject": "Support request: Thank you for resolving the issue",
+    "body": "The previous problem is resolved and everything works correctly now. Thank you for the quick assistance. Please advise on the next supported step.",
+    "customer": "Evaluation Customer 100",
+    "customerEmail": "evaluation.customer.100@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Positive",
+      "priority": "Low"
+    }
+  }
+]

@@ -18,13 +18,21 @@ from app.ai.schemas import TicketTriageDecision
 logger = logging.getLogger(__name__)
 
 BACKEND_DIR = Path(__file__).resolve().parents[1]
-load_dotenv(BACKEND_DIR / ".env")
+try:
+    load_dotenv(BACKEND_DIR / ".env", override=False)
+except (OSError, ValueError):
+    logger.warning("Could not load optional .env settings; using the current environment.")
 
 
 def get_openai_client() -> OpenAI:
     """Create an OpenAI client using configured credentials."""
 
     api_key = os.getenv("OPENAI_API_KEY") or os.getenv("OPENAI_ADMIN_KEY")
+    if not api_key:
+        raise FileNotFoundError(
+            "Ticket analysis is unavailable. Configure OPENAI_API_KEY on the server."
+        )
+
     return OpenAI(api_key=api_key)
 
 

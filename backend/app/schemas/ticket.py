@@ -11,6 +11,18 @@ class TicketCreate(BaseModel):
     category: str = Field(default="General", max_length=80)
 
 
+class TicketBulkCreate(BaseModel):
+    """Create multiple tickets in a single request.
+    
+    Only should be used during testing..."""
+
+    analyze: bool = False  #!!! defaults to 'False' so that a random request doesn't trigger OpenAI calls. In the generated JSON, it is explicit.
+    tickets: list[TicketCreate] = Field(
+        min_length=1,
+        max_length=100,
+    )
+    
+
 class TicketRead(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
@@ -27,3 +39,11 @@ class TicketRead(BaseModel):
     status: Literal["Open", "In Progress", "Resolved"]
     updatedAt: str
     owner: str
+
+
+class TicketBulkCreateResult(BaseModel):
+    """Result of a bulk ticket creation request."""
+
+    createdCount: int
+    analysisScheduled: bool
+    tickets: list[TicketRead]
