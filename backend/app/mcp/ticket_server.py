@@ -7,14 +7,14 @@ import json
 from datetime import datetime, timezone
 from typing import Literal
 
-from mcp.server.fastmcp import FastMCP
+from mcp.server import MCPServer
 
 from app.db.database import SessionLocal
 from app.models.response_draft import ResponseDraftModel
 from app.models.ticket import TicketModel
 
 
-mcp = FastMCP("mcp-ticket-analyzer")
+mcp = MCPServer("mcp-ticket-analyzer", version="0.1.0")  # TODO: Real version of the progressing implementations states? 
 
 
 def get_ticket_or_raise(db, ticket_id: str) -> TicketModel:

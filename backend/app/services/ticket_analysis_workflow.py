@@ -79,7 +79,7 @@ async def analyze_ticket_with_mcp_workflow(ticket_id: str) -> TicketAnalysisWork
     """Analyze a ticket through the MCP Host-Client-Server workflow.
 
     Steps:
-    1. Start an MCP client session over stdio.
+    1. Connect over stdio and discover the MCP server using SDK v2.
     2. Read the raw ticket resource from the MCP server.
     3. Send the ticket context to OpenAI.
     4. Receive a structured triage decision.

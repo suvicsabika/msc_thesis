@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "mcp-ticket-analyzer": {
+      "command": "python",
+      "args": ["-m", "app.mcp.ticket_server"],
+      "protocolEra": "modern"
+    }
+  }
+}
