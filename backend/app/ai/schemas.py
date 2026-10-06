@@ -8,36 +8,31 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
+from app.schemas.types import (
+    TicketCategory,
+    TicketIntent,
+    TicketPriority,
+    TicketSentiment,
+    TicketSlaState,
+)
+
 
 class TicketTriageDecision(BaseModel):
     """The structured triage decision produced by the AI model."""
-    category: Literal[
-        "General",
-        "Access",
-        "Billing",
-        "API",
-        "Bug",
-        "Feature Request",
-        "Performance",
-    ]
+
+    category: TicketCategory
     classificationConfidence: float = Field(ge=0.0, le=1.0)
     classificationReason: str
 
-    sentiment: Literal["Negative", "Neutral", "Positive"]
+    sentiment: TicketSentiment
     sentimentScore: float = Field(ge=0.0, le=1.0)
     sentimentReason: str
 
-    customerIntent: Literal[
-        "Issue report",
-        "Billing question",
-        "How-to request",
-        "Feature request",
-        "General inquiry",
-    ]
+    customerIntent: TicketIntent
     intentConfidence: float = Field(ge=0.0, le=1.0)
 
-    priority: Literal["Low", "Medium", "High", "Very High"]
-    slaState: Literal["critical", "warning", "safe"]
+    priority: TicketPriority
+    slaState: TicketSlaState
     sla: str
     priorityConfidence: float = Field(ge=0.0, le=1.0)
     priorityReason: str
@@ -50,7 +45,7 @@ class TicketTriageDecision(BaseModel):
 
 
 class TicketAnalysisWorkflowResult(BaseModel):
-    """Wraps the ticket analysis result and the corresponding MCP tool outputs."""
+    """Ticket analysis result and corresponding MCP tool outputs."""
 
     ticketId: str
     decision: TicketTriageDecision

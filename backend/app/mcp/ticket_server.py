@@ -1,6 +1,7 @@
-"""MCP Ticket Server implementation for local ticket analysis resources and tools.
+"""MCP server exposing local ticket resources, tools, and prompts.
 
-This module defines resources and tools exposed to the host-side MCP client.
+This module defines resources and tools exposed to the host-side MCP
+client.
 """
 
 import json
@@ -8,17 +9,28 @@ from datetime import datetime, timezone
 from typing import Literal
 
 from mcp.server import MCPServer
+from sqlalchemy import select
+from sqlalchemy.orm import Session
 
 from app.db.database import SessionLocal
 from app.models.response_draft import ResponseDraftModel
 from app.models.ticket import TicketModel
+from app.schemas.types import (
+    TicketCategory,
+    TicketIntent,
+    TicketPriority,
+    TicketSentiment,
+    TicketSlaState,
+)
 
 
-mcp = MCPServer("mcp-ticket-analyzer", version="0.1.0")  # TODO: Real version of the progressing implementations states? 
+mcp = MCPServer("mcp-ticket-analyzer", version="2.2.0")
 
 
-def get_ticket_or_raise(db, ticket_id: str) -> TicketModel:
-    """Fetch a ticket from the database or raise a clear error when missing."""
+def get_ticket_or_raise(db: Session, ticket_id: str) -> TicketModel:
+    """Fetch a ticket from the database or raise a clear error when
+    missing.
+    """
 
     ticket = db.get(TicketModel, ticket_id)
 
@@ -29,6 +41,8 @@ def get_ticket_or_raise(db, ticket_id: str) -> TicketModel:
 
 
 def serialize_ticket(ticket: TicketModel) -> dict:
+    """Serialize stored fields without REST response validation."""
+
     return {
         "id": ticket.id,
         "subject": ticket.subject,
@@ -51,11 +65,8 @@ def tickets_index_resource() -> str:
     """Read the available ticket resource index as JSON."""
 
     with SessionLocal() as db:
-        tickets = (
-            db.query(TicketModel)
-            .order_by(TicketModel.createdAt.desc())
-            .all()
-        )
+        statement = select(TicketModel).order_by(TicketModel.createdAt.desc())
+        tickets = db.scalars(statement).all()
 
         return json.dumps(
             {
@@ -69,9 +80,13 @@ def tickets_index_resource() -> str:
                         "sentiment": ticket.sentiment,
                         "resources": {
                             "raw": f"ticket://{ticket.id}/raw",
-                            "classification": f"ticket://{ticket.id}/classification",
+                            "classification": (
+                                f"ticket://{ticket.id}/classification"
+                            ),
                             "priority": f"ticket://{ticket.id}/priority",
-                            "draftResponse": f"ticket://{ticket.id}/draft_response",
+                            "draftResponse": (
+                                f"ticket://{ticket.id}/draft_response"
+                            ),
                             "history": f"ticket://{ticket.id}/history",
                         },
                     }
@@ -145,12 +160,13 @@ def ticket_draft_response_resource(ticket_id: str) -> str:
     with SessionLocal() as db:
         ticket = get_ticket_or_raise(db, ticket_id)
 
-        draft = (
-            db.query(ResponseDraftModel)
-            .filter(ResponseDraftModel.ticketId == ticket.id)
+        statement = (
+            select(ResponseDraftModel)
+            .where(ResponseDraftModel.ticketId == ticket.id)
             .order_by(ResponseDraftModel.createdAt.desc())
-            .first()
+            .limit(1)
         )
+        draft = db.scalar(statement)
 
         if draft is None:
             return json.dumps(
@@ -158,7 +174,9 @@ def ticket_draft_response_resource(ticket_id: str) -> str:
                     "ticketId": ticket.id,
                     "draft": None,
                     "requiresApproval": True,
-                    "reason": "No response draft has been saved for this ticket.",
+                    "reason": (
+                        "No response draft has been saved for this ticket."
+                    ),
                 },
                 indent=2,
                 ensure_ascii=False,
@@ -198,7 +216,9 @@ def ticket_history_resource(ticket_id: str) -> str:
                     },
                     {
                         "type": "current_status",
-                        "description": f"Current ticket status is {ticket.status}.",
+                        "description": (
+                            f"Current ticket status is {ticket.status}."
+                        ),
                     },
                 ],
             },
@@ -210,15 +230,7 @@ def ticket_history_resource(ticket_id: str) -> str:
 @mcp.tool()
 def set_ticket_classification(
     ticket_id: str,
-    category: Literal[
-        "General",
-        "Access",
-        "Billing",
-        "API",
-        "Bug",
-        "Feature Request",
-        "Performance",
-    ],
+    category: TicketCategory,
     confidence: float,
     reason: str,
 ) -> dict:
@@ -244,7 +256,7 @@ def set_ticket_classification(
 @mcp.tool()
 def set_ticket_sentiment(
     ticket_id: str,
-    sentiment: Literal["Negative", "Neutral", "Positive"],
+    sentiment: TicketSentiment,
     score: float,
     reason: str,
 ) -> dict:
@@ -270,13 +282,7 @@ def set_ticket_sentiment(
 @mcp.tool()
 def set_ticket_intent(
     ticket_id: str,
-    intent: Literal[
-        "Issue report",
-        "Billing question",
-        "How-to request",
-        "Feature request",
-        "General inquiry",
-    ],
+    intent: TicketIntent,
     confidence: float,
 ) -> dict:
     """Record the extracted customer intent for a support ticket."""
@@ -289,16 +295,19 @@ def set_ticket_intent(
             "intent": intent,
             "confidence": confidence,
             "stored": False,
-            "reason": "Customer intent is returned by the workflow but is not persisted in the ticket table yet.",
+            "reason": (
+                "Customer intent is returned by the workflow but is not "
+                "persisted in the ticket table yet."
+            ),
         }
 
 
 @mcp.tool()
 def set_ticket_priority(
     ticket_id: str,
-    priority: Literal["Low", "Medium", "High", "Very High"],
+    priority: TicketPriority,
     sla: str,
-    sla_state: Literal["critical", "warning", "safe"],
+    sla_state: TicketSlaState,
     confidence: float,
     reason: str,
 ) -> dict:
@@ -366,7 +375,8 @@ def ticket_triage_prompt(ticket_id: str) -> str:
     return (
         f"Analyze support ticket {ticket_id}. "
         f"First read ticket://{ticket_id}/raw. "
-        "Then decide the classification, sentiment, intent, priority, and response draft. "
+        "Then decide the classification, sentiment, intent, priority, "
+        "and response draft. "
         "Use MCP tools to save the resulting ticket state. "
         "The response draft must require human approval before it can be sent."
     )
@@ -374,11 +384,14 @@ def ticket_triage_prompt(ticket_id: str) -> str:
 
 @mcp.prompt()
 def response_review_prompt(ticket_id: str) -> str:
-    """Create a reusable prompt for reviewing a generated response draft."""
+    """Create a reusable prompt for reviewing a generated response
+    draft.
+    """
 
     return (
         f"Review the saved response draft for ticket {ticket_id}. "
-        "Check whether it is accurate, polite, concise, and safe to send to the customer."
+        "Check whether it is accurate, polite, concise, "
+        "and safe to send to the customer."
     )
 
 

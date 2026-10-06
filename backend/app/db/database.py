@@ -1,7 +1,7 @@
 """Database configuration.
 
-This module configures the SQLite database used by both the FastAPI backend
-and the local MCP Ticket Server subprocess.
+This module configures the SQLite database used by both the FastAPI
+backend and the local MCP Ticket Server subprocess.
 """
 
 from collections.abc import Generator
@@ -11,8 +11,8 @@ from sqlalchemy import create_engine, event
 from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 
 
-BACKEND_DIR = Path(__file__).resolve().parents[1]
-DATABASE_PATH = BACKEND_DIR / "mcp_ticket_analyzer.db"
+APP_DIR = Path(__file__).resolve().parents[1]
+DATABASE_PATH = APP_DIR / "mcp_ticket_analyzer.db"
 DATABASE_URL = f"sqlite:///{DATABASE_PATH.as_posix()}"
 
 
@@ -30,7 +30,9 @@ engine = create_engine(
 
 
 @event.listens_for(engine, "connect")
-def configure_sqlite_connection(dbapi_connection, connection_record):
+def configure_sqlite_connection(dbapi_connection, connection_record) -> None:
+    """Enable WAL and wait up to 30 seconds for concurrent writes."""
+
     cursor = dbapi_connection.cursor()
     cursor.execute("PRAGMA journal_mode=WAL")
     cursor.execute("PRAGMA busy_timeout=30000")
@@ -47,8 +49,9 @@ SessionLocal = sessionmaker(
 def get_db() -> Generator[Session, None, None]:
     """Yield a database session and close it after use.
 
-    This generator is intended to be used as a FastAPI dependency so that each
-    request gets its own SQLAlchemy session that is cleaned up automatically.
+    This generator is intended to be used as a FastAPI dependency so
+    that each request gets its own SQLAlchemy session that is cleaned up
+    automatically.
     """
 
     with SessionLocal() as db:

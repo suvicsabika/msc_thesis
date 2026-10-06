@@ -1,8 +1,8 @@
 """FastAPI application factory and server entrypoint.
 
 This module builds the MCP Ticket Analyzer API application, configures
-CORS and logging, attaches API routes, and ensures the database schema is
-ready before the app starts.
+CORS and logging, attaches API routes, and ensures the database schema
+is ready before the app starts.
 """
 
 from contextlib import asynccontextmanager
@@ -11,16 +11,17 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.router import api_router
-from app.db.init_db import create_db_and_tables
 from app.core.logging import configure_logging
+from app.db.init_db import create_db_and_tables
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Prepare the application lifecycle by ensuring database tables exist.
+    """Prepare the application lifecycle by ensuring database tables
+    exist.
 
-    This function runs before the application starts handling requests and
-    guarantees that the database schema is created.
+    This function runs before the application starts handling requests
+    and guarantees that the database schema is created.
     """
 
     create_db_and_tables()
@@ -32,8 +33,11 @@ def create_app() -> FastAPI:
 
     app = FastAPI(
         title="MCP Ticket Analyzer API",
-        description="FastAPI backend for the MCP-based customer support ticket analyzer.",
-        version="0.1.0",
+        description=(
+            "FastAPI backend for the MCP-based "
+            "customer support ticket analyzer."
+        ),
+        version="2.2.0",  # Second Semester - 2nd version (based on the commits)
         lifespan=lifespan,
     )
 
@@ -59,4 +63,5 @@ app = create_app()
 
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run(app, host="0.0.0.0", port=8000)

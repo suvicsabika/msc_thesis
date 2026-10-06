@@ -17,7 +17,9 @@ class ResponseDraftModel(Base):
         nullable=False,
     )
     draft: Mapped[str] = mapped_column(Text, nullable=False)
-    requiresApproval: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
+    requiresApproval: Mapped[bool] = mapped_column(
+        Boolean, nullable=False, default=True
+    )
     reason: Mapped[str] = mapped_column(Text, nullable=False)
 
     createdAt: Mapped[datetime] = mapped_column(

@@ -1,7 +1,7 @@
 """OpenAI integration for ticket triage.
 
-This module belongs to the Host-side AI layer. It calls the OpenAI Responses API
-and returns structured ticket triage decisions to the application workflow.
+This host-side AI module calls the OpenAI Responses API and returns
+structured ticket triage decisions to the application workflow.
 """
 
 import logging
@@ -17,11 +17,13 @@ from app.ai.schemas import TicketTriageDecision
 
 logger = logging.getLogger(__name__)
 
-BACKEND_DIR = Path(__file__).resolve().parents[1]
+APP_DIR = Path(__file__).resolve().parents[1]
 try:
-    load_dotenv(BACKEND_DIR / ".env", override=False)
+    load_dotenv(APP_DIR / ".env", override=False)
 except (OSError, ValueError):
-    logger.warning("Could not load optional .env settings; using the current environment.")
+    logger.warning(
+        "Could not load optional .env settings; using the current environment."
+    )
 
 
 def get_openai_client() -> OpenAI:
@@ -30,7 +32,8 @@ def get_openai_client() -> OpenAI:
     api_key = os.getenv("OPENAI_API_KEY") or os.getenv("OPENAI_ADMIN_KEY")
     if not api_key:
         raise FileNotFoundError(
-            "Ticket analysis is unavailable. Configure OPENAI_API_KEY on the server."
+            "Ticket analysis is unavailable. "
+            "Configure OPENAI_API_KEY on the server."
         )
 
     return OpenAI(api_key=api_key)
@@ -42,7 +45,9 @@ def get_analysis_model() -> str:
     return os.getenv("OPENAI_MODEL", "gpt-4.1-nano")
 
 
-def analyze_ticket_with_openai(ticket_id: str, ticket_json: str) -> TicketTriageDecision:
+def analyze_ticket_with_openai(
+    ticket_id: str, ticket_json: str
+) -> TicketTriageDecision:
     model = get_analysis_model()
     client = get_openai_client()
 
@@ -71,7 +76,8 @@ def analyze_ticket_with_openai(ticket_id: str, ticket_json: str) -> TicketTriage
 
     if usage is not None:
         logger.info(
-            "OpenAI response received | ticket_id=%s | response_id=%s | input_tokens=%s | output_tokens=%s | total_tokens=%s",
+            "OpenAI response received | ticket_id=%s | response_id=%s "
+            "| input_tokens=%s | output_tokens=%s | total_tokens=%s",
             ticket_id,
             getattr(response, "id", None),
             getattr(usage, "input_tokens", None),
@@ -80,20 +86,25 @@ def analyze_ticket_with_openai(ticket_id: str, ticket_json: str) -> TicketTriage
         )
     else:
         logger.info(
-            "OpenAI response received | ticket_id=%s | response_id=%s | usage=unavailable",
+            "OpenAI response received | ticket_id=%s | response_id=%s "
+            "| usage=unavailable",
             ticket_id,
             getattr(response, "id", None),
         )
 
     if response.output_parsed is None:
         logger.error(
-            "OpenAI response did not contain parsed structured output | ticket_id=%s",
+            "OpenAI response did not contain parsed structured output "
+            "| ticket_id=%s",
             ticket_id,
         )
-        raise RuntimeError("OpenAI response did not contain parsed structured output.")
+        raise RuntimeError(
+            "OpenAI response did not contain parsed structured output."
+        )
 
     logger.info(
-        "OpenAI structured triage parsed | ticket_id=%s | category=%s | sentiment=%s | priority=%s",
+        "OpenAI structured triage parsed | ticket_id=%s | category=%s "
+        "| sentiment=%s | priority=%s",
         ticket_id,
         response.output_parsed.category,
         response.output_parsed.sentiment,

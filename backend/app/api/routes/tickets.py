@@ -20,7 +20,10 @@ from app.schemas.ticket import (
     TicketCreate,
     TicketRead,
 )
-from app.services.ticket_analysis_workflow import analyze_ticket_with_mcp_workflow
+from app.services.ticket_analysis_workflow import (
+    analyze_ticket_with_mcp_workflow,
+)
+
 
 logger = logging.getLogger(__name__)
 
@@ -90,7 +93,7 @@ async def run_ticket_analysis(ticket_id: str) -> TicketAnalysisWorkflowResult:
 
 
 async def run_ticket_analysis_job(ticket_id: str) -> None:
-    """Run one background analysis and log failures without stopping a batch."""
+    """Analyze one ticket and log failures so the batch can continue."""
 
     logger.info("Background MCP analysis started | ticket_id=%s", ticket_id)
 
@@ -104,13 +107,19 @@ async def run_ticket_analysis_job(ticket_id: str) -> None:
             ANALYSIS_TIMEOUT_SECONDS,
         )
     except Exception:  # noqa: BLE001 - background jobs must isolate failures
-        logger.exception("Background MCP analysis failed | ticket_id=%s", ticket_id)
+        logger.exception(
+            "Background MCP analysis failed | ticket_id=%s", ticket_id
+        )
     else:
-        logger.info("Background MCP analysis completed | ticket_id=%s", ticket_id)
+        logger.info(
+            "Background MCP analysis completed | ticket_id=%s", ticket_id
+        )
 
 
 async def run_bulk_ticket_analysis_job(ticket_ids: list[str]) -> None:
-    """Analyze tickets concurrently while respecting the configured limit."""
+    """Analyze tickets concurrently while respecting the configured
+    limit.
+    """
 
     require_debug_mode()
     semaphore = asyncio.Semaphore(BULK_ANALYSIS_CONCURRENCY)
@@ -177,7 +186,8 @@ def create_ticket(
     status_code=status.HTTP_201_CREATED,
     summary="Create multiple support tickets",
     description=(
-        "Creates up to 100 tickets in one transaction and optionally schedules "
+        "Creates up to 100 tickets in one transaction "
+        "and optionally schedules "
         "MCP analysis with limited concurrency. Requires DEBUG=True."
     ),
 )
@@ -186,10 +196,14 @@ def create_tickets_bulk(
     background_tasks: BackgroundTasks,
     db: Session = Depends(get_db),
 ) -> TicketBulkCreateResult:
-    """Create multiple tickets and optionally schedule their MCP analyses."""
+    """Create multiple tickets and optionally schedule their MCP
+    analyses.
+    """
 
     require_debug_mode()
-    tickets = [build_ticket(ticket_payload) for ticket_payload in payload.tickets]
+    tickets = [
+        build_ticket(ticket_payload) for ticket_payload in payload.tickets
+    ]
 
     try:
         db.add_all(tickets)
@@ -207,10 +221,7 @@ def create_tickets_bulk(
     return TicketBulkCreateResult(
         createdCount=len(tickets),
         analysisScheduled=payload.analyze,
-        tickets=[
-            TicketRead.model_validate(ticket)  #list[TicketRead] != list[TicketModel]
-            for ticket in tickets
-        ],
+        tickets=[TicketRead.model_validate(ticket) for ticket in tickets],
     )
 
 
@@ -253,7 +264,9 @@ def get_ticket(ticket_id: str, db: Session = Depends(get_db)) -> TicketModel:
     "/{ticket_id}/draft",
     response_model=ResponseDraftRead | None,
     summary="Get latest response draft",
-    description=("Returns the latest saved AI-generated response draft for a ticket, if one exists."
+    description=(
+        "Returns the latest saved AI-generated response draft for a ticket, "
+        "if one exists."
     ),
 )
 def get_latest_ticket_draft(

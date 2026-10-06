@@ -1,6 +1,13 @@
-from typing import Literal
+"""Request and response schemas for ticket endpoints."""
 
-from pydantic import BaseModel, EmailStr, Field, ConfigDict
+from pydantic import BaseModel, ConfigDict, EmailStr, Field
+
+from app.schemas.types import (
+    TicketPriority,
+    TicketSentiment,
+    TicketSlaState,
+    TicketStatus,
+)
 
 
 class TicketCreate(BaseModel):
@@ -12,16 +19,15 @@ class TicketCreate(BaseModel):
 
 
 class TicketBulkCreate(BaseModel):
-    """Create multiple tickets in a single request.
-    
-    Only should be used during testing..."""
+    """Create multiple tickets for testing when DEBUG is enabled."""
 
-    analyze: bool = False  #!!! defaults to 'False' so that a random request doesn't trigger OpenAI calls. In the generated JSON, it is explicit.
+    # Require explicit opt-in before making paid analysis requests.
+    analyze: bool = False
     tickets: list[TicketCreate] = Field(
         min_length=1,
         max_length=100,
     )
-    
+
 
 class TicketRead(BaseModel):
     model_config = ConfigDict(from_attributes=True)
@@ -32,11 +38,11 @@ class TicketRead(BaseModel):
     customer: str
     customerEmail: str
     category: str
-    priority: Literal["Low", "Medium", "High", "Very High"]
-    sentiment: Literal["Negative", "Neutral", "Positive"]
+    priority: TicketPriority
+    sentiment: TicketSentiment
     sla: str
-    slaState: Literal["critical", "warning", "safe"]
-    status: Literal["Open", "In Progress", "Resolved"]
+    slaState: TicketSlaState
+    status: TicketStatus
     updatedAt: str
     owner: str
 

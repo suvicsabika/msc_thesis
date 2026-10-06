@@ -1,9 +1,9 @@
 """Ticket analysis workflow service.
 
-This module represents the Host-side MCP orchestration layer.
-It connects to the local MCP Ticket Server, reads ticket context through MCP
-resources, sends the context to OpenAI for structured triage, and persists the
-decision through MCP tool calls.
+This module represents the Host-side MCP orchestration layer. It
+connects to the local MCP Ticket Server, reads ticket context through
+MCP resources, sends the context to OpenAI for structured triage, and
+persists the decision through MCP tool calls.
 """
 
 import asyncio
@@ -28,7 +28,7 @@ async def run_step(
     awaitable: Awaitable[StepResult],
     timeout_seconds: int = MCP_STEP_TIMEOUT_SECONDS,
 ) -> StepResult:
-    """Run an async workflow step with logging and timeout protection."""
+    """Run a workflow step with logging and a timeout."""
 
     logger.info("Workflow step started | step=%s", label)
 
@@ -75,7 +75,9 @@ async def call_mcp_tool_logged(
     return result
 
 
-async def analyze_ticket_with_mcp_workflow(ticket_id: str) -> TicketAnalysisWorkflowResult:
+async def analyze_ticket_with_mcp_workflow(
+    ticket_id: str,
+) -> TicketAnalysisWorkflowResult:
     """Analyze a ticket through the MCP Host-Client-Server workflow.
 
     Steps:
@@ -94,18 +96,23 @@ async def analyze_ticket_with_mcp_workflow(ticket_id: str) -> TicketAnalysisWork
 
         ticket_json = await run_step(
             label="read_ticket_raw_resource",
-            awaitable=mcp_client.read_resource_text(f"ticket://{ticket_id}/raw"),
+            awaitable=mcp_client.read_resource_text(
+                f"ticket://{ticket_id}/raw"
+            ),
         )
 
         logger.info("OpenAI analysis step started | ticket_id=%s", ticket_id)
 
         decision = await asyncio.wait_for(
-            asyncio.to_thread(analyze_ticket_with_openai, ticket_id, ticket_json),
+            asyncio.to_thread(
+                analyze_ticket_with_openai, ticket_id, ticket_json
+            ),
             timeout=OPENAI_STEP_TIMEOUT_SECONDS,
         )
 
         logger.info(
-            "OpenAI analysis step completed | ticket_id=%s | category=%s | sentiment=%s | priority=%s",
+            "OpenAI analysis step completed | ticket_id=%s | category=%s "
+            "| sentiment=%s | priority=%s",
             ticket_id,
             decision.category,
             decision.sentiment,
@@ -156,7 +163,7 @@ async def analyze_ticket_with_mcp_workflow(ticket_id: str) -> TicketAnalysisWork
             ),
         ]
 
-        # Keep writes sequential so failures stop the remaining workflow steps.
+        # Sequential writes stop the remaining steps after a failure.
         tool_results = []
         for tool_name, arguments in tool_calls:
             result = await call_mcp_tool_logged(
