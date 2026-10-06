@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   AlertCircle,
@@ -19,9 +19,12 @@ import {
   getLatestTicketDraft,
   getTicket,
 } from "../apis/ticketsApi";
+import { usePageTitle } from "../hooks/usePageTitle";
+import { useApiResource } from "../hooks/useApiResource";
 
 function badgeClass(value) {
   const styles = {
+    "Very High": "bg-rose-100 text-rose-800 ring-rose-300",
     High: "bg-rose-50 text-rose-700 ring-rose-200",
     Medium: "bg-amber-50 text-amber-700 ring-amber-200",
     Low: "bg-emerald-50 text-emerald-700 ring-emerald-200",
@@ -39,9 +42,11 @@ function badgeClass(value) {
   return styles[value] ?? "bg-slate-50 text-slate-700 ring-slate-200";
 }
 
-function StatusBadge({ value }) {
+function DetailBadge({ value }) {
   return (
-    <span className={`rounded-full px-3 py-1 text-xs font-black ring-1 ${badgeClass(value)}`}>
+    <span
+      className={`rounded-full px-3 py-1 text-xs font-black ring-1 ${badgeClass(value)}`}
+    >
       {value}
     </span>
   );
@@ -77,37 +82,41 @@ function FieldRow({ label, value }) {
 
 export default function TicketDetailPage() {
   const { ticketId } = useParams();
+  return <TicketDetails key={ticketId} ticketId={ticketId} />;
+}
 
-  const [ticket, setTicket] = useState(null);
-  const [draft, setDraft] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+function TicketDetails({ ticketId }) {
+  usePageTitle(`Ticket Details - ${ticketId}`);
+
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [error, setError] = useState(null);
   const [analysisResult, setAnalysisResult] = useState(null);
 
-  const loadTicketDetails = useCallback(async () => {
-    try {
-      setIsLoading(true);
-      setError(null);
-
-      const [ticketResult, draftResult] = await Promise.all([
-        getTicket(ticketId),
-        getLatestTicketDraft(ticketId),
+  const loadTicketData = useCallback(
+    async (signal) => {
+      const [ticket, draft] = await Promise.all([
+        getTicket(ticketId, signal),
+        getLatestTicketDraft(ticketId, signal),
       ]);
+      return { ticket, draft };
+    },
+    [ticketId],
+  );
 
-      setTicket(ticketResult);
-      setDraft(draftResult);
-    } catch (err) {
-      console.error("Failed to load ticket details:", err);
-      setError("Failed to load ticket details.");
-    } finally {
-      setIsLoading(false);
-    }
-  }, [ticketId]);
+  const {
+    data,
+    isLoading,
+    error: loadError,
+    refetch,
+  } = useApiResource(loadTicketData, null, "Failed to load ticket details.");
+  const ticket = data?.ticket;
+  const draft = data?.draft;
+  const displayError = error ?? loadError;
 
-  useEffect(() => {
-    loadTicketDetails();
-  }, [loadTicketDetails]);
+  function loadTicketDetails() {
+    setError(null);
+    return refetch();
+  }
 
   async function handleAnalyzeTicket() {
     try {
@@ -135,7 +144,7 @@ export default function TicketDetailPage() {
       <div className="relative mx-auto max-w-7xl">
         <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
           <Link
-            to="/"
+            to="/dashboard"
             className="inline-flex w-fit shrink-0 items-center gap-2 rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-sm font-black text-slate-700 shadow-sm backdrop-blur-xl transition hover:-translate-y-0.5 hover:shadow-lg"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -166,7 +175,9 @@ export default function TicketDetailPage() {
               </button>
             </div>
             <p className="mt-3 text-sm font-semibold text-slate-500 lg:text-right">
-              Tickets are analyzed at creation, however you can re-run the analysis after refreshing the ticket data or when new drafts are generated.
+              Tickets are analyzed at creation, however you can re-run the
+              analysis after refreshing the ticket data or when new drafts are
+              generated.
             </p>
           </div>
         </div>
@@ -185,13 +196,13 @@ export default function TicketDetailPage() {
           </div>
         )}
 
-        {error && !isLoading && (
+        {displayError && !isLoading && (
           <div className="rounded-3xl border border-rose-200 bg-rose-50 p-5 text-rose-700">
             <div className="flex items-start gap-3">
               <AlertCircle className="mt-0.5 h-5 w-5" />
               <div>
                 <p className="font-black">Operation failed</p>
-                <p className="mt-1 text-sm font-semibold">{error}</p>
+                <p className="mt-1 text-sm font-semibold">{displayError}</p>
               </div>
             </div>
           </div>
@@ -209,20 +220,20 @@ export default function TicketDetailPage() {
                 </div>
 
                 <div className="relative mt-4 flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">
-<div className="min-w-0 [overflow-wrap:anywhere]">
+                  <div className="min-w-0 [overflow-wrap:anywhere]">
                     <h1 className="text-3xl font-black tracking-tight text-slate-950 sm:text-5xl">
-                       {ticket.id}
+                      {ticket.subject}
                     </h1>
                     <p className="mt-3 max-w-4xl text-lg font-bold text-slate-600">
-                      {ticket.subject}
+                      Ticket ID: {ticket.id}
                     </p>
                   </div>
 
                   <div className="flex shrink-0 flex-wrap gap-2">
-                    <StatusBadge value={ticket.status} />
-                    <StatusBadge value={ticket.priority} />
-                    <StatusBadge value={ticket.sentiment} />
-                    <StatusBadge value={ticket.slaState} />
+                    <DetailBadge value={ticket.status} />
+                    <DetailBadge value={ticket.priority} />
+                    <DetailBadge value={ticket.sentiment} />
+                    <DetailBadge value={ticket.slaState} />
                   </div>
                 </div>
               </div>
@@ -231,11 +242,11 @@ export default function TicketDetailPage() {
             {/* Long tool output must not determine the grid column's minimum width. */}
             <div className="grid min-w-0 grid-cols-1 gap-5 xl:grid-cols-[minmax(0,1fr)_24rem]">
               <div className="min-w-0 space-y-5">
-                 <DetailCard title="Customer message" icon={Mail}>
+                <DetailCard title="Customer message" icon={Mail}>
                   <div className="rounded-3xl border border-slate-200 bg-slate-50/80 p-4 text-sm font-semibold leading-7 text-slate-700 whitespace-pre-wrap [overflow-wrap:anywhere] sm:p-5">
-                     {ticket.body}
-                   </div>
-                 </DetailCard>
+                    {ticket.body}
+                  </div>
+                </DetailCard>
 
                 <DetailCard title="AI response draft" icon={Sparkles}>
                   {draft ? (
@@ -244,14 +255,20 @@ export default function TicketDetailPage() {
                         {draft.draft}
                       </div>
 
+                      <div className="rounded-3xl border border-indigo-100 bg-indigo-50/70 p-4 sm:p-5">
+                        <h3 className="text-xs font-black uppercase tracking-wide text-indigo-600">
+                          Response draft reason
+                        </h3>
+                        <p className="mt-2 whitespace-pre-wrap [overflow-wrap:anywhere] text-sm font-semibold leading-7 text-slate-700">
+                          {draft.reason || "No reason provided."}
+                        </p>
+                      </div>
+
                       <div className="flex flex-wrap items-center justify-between gap-3 rounded-3xl bg-violet-50 p-4 text-violet-700 ring-1 ring-violet-100">
                         <div className="min-w-0 flex-1 basis-56 [overflow-wrap:anywhere]">
                           <p className="font-black">
                             Human approval required:{" "}
                             {draft.requiresApproval ? "Yes" : "No"}
-                          </p>
-                          <p className="mt-1 text-sm font-semibold">
-                            {draft.reason}
                           </p>
                         </div>
 
@@ -287,7 +304,11 @@ export default function TicketDetailPage() {
                           <p className="[overflow-wrap:anywhere] font-black text-slate-900">
                             {item.tool}
                           </p>
-                          <pre tabIndex={0} aria-label={`${item.tool} result`} className="mt-3 w-full min-w-0 max-w-full max-h-48 overflow-auto rounded-2xl bg-slate-950 p-4 text-xs font-semibold text-slate-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                          <pre
+                            tabIndex={0}
+                            aria-label={`${item.tool} result`}
+                            className="mt-3 w-full min-w-0 max-w-full max-h-48 overflow-auto rounded-2xl bg-slate-950 p-4 text-xs font-semibold text-slate-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                          >
                             {JSON.stringify(item.result, null, 2)}
                           </pre>
                         </div>
@@ -301,7 +322,10 @@ export default function TicketDetailPage() {
                 <DetailCard title="Ticket metadata" icon={Tag}>
                   <div className="grid gap-3">
                     <FieldRow label="Customer" value={ticket.customer} />
-                    <FieldRow label="Customer email" value={ticket.customerEmail} />
+                    <FieldRow
+                      label="Customer email"
+                      value={ticket.customerEmail}
+                    />
                     <FieldRow label="Category" value={ticket.category} />
                     <FieldRow label="Owner" value={ticket.owner} />
                     <FieldRow label="Updated at" value={ticket.updatedAt} />

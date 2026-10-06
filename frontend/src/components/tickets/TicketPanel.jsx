@@ -1,4 +1,4 @@
-import { ArrowRight, MoreVertical, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import { Link } from "react-router-dom";
 import { cn } from "../../utils/cn";
 import { MobileTicketCard } from "./MobileTicketCard";
@@ -22,7 +22,9 @@ export function TicketPanel({
 
       <div className="mb-5 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
         <div>
-          <h2 className="text-base font-black text-slate-950">Recent Tickets</h2>
+          <h2 className="text-base font-black text-slate-950">
+            Recent Tickets
+          </h2>
           <p className="mt-1 text-sm font-semibold text-slate-400">
             {tickets.length} visible tickets · responsive ticket overview
           </p>
@@ -49,7 +51,7 @@ export function TicketPanel({
                 "rounded-2xl px-4 py-3 text-sm font-black shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-lg",
                 activeFilter === filter
                   ? "bg-gradient-to-r from-blue-600 to-violet-600 text-white shadow-indigo-500/25"
-                  : "border border-slate-200 bg-white text-slate-600"
+                  : "border border-slate-200 bg-white text-slate-600",
               )}
             >
               {filter}
@@ -84,9 +86,7 @@ export function TicketPanel({
 
       {!isLoading && !error && tickets.length === 0 && (
         <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 text-center">
-          <p className="text-lg font-black text-slate-800">
-            No tickets found
-          </p>
+          <p className="text-lg font-black text-slate-800">No tickets found</p>
           <p className="mt-2 text-sm font-semibold text-slate-500">
             Try changing the search term or selected priority filter.
           </p>
@@ -114,7 +114,6 @@ export function TicketPanel({
                   <th className="px-3 py-3">SLA</th>
                   <th className="px-3 py-3">Status</th>
                   <th className="px-3 py-3">Owner</th>
-                  <th className="px-3 py-3" />
                 </tr>
               </thead>
 

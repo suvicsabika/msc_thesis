@@ -1,5 +1,7 @@
 """Request and response schemas for ticket endpoints."""
 
+from datetime import datetime
+
 from pydantic import BaseModel, ConfigDict, EmailStr, Field
 
 from app.schemas.types import (
@@ -43,6 +45,7 @@ class TicketRead(BaseModel):
     sla: str
     slaState: TicketSlaState
     status: TicketStatus
+    createdAt: datetime
     updatedAt: str
     owner: str
 

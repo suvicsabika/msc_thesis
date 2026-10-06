@@ -109,3 +109,43 @@ POST /api/tickets/{ticket_id}/analyze
 GET  /api/tickets/{ticket_id}/draft
 GET  /api/dashboard/summary
 ```
+
+#### Miscellaneous
+
+CLI commands that I frequently used during the Development: 
+
+1. Ruff checkings:
+
+```bash
+cd backend
+
+# Check for issues without changing files
+.\venv\Scripts\python.exe -m ruff check app
+
+# Check formatting without changing files
+.\venv\Scripts\python.exe -m ruff format --check app
+To apply fixes and formatting:
+# Apply available safe lint fixes
+.\venv\Scripts\python.exe -m ruff check app --fix
+
+# Format the code
+.\venv\Scripts\python.exe -m ruff format app
+```
+
+2. Uploading maximum 100 test ticket data as a bulk creation (to populate the DB with data quickly):
+
+```bash
+Invoke-RestMethod `
+  -Uri "http://localhost:8000/api/tickets/bulk" `
+  -Method Post `
+  -ContentType "application/json" `
+  -InFile ".\backend\app\data\bulk_tickets_100.json"
+```
+
+3. Lint checks via npm
+
+```bash
+npm.cmd run lint
+npm.cmd run format:check
+npm.cmd run format
+```

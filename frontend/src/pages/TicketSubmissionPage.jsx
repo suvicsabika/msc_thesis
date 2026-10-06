@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   AlertCircle,
@@ -12,6 +12,26 @@ import {
   User,
 } from "lucide-react";
 import { createTicket } from "../apis/ticketsApi";
+import { usePageTitle } from "../hooks/usePageTitle";
+import { useApiHealth } from "../hooks/useApiHealth";
+
+const apiStatusStyles = {
+  checking: {
+    label: "Checking API…",
+    badge: "border-slate-200 bg-slate-50 text-slate-600",
+    dot: "animate-pulse bg-slate-400",
+  },
+  connected: {
+    label: "API connected",
+    badge: "border-emerald-200 bg-emerald-50 text-emerald-700",
+    dot: "animate-ping bg-emerald-400",
+  },
+  disconnected: {
+    label: "API disconnected",
+    badge: "border-rose-200 bg-rose-50 text-rose-700",
+    dot: "bg-rose-400",
+  },
+};
 
 const initialFormState = {
   customer: "",
@@ -22,11 +42,25 @@ const initialFormState = {
 };
 
 export default function TicketSubmissionPage() {
+  usePageTitle("Submit Ticket");
+  const apiStatus = useApiHealth();
+  const connectionBadge = apiStatusStyles[apiStatus];
+
   const [formData, setFormData] = useState(initialFormState);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [createdTicket, setCreatedTicket] = useState(null);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const redirectTimer = useRef(null);
+  const mountedRef = useRef(false);
+
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+      clearTimeout(redirectTimer.current);
+    };
+  }, []);
 
   function updateField(field, value) {
     setFormData((current) => ({
@@ -44,18 +78,21 @@ export default function TicketSubmissionPage() {
       setCreatedTicket(null);
 
       const result = await createTicket(formData);
+      if (!mountedRef.current) return;
 
       setCreatedTicket(result);
       setFormData(initialFormState);
 
-      setTimeout(() => {
-        navigate("/");
+      clearTimeout(redirectTimer.current);
+      redirectTimer.current = setTimeout(() => {
+        navigate("/dashboard");
       }, 1200);
     } catch (err) {
+      if (!mountedRef.current) return;
       console.error("Failed to submit ticket:", err);
       setError("Failed to submit ticket. Please check the form and try again.");
     } finally {
-      setIsSubmitting(false);
+      if (mountedRef.current) setIsSubmitting(false);
     }
   }
 
@@ -68,16 +105,22 @@ export default function TicketSubmissionPage() {
         <div className="mb-6 flex items-center justify-between gap-4">
           <button
             type="button"
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/dashboard")}
             className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-sm font-black text-slate-700 shadow-sm backdrop-blur-xl transition hover:-translate-y-0.5 hover:shadow-lg"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to dashboard
           </button>
 
-          <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-black text-emerald-700">
-            <span className="h-2 w-2 animate-ping rounded-full bg-emerald-400" />
-            API connected
+          <span
+            role="status"
+            className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-black ${connectionBadge.badge}`}
+          >
+            <span
+              aria-hidden="true"
+              className={`h-2 w-2 rounded-full ${connectionBadge.dot}`}
+            />
+            {connectionBadge.label}
           </span>
         </div>
 
@@ -95,7 +138,8 @@ export default function TicketSubmissionPage() {
             </h1>
 
             <p className="relative mt-4 max-w-3xl text-base font-semibold leading-7 text-slate-500">
-              Create a new customer support ticket that will be stored in the backend database and displayed on the dashboard.
+              Create a new customer support ticket that will be stored in the
+              backend database and displayed on the dashboard.
             </p>
           </div>
 
@@ -130,7 +174,9 @@ export default function TicketSubmissionPage() {
               <Field label="Customer name" icon={User}>
                 <input
                   value={formData.customer}
-                  onChange={(event) => updateField("customer", event.target.value)}
+                  onChange={(event) =>
+                    updateField("customer", event.target.value)
+                  }
                   required
                   className="h-12 w-full rounded-2xl border border-slate-200 bg-white/90 px-4 text-sm font-bold text-slate-700 outline-none transition focus:border-indigo-300 focus:shadow-lg focus:shadow-indigo-100"
                   placeholder="Acme Corp"
@@ -141,7 +187,9 @@ export default function TicketSubmissionPage() {
                 <input
                   type="email"
                   value={formData.customerEmail}
-                  onChange={(event) => updateField("customerEmail", event.target.value)}
+                  onChange={(event) =>
+                    updateField("customerEmail", event.target.value)
+                  }
                   required
                   className="h-12 w-full rounded-2xl border border-slate-200 bg-white/90 px-4 text-sm font-bold text-slate-700 outline-none transition focus:border-indigo-300 focus:shadow-lg focus:shadow-indigo-100"
                   placeholder="support@acme.com"
@@ -153,7 +201,9 @@ export default function TicketSubmissionPage() {
               <Field label="Subject" icon={Tag}>
                 <input
                   value={formData.subject}
-                  onChange={(event) => updateField("subject", event.target.value)}
+                  onChange={(event) =>
+                    updateField("subject", event.target.value)
+                  }
                   required
                   className="h-12 w-full rounded-2xl border border-slate-200 bg-white/90 px-4 text-sm font-bold text-slate-700 outline-none transition focus:border-indigo-300 focus:shadow-lg focus:shadow-indigo-100"
                   placeholder="Cannot access the admin dashboard"
@@ -163,7 +213,9 @@ export default function TicketSubmissionPage() {
               <Field label="Category" icon={Tag}>
                 <select
                   value={formData.category}
-                  onChange={(event) => updateField("category", event.target.value)}
+                  onChange={(event) =>
+                    updateField("category", event.target.value)
+                  }
                   className="h-12 w-full rounded-2xl border border-slate-200 bg-white/90 px-4 text-sm font-bold text-slate-700 outline-none transition focus:border-indigo-300 focus:shadow-lg focus:shadow-indigo-100"
                 >
                   <option value="General">General</option>
