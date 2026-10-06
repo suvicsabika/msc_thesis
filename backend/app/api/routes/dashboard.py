@@ -1,4 +1,7 @@
+"""REST endpoint for dashboard summaries."""
+
 from fastapi import APIRouter, Depends
+from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.db.database import get_db
@@ -11,7 +14,11 @@ router = APIRouter(prefix="/dashboard", tags=["dashboard"])
 
 
 @router.get("/summary", response_model=DashboardSummary)
-def get_dashboard_summary(db: Session = Depends(get_db)):
-    tickets = db.query(TicketModel).all()
+def get_dashboard_summary(
+    db: Session = Depends(get_db),
+) -> DashboardSummary:
+    """Build a summary from all stored tickets."""
+
+    tickets = db.scalars(select(TicketModel)).all()
 
     return build_dashboard_summary(tickets)

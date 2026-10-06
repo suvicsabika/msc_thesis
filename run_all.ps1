@@ -26,7 +26,7 @@ Start-Process powershell -ArgumentList @(
 Start-Process powershell -ArgumentList @(
     "-NoExit",
     "-Command",
-    "Set-Location -LiteralPath '$backendPath'; npx @modelcontextprotocol/inspector '$pythonPath' -m app.mcp.ticket_server"
+    "Set-Location -LiteralPath '$backendPath'; `$env:PATH = '$pythonDirectory' + [IO.Path]::PathSeparator + `$env:PATH; npx @modelcontextprotocol/inspector --config .\mcp.inspector.json --server ticket"
 )
 
 Start-Process powershell -ArgumentList @(

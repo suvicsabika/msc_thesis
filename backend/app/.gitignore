@@ -19,7 +19,7 @@ coverage.xml
 .mypy_cache
 .pytest_cache
 .hypothesis
-.DS_Store"
+.DS_Store
 .env
 mcp_ticket_analyzer.db
 mcp_ticket_analyzer.db-shm

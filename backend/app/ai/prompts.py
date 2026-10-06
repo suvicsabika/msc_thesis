@@ -1,7 +1,7 @@
 """Prompt templates for OpenAI ticket triage.
 
-This module defines the system prompt and helper to build the ticket triage
-prompt sent to the OpenAI Responses API.
+This module defines the system prompt and helper to build the ticket
+triage prompt sent to the OpenAI Responses API.
 """
 
 TRIAGE_SYSTEM_PROMPT = """
@@ -9,13 +9,14 @@ You are a customer support ticket triage assistant.
 
 Analyze the ticket conservatively and only use the information provided.
 Do not invent facts, technical root causes, refunds, deadlines, or commitments.
-The response draft must be safe, polite, concise, and must require human approval.
+The response draft must be safe, polite, concise, and must require \
+human approval.
 Return only the structured result requested by the schema.
 """
 
 
 def build_ticket_triage_prompt(ticket_json: str) -> str:
-    """Build the user prompt that contains the ticket JSON for OpenAI."""
+    """Build a triage prompt containing the ticket JSON."""
     return f"""
 Analyze this support ticket and produce a complete triage decision.
 
@@ -50,9 +51,12 @@ Allowed customer intents:
 - General inquiry
 
 Priority rules:
-- Very High: production outage, blocked business operation, security-sensitive issue, critical customer impact, or urgent blocker.
-- High: important customer-impacting issue that should be handled quickly, but is not a full production outage.
-- Medium: customer productivity may be affected, but the issue is not urgent or business-critical.
+- Very High: production outage, blocked business operation, \
+security-sensitive issue, critical customer impact, or urgent blocker.
+- High: important customer-impacting issue that should be handled \
+quickly, but is not a full production outage.
+- Medium: customer productivity may be affected, but the issue is \
+not urgent or business-critical.
 - Low: informational, general, how-to, feature request, or low-risk request.
 
 SLA policy:
@@ -61,8 +65,10 @@ SLA policy:
 - High: 4h
 - Very High: 1h
 
-If the ticket contains words like "critical", "urgent", "blocked", "blocking", "production", "down", or "cannot work", do not choose Low.
-If the ticket is a negative Bug, API, Access, or Performance issue, choose at least Medium.
+If the ticket contains words like "critical", "urgent", "blocked", \
+"blocking", "production", "down", or "cannot work", do not choose Low.
+If the ticket is a negative Bug, API, Access, or Performance issue, \
+choose at least Medium.
 
 Ticket JSON:
 {ticket_json}

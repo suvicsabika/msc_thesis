@@ -1,115 +1,153 @@
-"""MCP client wrapper for the local Ticket MCP Server.
+"""Host-side MCP client for the local Ticket MCP Server over stdio.
 
-This module implements the Host-side MCP client connection. It starts the local
-MCP Ticket Server through stdio transport, initializes a ClientSession, and
-provides helper methods for resource reads and tool calls.
+The SDK manages server discovery and subprocess lifetime. This wrapper
+validates server capabilities and exposes text resources and tool
+results.
 """
 
-import asyncio
-import json
 import logging
 import os
 import sys
-from contextlib import AsyncExitStack
 from pathlib import Path
 from typing import Any
 
-from mcp import ClientSession, StdioServerParameters
-from mcp.client.stdio import stdio_client
-from pydantic import AnyUrl
+from dotenv import load_dotenv
+from mcp import Client, StdioServerParameters
+from mcp.types import (
+    CallToolResult,
+    Implementation,
+    TextContent,
+    TextResourceContents,
+)
 
 
 logger = logging.getLogger(__name__)
 
+APP_DIR = Path(__file__).resolve().parents[1]
+try:
+    load_dotenv(APP_DIR / ".env", override=False)
+except (OSError, ValueError):
+    logger.warning(
+        "Could not load optional .env settings; using the current environment."
+    )
+
+MCP_PROTOCOL_VERSION = os.getenv("MCP_PROTOCOL_VERSION", "2026-07-28")
+
 
 class TicketMcpClient:
-    """Manage a subprocess-backed MCP client session for ticket analysis."""
+    """Manage the SDK client and subprocess for one ticket workflow."""
+
     def __init__(self) -> None:
-        self.exit_stack = AsyncExitStack()
-        self.session: ClientSession | None = None
+        self.client: Client | None = None
 
     async def __aenter__(self) -> "TicketMcpClient":
-        """Start the local MCP Ticket Server subprocess and initialize the client session."""
+        """Connect and discover the server capabilities."""
+
+        if self.client is not None:
+            raise RuntimeError("MCP client is already connected.")
 
         backend_dir = Path(__file__).resolve().parents[2]
 
         env = dict(os.environ)
-        env["PYTHONPATH"] = str(backend_dir)
-
-        logger.info("Starting MCP Ticket Server subprocess")
+        env["PYTHONPATH"] = os.pathsep.join(
+            filter(None, [str(backend_dir), env.get("PYTHONPATH")])
+        )
 
         server_params = StdioServerParameters(
             command=sys.executable,
             args=["-m", "app.mcp.ticket_server"],
+            cwd=backend_dir,
             env=env,
         )
 
-        read_stream, write_stream = await self.exit_stack.enter_async_context(
-            stdio_client(server_params)
+        client = Client(
+            server_params,
+            mode="auto",
+            read_timeout_seconds=25.0,
+            client_info=Implementation(
+                name="mcp-ticket-analyzer-host", version="0.1.0"
+            ),
         )
+        logger.info("Starting MCP Ticket Server subprocess")
+        await client.__aenter__()
+        try:
+            if client.protocol_version != MCP_PROTOCOL_VERSION:
+                raise RuntimeError(
+                    f"Expected MCP {MCP_PROTOCOL_VERSION}, "
+                    f"got {client.protocol_version}. "
+                    "Install the project's SDK v2 requirements "
+                    "in both host and server."
+                )
+            capabilities = client.server_capabilities
+            if capabilities.tools is None or capabilities.resources is None:
+                raise RuntimeError(
+                    "Ticket MCP Server must provide tools and resources."
+                )
+        except BaseException:
+            await client.__aexit__(None, None, None)
+            raise
 
-        self.session = await self.exit_stack.enter_async_context(
-            ClientSession(read_stream, write_stream)
+        self.client = client
+        logger.info(
+            "MCP server discovered | protocol_version=%s | server_info=%s",
+            client.protocol_version,
+            client.server_info,
         )
-
-        await self.session.initialize()
-
-        logger.info("MCP client session initialized")
 
         return self
 
     async def __aexit__(self, exc_type, exc_value, traceback) -> None:
-        """Close the MCP client session and shut down the subprocess cleanly."""
+        """Close the SDK client in the task that opened it."""
 
+        client = self.require_client()
         logger.info("Closing MCP client session")
 
         try:
-            await asyncio.wait_for(self.exit_stack.aclose(), timeout=10)
+            # Passing host exceptions into SDK task groups wraps them in
+            # ExceptionGroup and hides the workflow's TimeoutError.
+            await client.__aexit__(None, None, None)
+        finally:
+            self.client = None
+        logger.info("MCP client connection closed")
 
-            logger.info("MCP client session closed")
-
-        except asyncio.TimeoutError:
-            logger.exception("MCP client session close timed out")
-
-        except Exception:
-            logger.exception("MCP client session close failed")
-            raise
-
-    def require_session(self) -> ClientSession:
-        """Return the active client session or raise if the client is not initialized."""
-
-        if self.session is None:
-            raise RuntimeError("MCP client session has not been initialized.")
-
-        return self.session
+    def require_client(self) -> Client:
+        """Return the connected SDK client or fail before issuing a
+        request.
+        """
+        if self.client is None:
+            raise RuntimeError("MCP client is not connected.")
+        return self.client
 
     async def read_resource_text(self, uri: str) -> str:
-        """Fetch a resource from the MCP server and return its text content."""
-
-        session = self.require_session()
+        """Read a string URI and return the resource's text contents."""
 
         logger.info("Reading MCP resource | uri=%s", uri)
 
-        result = await session.read_resource(AnyUrl(uri))
-
-        texts = []
-
-        for content in result.contents:
-            text = getattr(content, "text", None)
-
-            if text is not None:
-                texts.append(text)
-
+        result = await self.require_client().read_resource(uri)
+        texts = [
+            item.text
+            for item in result.contents
+            if isinstance(item, TextResourceContents)
+        ]
+        if not texts:
+            raise RuntimeError(f"MCP resource contains no text: {uri}")
         logger.info("MCP resource read completed | uri=%s", uri)
 
         return "\n".join(texts)
 
-    async def call_tool(self, name: str, arguments: dict[str, Any]) -> dict[str, Any]:
-        """Invoke the named MCP tool with the provided arguments."""
+    async def call_tool(
+        self, name: str, arguments: dict[str, Any]
+    ) -> dict[str, Any]:
+        """Call a tool and stop on an MCP execution error."""
 
-        session = self.require_session()
-
-        result = await session.call_tool(name, arguments)
+        result = await self.require_client().call_tool(name, arguments)
+        if result.is_error:
+            detail = "\n".join(
+                item.text
+                for item in result.content
+                if isinstance(item, TextContent)
+            )
+            raise RuntimeError(f"MCP tool {name} failed: {detail}")
 
         return {
             "tool": name,
@@ -117,27 +155,9 @@ class TicketMcpClient:
             "result": self.serialize_tool_result(result),
         }
 
-    def serialize_tool_result(self, result) -> dict[str, Any]:
-        """Convert MCP tool results to a JSON-serializable dictionary."""
-
-        structured_content = getattr(result, "structuredContent", None)
-
-        if structured_content is not None:
-            return {
-                "structuredContent": structured_content,
-            }
-
-        texts = []
-
-        for content in getattr(result, "content", []):
-            text = getattr(content, "text", None)
-
-            if text is not None:
-                try:
-                    texts.append(json.loads(text))
-                except json.JSONDecodeError:
-                    texts.append(text)
-
-        return {
-            "content": texts,
-        }
+    @staticmethod
+    def serialize_tool_result(result: CallToolResult) -> dict[str, Any]:
+        """Keep MCP's camelCase JSON aliases for the REST API and
+        frontend.
+        """
+        return result.model_dump(mode="json", by_alias=True, exclude_none=True)

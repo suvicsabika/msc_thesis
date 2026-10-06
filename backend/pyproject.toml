@@ -1,0 +1,22 @@
+[tool.ruff]
+target-version = "py310"
+line-length = 79
+extend-exclude = ["venv", ".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "N"]
+
+[tool.ruff.lint.pycodestyle]
+max-doc-length = 72
+
+[tool.ruff.lint.isort]
+known-first-party = ["app"]
+lines-after-imports = 2
+
+[tool.ruff.lint.per-file-ignores]
+# Keep existing API fields and database columns compatible with the frontend.
+"app/ai/schemas.py" = ["N815"]
+"app/schemas/dashboard.py" = ["N815"]
+"app/schemas/response_draft.py" = ["N815"]
+"app/schemas/ticket.py" = ["N815"]
+"app/models/*.py" = ["N815"]

@@ -11,7 +11,7 @@ export function StatusBadge({ value }) {
     <span
       className={cn(
         "rounded-full px-2.5 py-1 text-xs font-black ring-1",
-        styles[value] ?? "bg-slate-50 text-slate-700 ring-slate-200"
+        styles[value] ?? "bg-slate-50 text-slate-700 ring-slate-200",
       )}
     >
       {value}

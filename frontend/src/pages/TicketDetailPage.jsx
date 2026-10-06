@@ -1,10 +1,9 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   AlertCircle,
   ArrowLeft,
   Bot,
-  Clock3,
   Loader2,
   Mail,
   RefreshCcw,
@@ -20,9 +19,12 @@ import {
   getLatestTicketDraft,
   getTicket,
 } from "../apis/ticketsApi";
+import { usePageTitle } from "../hooks/usePageTitle";
+import { useApiResource } from "../hooks/useApiResource";
 
 function badgeClass(value) {
   const styles = {
+    "Very High": "bg-rose-100 text-rose-800 ring-rose-300",
     High: "bg-rose-50 text-rose-700 ring-rose-200",
     Medium: "bg-amber-50 text-amber-700 ring-amber-200",
     Low: "bg-emerald-50 text-emerald-700 ring-emerald-200",
@@ -40,9 +42,11 @@ function badgeClass(value) {
   return styles[value] ?? "bg-slate-50 text-slate-700 ring-slate-200";
 }
 
-function StatusBadge({ value }) {
+function DetailBadge({ value }) {
   return (
-    <span className={`rounded-full px-3 py-1 text-xs font-black ring-1 ${badgeClass(value)}`}>
+    <span
+      className={`rounded-full px-3 py-1 text-xs font-black ring-1 ${badgeClass(value)}`}
+    >
       {value}
     </span>
   );
@@ -50,10 +54,10 @@ function StatusBadge({ value }) {
 
 function DetailCard({ title, icon: Icon, children }) {
   return (
-    <section className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/80 p-5 shadow-xl shadow-slate-200/70 ring-1 ring-white/60 backdrop-blur-2xl">
+    <section className="relative min-w-0 overflow-hidden rounded-[2rem] border border-white/70 bg-white/80 p-4 shadow-xl shadow-slate-200/70 ring-1 ring-white/60 backdrop-blur-2xl sm:p-5">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-300/70 to-transparent" />
       <div className="mb-5 flex items-center gap-3">
-        <div className="grid h-10 w-10 place-items-center rounded-2xl bg-indigo-50 text-indigo-600">
+        <div className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-indigo-50 text-indigo-600">
           <Icon className="h-5 w-5" />
         </div>
         <h2 className="text-base font-black text-slate-950">{title}</h2>
@@ -65,11 +69,11 @@ function DetailCard({ title, icon: Icon, children }) {
 
 function FieldRow({ label, value }) {
   return (
-    <div className="rounded-2xl bg-slate-50/80 p-4">
+    <div className="min-w-0 rounded-2xl bg-slate-50/80 p-4">
       <p className="text-xs font-black uppercase tracking-wide text-slate-400">
         {label}
       </p>
-      <p className="mt-1 break-words text-sm font-bold text-slate-800">
+      <p className="mt-1 [overflow-wrap:anywhere] text-sm font-bold text-slate-800">
         {value || "Not available"}
       </p>
     </div>
@@ -78,37 +82,41 @@ function FieldRow({ label, value }) {
 
 export default function TicketDetailPage() {
   const { ticketId } = useParams();
+  return <TicketDetails key={ticketId} ticketId={ticketId} />;
+}
 
-  const [ticket, setTicket] = useState(null);
-  const [draft, setDraft] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+function TicketDetails({ ticketId }) {
+  usePageTitle(`Ticket Details - ${ticketId}`);
+
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [error, setError] = useState(null);
   const [analysisResult, setAnalysisResult] = useState(null);
 
-  const loadTicketDetails = useCallback(async () => {
-    try {
-      setIsLoading(true);
-      setError(null);
-
-      const [ticketResult, draftResult] = await Promise.all([
-        getTicket(ticketId),
-        getLatestTicketDraft(ticketId),
+  const loadTicketData = useCallback(
+    async (signal) => {
+      const [ticket, draft] = await Promise.all([
+        getTicket(ticketId, signal),
+        getLatestTicketDraft(ticketId, signal),
       ]);
+      return { ticket, draft };
+    },
+    [ticketId],
+  );
 
-      setTicket(ticketResult);
-      setDraft(draftResult);
-    } catch (err) {
-      console.error("Failed to load ticket details:", err);
-      setError("Failed to load ticket details.");
-    } finally {
-      setIsLoading(false);
-    }
-  }, [ticketId]);
+  const {
+    data,
+    isLoading,
+    error: loadError,
+    refetch,
+  } = useApiResource(loadTicketData, null, "Failed to load ticket details.");
+  const ticket = data?.ticket;
+  const draft = data?.draft;
+  const displayError = error ?? loadError;
 
-  useEffect(() => {
-    loadTicketDetails();
-  }, [loadTicketDetails]);
+  function loadTicketDetails() {
+    setError(null);
+    return refetch();
+  }
 
   async function handleAnalyzeTicket() {
     try {
@@ -134,38 +142,42 @@ export default function TicketDetailPage() {
       <div className="pointer-events-none fixed -right-28 bottom-8 h-96 w-96 animate-pulse rounded-full bg-cyan-300/25 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
           <Link
-            to="/"
-            className="inline-flex w-fit items-center gap-2 rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-sm font-black text-slate-700 shadow-sm backdrop-blur-xl transition hover:-translate-y-0.5 hover:shadow-lg"
+            to="/dashboard"
+            className="inline-flex w-fit shrink-0 items-center gap-2 rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-sm font-black text-slate-700 shadow-sm backdrop-blur-xl transition hover:-translate-y-0.5 hover:shadow-lg"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to dashboard
           </Link>
 
-          <div className="flex flex-wrap gap-3">
-            <button
-              onClick={loadTicketDetails}
-              className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-sm font-black text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
-            >
-              <RefreshCcw className="h-4 w-4" />
-              Refresh
-            </button>
+          <div className="min-w-0 lg:max-w-2xl">
+            <div className="flex flex-wrap gap-3 lg:justify-end">
+              <button
+                onClick={loadTicketDetails}
+                className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-sm font-black text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
+              >
+                <RefreshCcw className="h-4 w-4" />
+                Refresh
+              </button>
 
-            <button
-              onClick={handleAnalyzeTicket}
-              disabled={isAnalyzing || isLoading}
-              className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 to-violet-600 px-4 py-3 text-sm font-black text-white shadow-lg shadow-indigo-500/25 transition hover:-translate-y-0.5 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70"
-            >
-              {isAnalyzing ? (
-                <Loader2 className="h-4 w-4 animate-spin" />
-              ) : (
-                <WandSparkles className="h-4 w-4" />
-              )}
-              RE-Analyze with MCP
-            </button>
-            <p className="mt-2 text-sm font-semibold text-slate-500">
-                Tickets are analyzed at creation, however you can re-run the analysis after refreshing the ticket data or when new drafts are generated.
+              <button
+                onClick={handleAnalyzeTicket}
+                disabled={isAnalyzing || isLoading}
+                className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 to-violet-600 px-4 py-3 text-sm font-black text-white shadow-lg shadow-indigo-500/25 transition hover:-translate-y-0.5 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70"
+              >
+                {isAnalyzing ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <WandSparkles className="h-4 w-4" />
+                )}
+                RE-Analyze with MCP
+              </button>
+            </div>
+            <p className="mt-3 text-sm font-semibold text-slate-500 lg:text-right">
+              Tickets are analyzed at creation, however you can re-run the
+              analysis after refreshing the ticket data or when new drafts are
+              generated.
             </p>
           </div>
         </div>
@@ -173,7 +185,7 @@ export default function TicketDetailPage() {
         {isLoading && (
           <div className="rounded-[2rem] border border-white/70 bg-white/80 p-8 shadow-xl">
             <div className="space-y-4">
-              <div className="h-8 w-64 animate-pulse rounded-2xl bg-slate-100" />
+              <div className="h-8 w-64 max-w-full animate-pulse rounded-2xl bg-slate-100" />
               <div className="h-32 animate-pulse rounded-3xl bg-slate-100" />
               <div className="grid gap-4 md:grid-cols-3">
                 <div className="h-24 animate-pulse rounded-3xl bg-slate-100" />
@@ -184,13 +196,13 @@ export default function TicketDetailPage() {
           </div>
         )}
 
-        {error && !isLoading && (
+        {displayError && !isLoading && (
           <div className="rounded-3xl border border-rose-200 bg-rose-50 p-5 text-rose-700">
             <div className="flex items-start gap-3">
               <AlertCircle className="mt-0.5 h-5 w-5" />
               <div>
                 <p className="font-black">Operation failed</p>
-                <p className="mt-1 text-sm font-semibold">{error}</p>
+                <p className="mt-1 text-sm font-semibold">{displayError}</p>
               </div>
             </div>
           </div>
@@ -208,29 +220,30 @@ export default function TicketDetailPage() {
                 </div>
 
                 <div className="relative mt-4 flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">
-                  <div>
-                    <h1 className="text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">
-                      {ticket.id}
+                  <div className="min-w-0 [overflow-wrap:anywhere]">
+                    <h1 className="text-3xl font-black tracking-tight text-slate-950 sm:text-5xl">
+                      {ticket.subject}
                     </h1>
                     <p className="mt-3 max-w-4xl text-lg font-bold text-slate-600">
-                      {ticket.subject}
+                      Ticket ID: {ticket.id}
                     </p>
                   </div>
 
-                  <div className="flex flex-wrap gap-2">
-                    <StatusBadge value={ticket.status} />
-                    <StatusBadge value={ticket.priority} />
-                    <StatusBadge value={ticket.sentiment} />
-                    <StatusBadge value={ticket.slaState} />
+                  <div className="flex shrink-0 flex-wrap gap-2">
+                    <DetailBadge value={ticket.status} />
+                    <DetailBadge value={ticket.priority} />
+                    <DetailBadge value={ticket.sentiment} />
+                    <DetailBadge value={ticket.slaState} />
                   </div>
                 </div>
               </div>
             </section>
 
-            <div className="grid gap-5 xl:grid-cols-[1fr_24rem]">
-              <div className="space-y-5">
+            {/* Long tool output must not determine the grid column's minimum width. */}
+            <div className="grid min-w-0 grid-cols-1 gap-5 xl:grid-cols-[minmax(0,1fr)_24rem]">
+              <div className="min-w-0 space-y-5">
                 <DetailCard title="Customer message" icon={Mail}>
-                  <div className="rounded-3xl border border-slate-200 bg-slate-50/80 p-5 text-sm font-semibold leading-7 text-slate-700">
+                  <div className="rounded-3xl border border-slate-200 bg-slate-50/80 p-4 text-sm font-semibold leading-7 text-slate-700 whitespace-pre-wrap [overflow-wrap:anywhere] sm:p-5">
                     {ticket.body}
                   </div>
                 </DetailCard>
@@ -238,24 +251,30 @@ export default function TicketDetailPage() {
                 <DetailCard title="AI response draft" icon={Sparkles}>
                   {draft ? (
                     <div className="space-y-4">
-                      <div className="rounded-3xl border border-slate-200 bg-slate-50/80 p-5 text-sm font-semibold leading-7 text-slate-700 whitespace-pre-wrap">
+                      <div className="rounded-3xl border border-slate-200 bg-slate-50/80 p-4 text-sm font-semibold leading-7 text-slate-700 whitespace-pre-wrap [overflow-wrap:anywhere] sm:p-5">
                         {draft.draft}
                       </div>
 
+                      <div className="rounded-3xl border border-indigo-100 bg-indigo-50/70 p-4 sm:p-5">
+                        <h3 className="text-xs font-black uppercase tracking-wide text-indigo-600">
+                          Response draft reason
+                        </h3>
+                        <p className="mt-2 whitespace-pre-wrap [overflow-wrap:anywhere] text-sm font-semibold leading-7 text-slate-700">
+                          {draft.reason || "No reason provided."}
+                        </p>
+                      </div>
+
                       <div className="flex flex-wrap items-center justify-between gap-3 rounded-3xl bg-violet-50 p-4 text-violet-700 ring-1 ring-violet-100">
-                        <div>
+                        <div className="min-w-0 flex-1 basis-56 [overflow-wrap:anywhere]">
                           <p className="font-black">
                             Human approval required:{" "}
                             {draft.requiresApproval ? "Yes" : "No"}
-                          </p>
-                          <p className="mt-1 text-sm font-semibold">
-                            {draft.reason}
                           </p>
                         </div>
 
                         <button
                           type="button"
-                          className="inline-flex items-center gap-2 rounded-2xl bg-violet-600 px-4 py-3 text-sm font-black text-white shadow-lg shadow-violet-500/20 transition hover:-translate-y-0.5 hover:shadow-xl"
+                          className="inline-flex shrink-0 items-center gap-2 rounded-2xl bg-violet-600 px-4 py-3 text-sm font-black text-white shadow-lg shadow-violet-500/20 transition hover:-translate-y-0.5 hover:shadow-xl"
                         >
                           <Send className="h-4 w-4" />
                           Approve draft
@@ -280,12 +299,16 @@ export default function TicketDetailPage() {
                       {analysisResult.mcpToolResults.map((item) => (
                         <div
                           key={item.tool}
-                          className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4"
+                          className="min-w-0 rounded-2xl border border-slate-200 bg-slate-50/80 p-4"
                         >
-                          <p className="font-black text-slate-900">
+                          <p className="[overflow-wrap:anywhere] font-black text-slate-900">
                             {item.tool}
                           </p>
-                          <pre className="mt-3 max-h-48 overflow-auto rounded-2xl bg-slate-950 p-4 text-xs font-semibold text-slate-100">
+                          <pre
+                            tabIndex={0}
+                            aria-label={`${item.tool} result`}
+                            className="mt-3 w-full min-w-0 max-w-full max-h-48 overflow-auto rounded-2xl bg-slate-950 p-4 text-xs font-semibold text-slate-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                          >
                             {JSON.stringify(item.result, null, 2)}
                           </pre>
                         </div>
@@ -295,11 +318,14 @@ export default function TicketDetailPage() {
                 )}
               </div>
 
-              <aside className="space-y-5">
+              <aside className="min-w-0 space-y-5">
                 <DetailCard title="Ticket metadata" icon={Tag}>
                   <div className="grid gap-3">
                     <FieldRow label="Customer" value={ticket.customer} />
-                    <FieldRow label="Customer email" value={ticket.customerEmail} />
+                    <FieldRow
+                      label="Customer email"
+                      value={ticket.customerEmail}
+                    />
                     <FieldRow label="Category" value={ticket.category} />
                     <FieldRow label="Owner" value={ticket.owner} />
                     <FieldRow label="Updated at" value={ticket.updatedAt} />
@@ -315,19 +341,6 @@ export default function TicketDetailPage() {
                     <FieldRow label="Status" value={ticket.status} />
                   </div>
                 </DetailCard>
-
-                {/* <DetailCard title="Workflow notes" icon={Clock3}>
-                  <div className="space-y-3 text-sm font-semibold leading-6 text-slate-600">
-                    <p>
-                      This page shows the persisted ticket state after the MCP
-                      Host workflow updates the database through MCP tools.
-                    </p>
-                    <p>
-                      The AI model does not directly mutate the database. The
-                      Host workflow calls MCP tools to apply validated changes.
-                    </p>
-                  </div>
-                </DetailCard> */}
               </aside>
             </div>
           </>

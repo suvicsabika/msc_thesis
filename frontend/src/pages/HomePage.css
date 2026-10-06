@@ -1,0 +1,148 @@
+.home-page {
+  display: grid;
+  height: 100dvh;
+  place-items: center;
+  padding: clamp(0.75rem, 2.5vh, 2rem);
+}
+
+.home-content,
+.home-panel {
+  display: grid;
+  gap: clamp(0.75rem, 2.5vh, 1.75rem);
+}
+
+.home-logo {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.home-panel {
+  padding: clamp(1rem, 3vh, 2.5rem);
+}
+
+.home-title {
+  font-size: clamp(1.6rem, 5vw, 3.5rem);
+  line-height: 1.1;
+}
+
+.home-intro {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.home-action {
+  gap: 0.5rem;
+  padding: clamp(0.75rem, 2.5vh, 1.5rem);
+}
+
+.home-action-label {
+  font-size: clamp(0.875rem, 1.8vw, 1.25rem);
+  line-height: 1.3;
+}
+
+.home-explanation {
+  padding: clamp(0.75rem, 2vh, 1.25rem);
+}
+
+.home-description {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.home-benefit-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.home-benefit-title {
+  font-size: 0.875rem;
+  line-height: 1.3;
+}
+
+.home-benefit-description {
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 639px) {
+  .home-description {
+    font-size: 0.75rem;
+  }
+
+  .home-benefit-title {
+    font-size: 0.75rem;
+  }
+
+  .home-benefit-description {
+    font-size: 0.6875rem;
+  }
+}
+
+@media (max-height: 650px) {
+  .home-page {
+    padding: 0.75rem;
+  }
+
+  .home-content,
+  .home-panel {
+    gap: 0.75rem;
+  }
+
+  .home-panel {
+    padding: 0.75rem;
+  }
+
+  .home-logo {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .home-title {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .home-intro {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .home-benefit-icon {
+    margin-bottom: 0.25rem;
+  }
+}
+
+@media (max-height: 650px) and (max-width: 639px) {
+  /* The action buttons already explain both paths on compact phone screens. */
+  .home-intro {
+    display: none;
+  }
+}
+
+@media (max-height: 500px) and (min-width: 640px) {
+  .home-panel {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  .home-hero {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .home-actions {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .home-explanation {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .home-benefits {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}

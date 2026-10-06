@@ -8,12 +8,7 @@ import sys
 
 
 def configure_logging() -> None:
-    """Configure root logging for the backend application.
-
-    The logging configuration writes structured informational and error
-    output to standard error, which is useful for service monitoring and
-    local development.
-    """
+    """Configure root logging for the backend application."""
 
     logging.basicConfig(
         level=logging.INFO,

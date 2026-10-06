@@ -1,4 +1,4 @@
-"""Helpers for building dashboard summaries and trend metrics from ticket records."""
+"""Build dashboard summaries and trend metrics from ticket records."""
 
 from collections import Counter
 from collections.abc import Callable, Sequence
@@ -9,17 +9,19 @@ from app.models.ticket import TicketModel
 from app.schemas.dashboard import (
     DashboardKpis,
     DashboardSummary,
+    DashboardTrendMetric,
+    DashboardTrends,
     PriorityDistribution,
     SentimentBreakdown,
     SlaCountdown,
     WorkflowActivityItem,
-    DashboardTrendMetric,
-    DashboardTrends,
 )
 
 
 def normalize_datetime(value: datetime) -> datetime:
-    """Convert a naive or aware datetime to UTC for consistent comparisons."""
+    """Convert a naive or aware datetime to UTC for consistent
+    comparisons.
+    """
 
     if value.tzinfo is None:
         return value.replace(tzinfo=timezone.utc)
@@ -27,10 +29,13 @@ def normalize_datetime(value: datetime) -> datetime:
     return value.astimezone(timezone.utc)
 
 
-def calculate_change_percent(current_value: int, previous_value: int) -> float | None:
+def calculate_change_percent(
+    current_value: int, previous_value: int
+) -> float | None:
     """Return the percentage change between current and previous values.
 
-    If the previous value is zero, return None to avoid division by zero.
+    If the previous value is zero, return None to avoid division by
+    zero.
     """
 
     if previous_value == 0:
@@ -39,8 +44,10 @@ def calculate_change_percent(current_value: int, previous_value: int) -> float |
     return round(((current_value - previous_value) / previous_value) * 100, 1)
 
 
-def get_trend_direction(change_percent: float | None) -> Literal["up", "down", "flat", "none"]:
-    """Return a simple trend label based on the percentage change value."""
+def get_trend_direction(
+    change_percent: float | None,
+) -> Literal["up", "down", "flat", "none"]:
+    """Return the trend direction for a percentage change."""
 
     if change_percent is None:
         return "none"
@@ -95,7 +102,9 @@ def build_daily_counts(
     start_date: datetime,
     predicate: Callable[[TicketModel], bool],
 ) -> list[int]:
-    """Build daily ticket counts for the next seven days using a predicate."""
+    """Build daily ticket counts for the next seven days using a
+    predicate.
+    """
 
     daily_counts = []
 
@@ -121,7 +130,7 @@ def build_trend_metric(
     predicate: Callable[[TicketModel], bool],
     label: str = "last 7 days vs previous 7 days",
 ) -> DashboardTrendMetric:
-    """Create a dashboard trend metric for a ticket subset over a recent period."""
+    """Calculate a recent trend for tickets matching a predicate."""
     current_start = now - timedelta(days=7)
     previous_start = now - timedelta(days=14)
 
@@ -161,7 +170,7 @@ def build_trend_metric(
 
 
 def build_dashboard_trends(tickets: Sequence[TicketModel]) -> DashboardTrends:
-    """Build the dashboard trend section summarizing ticket changes over time."""
+    """Build dashboard trends from ticket counts over time."""
 
     now = datetime.now(timezone.utc)
 
@@ -189,8 +198,10 @@ def build_dashboard_trends(tickets: Sequence[TicketModel]) -> DashboardTrends:
     )
 
 
-def build_dashboard_summary(tickets: Sequence[TicketModel]) -> DashboardSummary:
-    """Aggregate ticket data into the full dashboard summary response."""
+def build_dashboard_summary(
+    tickets: Sequence[TicketModel],
+) -> DashboardSummary:
+    """Aggregate tickets into the dashboard response."""
 
     priorities = Counter(ticket.priority for ticket in tickets)
     sentiments = Counter(ticket.sentiment for ticket in tickets)

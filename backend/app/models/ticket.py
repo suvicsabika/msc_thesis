@@ -16,16 +16,30 @@ class TicketModel(Base):
     customer: Mapped[str] = mapped_column(String(120), nullable=False)
     customerEmail: Mapped[str] = mapped_column(String(255), nullable=False)
 
-    category: Mapped[str] = mapped_column(String(80), nullable=False, default="General")
-    priority: Mapped[str] = mapped_column(String(20), nullable=False, default="Low")
-    sentiment: Mapped[str] = mapped_column(String(20), nullable=False, default="Neutral")
+    category: Mapped[str] = mapped_column(
+        String(80), nullable=False, default="General"
+    )
+    priority: Mapped[str] = mapped_column(
+        String(20), nullable=False, default="Low"
+    )
+    sentiment: Mapped[str] = mapped_column(
+        String(20), nullable=False, default="Neutral"
+    )
 
     sla: Mapped[str] = mapped_column(String(40), nullable=False, default="1d")
-    slaState: Mapped[str] = mapped_column(String(20), nullable=False, default="safe")
+    slaState: Mapped[str] = mapped_column(
+        String(20), nullable=False, default="safe"
+    )
 
-    status: Mapped[str] = mapped_column(String(40), nullable=False, default="Open")
-    updatedAt: Mapped[str] = mapped_column(String(40), nullable=False, default="Just now")
-    owner: Mapped[str] = mapped_column(String(80), nullable=False, default="Unassigned")
+    status: Mapped[str] = mapped_column(
+        String(40), nullable=False, default="Open"
+    )
+    updatedAt: Mapped[str] = mapped_column(
+        String(40), nullable=False, default="Just now"
+    )
+    owner: Mapped[str] = mapped_column(
+        String(80), nullable=False, default="Unassigned"
+    )
 
     createdAt: Mapped[datetime] = mapped_column(
         DateTime,
