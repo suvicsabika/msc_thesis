@@ -149,3 +149,9 @@ npm.cmd run lint
 npm.cmd run format:check
 npm.cmd run format
 ```
+
+4. Unit testing
+
+```bash
+.\backend\venv\Scripts\python.exe -m unittest discover -s backend/app/tests -v
+```
