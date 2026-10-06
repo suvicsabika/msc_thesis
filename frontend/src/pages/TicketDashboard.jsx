@@ -469,10 +469,11 @@ export default function TicketDashboard() {
       {
         title: "Very High Priority",
         value: dashboardSummary.priorityDistribution.veryHigh.toLocaleString(),
-        // The API's high-priority trend combines High and Very High tickets.
-        helper: "Tickets with very high priority",
+        change: formatTrendChange(trends.highPriorityTickets),
+        helper: trends.highPriorityTickets.label,
         icon: Star,
         tone: "rose",
+        sparkline: trends.highPriorityTickets.sparkline,
       },
       {
         title: "SLA Risk Overview",
