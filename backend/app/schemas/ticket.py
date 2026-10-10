@@ -46,7 +46,7 @@ class TicketRead(BaseModel):
     slaState: TicketSlaState
     status: TicketStatus
     createdAt: datetime
-    updatedAt: str
+    updatedAt: datetime
     owner: str
 
 

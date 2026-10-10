@@ -79,7 +79,7 @@ modern** in Server Settings. A legacy connection uses the old initialization
 handshake and does not verify the 2026-07-28 protocol.
 
 Expected discovery: five tools, one fixed resource (`tickets://index`), five
-resource templates, and two prompts. Ticket-specific resources appear under
+resource templates, and one prompt (`ticket_triage_prompt`). Ticket-specific resources appear under
 **Templates**, not the fixed URI list.
 
 
@@ -89,7 +89,10 @@ resource templates, and two prompts. Ticket-specific resources appear under
 2. FastAPI saves it into SQLite.
 3. The host workflow starts automatically and connects its SDK client over stdio.
  -  SDK v2 discovers the server with `server/discover`; the host verifies protocol 2026-07-28.
-4. The MCP client reads ticket resources from the MCP server.
+4. The MCP client retrieves `ticket_triage_prompt` with `prompts/get`.
+   The server includes the detailed triage rules and raw ticket JSON in the
+   rendered prompt. The host sends its messages to OpenAI alongside the
+   host-level system instruction, preserving the MCP message roles.
 5. OpenAI returns a structured triage decision.
  -  Customer intent is returned by its existing tool but is not yet stored.
  -  A tool error stops the remaining workflow steps; drafts always require human approval.

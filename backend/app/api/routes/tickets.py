@@ -64,7 +64,6 @@ def build_ticket(payload: TicketCreate) -> TicketModel:
         sla="1 day",
         slaState="safe",
         status="Open",
-        updatedAt="Just now",
         owner="Unassigned",
     )
 

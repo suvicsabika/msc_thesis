@@ -16,6 +16,7 @@ from mcp import Client, StdioServerParameters
 from mcp.types import (
     CallToolResult,
     Implementation,
+    PromptMessage,
     TextContent,
     TextResourceContents,
 )
@@ -79,9 +80,14 @@ class TicketMcpClient:
                     "in both host and server."
                 )
             capabilities = client.server_capabilities
-            if capabilities.tools is None or capabilities.resources is None:
+            if (
+                capabilities.tools is None
+                or capabilities.resources is None
+                or capabilities.prompts is None
+            ):
                 raise RuntimeError(
-                    "Ticket MCP Server must provide tools and resources."
+                    "Ticket MCP Server must provide tools, resources, "
+                    "and prompts."
                 )
         except BaseException:
             await client.__aexit__(None, None, None)
@@ -134,6 +140,16 @@ class TicketMcpClient:
         logger.info("MCP resource read completed | uri=%s", uri)
 
         return "\n".join(texts)
+
+    async def get_prompt_messages(
+        self, name: str, arguments: dict[str, str]
+    ) -> list[PromptMessage]:
+        """Retrieve rendered MCP messages for the model request."""
+
+        result = await self.require_client().get_prompt(name, arguments)
+        if not result.messages:
+            raise RuntimeError(f"MCP prompt contains no messages: {name}")
+        return result.messages
 
     async def call_tool(
         self, name: str, arguments: dict[str, Any]

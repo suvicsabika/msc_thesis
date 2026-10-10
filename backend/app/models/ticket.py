@@ -34,8 +34,11 @@ class TicketModel(Base):
     status: Mapped[str] = mapped_column(
         String(40), nullable=False, default="Open"
     )
-    updatedAt: Mapped[str] = mapped_column(
-        String(40), nullable=False, default="Just now"
+    updatedAt: Mapped[datetime] = mapped_column(
+        DateTime,
+        nullable=False,
+        default=lambda: datetime.now(timezone.utc),
+        onupdate=lambda: datetime.now(timezone.utc),
     )
     owner: Mapped[str] = mapped_column(
         String(80), nullable=False, default="Unassigned"

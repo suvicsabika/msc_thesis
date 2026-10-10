@@ -232,7 +232,7 @@ def build_dashboard_summary(
         WorkflowActivityItem(
             ticket=ticket.id,
             text=f"submitted as {ticket.category}",
-            time=ticket.updatedAt,
+            time=ticket.updatedAt.isoformat(),
             color="bg-blue-400",
         )
         for ticket in tickets[:4]

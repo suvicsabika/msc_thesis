@@ -9,9 +9,11 @@ import os
 from pathlib import Path
 
 from dotenv import load_dotenv
+from mcp.types import PromptMessage, TextContent
 from openai import OpenAI
+from openai.types.responses import ResponseInputParam
 
-from app.ai.prompts import TRIAGE_SYSTEM_PROMPT, build_ticket_triage_prompt
+from app.ai.prompts import TRIAGE_SYSTEM_PROMPT
 from app.ai.schemas import TicketTriageDecision
 
 
@@ -46,8 +48,21 @@ def get_analysis_model() -> str:
 
 
 def analyze_ticket_with_openai(
-    ticket_id: str, ticket_json: str
+    ticket_id: str, prompt_messages: list[PromptMessage]
 ) -> TicketTriageDecision:
+    messages: ResponseInputParam = [
+        {"role": "system", "content": TRIAGE_SYSTEM_PROMPT}
+    ]
+    for message in prompt_messages:
+        if not isinstance(message.content, TextContent):
+            raise ValueError(
+                "Ticket triage requires text MCP prompt messages."
+            )
+        messages.append({
+            "role": message.role,
+            "content": message.content.text,
+        })
+
     model = get_analysis_model()
     client = get_openai_client()
 
@@ -59,16 +74,7 @@ def analyze_ticket_with_openai(
 
     response = client.responses.parse(
         model=model,
-        input=[
-            {
-                "role": "system",
-                "content": TRIAGE_SYSTEM_PROMPT,
-            },
-            {
-                "role": "user",
-                "content": build_ticket_triage_prompt(ticket_json),
-            },
-        ],
+        input=messages,
         text_format=TicketTriageDecision,
     )
 

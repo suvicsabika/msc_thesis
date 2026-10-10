@@ -1,8 +1,8 @@
 """Ticket analysis workflow service.
 
 This module represents the Host-side MCP orchestration layer. It
-connects to the local MCP Ticket Server, reads ticket context through
-MCP resources, sends the context to OpenAI for structured triage, and
+connects to the local MCP Ticket Server, retrieves a triage prompt with
+ticket context, sends the messages to OpenAI for structured triage, and
 persists the decision through MCP tool calls.
 """
 
@@ -18,8 +18,8 @@ from app.mcp.client import TicketMcpClient
 
 logger = logging.getLogger(__name__)
 
-MCP_STEP_TIMEOUT_SECONDS = 25
-OPENAI_STEP_TIMEOUT_SECONDS = 60
+MCP_STEP_TIMEOUT_SECONDS = 10
+OPENAI_STEP_TIMEOUT_SECONDS = 15
 StepResult = TypeVar("StepResult")
 
 
@@ -82,8 +82,8 @@ async def analyze_ticket_with_mcp_workflow(
 
     Steps:
     1. Connect over stdio and discover the MCP server using SDK v2.
-    2. Read the raw ticket resource from the MCP server.
-    3. Send the ticket context to OpenAI.
+    2. Retrieve the MCP triage prompt with its ticket context.
+    3. Send the prompt messages to OpenAI.
     4. Receive a structured triage decision.
     5. Persist the decision through MCP tool calls.
     6. Return the decision and tool execution results.
@@ -94,10 +94,10 @@ async def analyze_ticket_with_mcp_workflow(
     async with TicketMcpClient() as mcp_client:
         logger.info("MCP client connected | ticket_id=%s", ticket_id)
 
-        ticket_json = await run_step(
-            label="read_ticket_raw_resource",
-            awaitable=mcp_client.read_resource_text(
-                f"ticket://{ticket_id}/raw"
+        prompt_messages = await run_step(
+            label="get_ticket_triage_prompt",
+            awaitable=mcp_client.get_prompt_messages(
+                "ticket_triage_prompt", {"ticket_id": ticket_id}
             ),
         )
 
@@ -105,7 +105,7 @@ async def analyze_ticket_with_mcp_workflow(
 
         decision = await asyncio.wait_for(
             asyncio.to_thread(
-                analyze_ticket_with_openai, ticket_id, ticket_json
+                analyze_ticket_with_openai, ticket_id, prompt_messages
             ),
             timeout=OPENAI_STEP_TIMEOUT_SECONDS,
         )

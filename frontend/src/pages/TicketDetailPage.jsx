@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   AlertCircle,
@@ -21,6 +21,7 @@ import {
 } from "../apis/ticketsApi";
 import { usePageTitle } from "../hooks/usePageTitle";
 import { useApiResource } from "../hooks/useApiResource";
+import { formatRelativeTime } from "../utils/relativeTime";
 
 function badgeClass(value) {
   const styles = {
@@ -86,6 +87,13 @@ export default function TicketDetailPage() {
 }
 
 function TicketDetails({ ticketId }) {
+  const [now, setNow] = useState(Date.now);
+
+  useEffect(() => {
+    const interval = setInterval(() => setNow(Date.now()), 60_000);
+    return () => clearInterval(interval);
+  }, []);
+
   usePageTitle(`Ticket Details - ${ticketId}`);
 
   const [isAnalyzing, setIsAnalyzing] = useState(false);
@@ -328,7 +336,14 @@ function TicketDetails({ ticketId }) {
                     />
                     <FieldRow label="Category" value={ticket.category} />
                     <FieldRow label="Owner" value={ticket.owner} />
-                    <FieldRow label="Updated at" value={ticket.updatedAt} />
+                    <FieldRow
+                      label="Updated at"
+                      value={
+                        <time dateTime={ticket.updatedAt} title={ticket.updatedAt}>
+                          {formatRelativeTime(ticket.updatedAt, now)}
+                        </time>
+                      }
+                    />
                   </div>
                 </DetailCard>
 

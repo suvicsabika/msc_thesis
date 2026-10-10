@@ -11,6 +11,7 @@ import sys
 import tempfile
 import threading
 import unittest
+from datetime import datetime
 from pathlib import Path
 from unittest.mock import patch
 
@@ -29,7 +30,7 @@ RESOURCE_SUFFIXES = {
     "draft_response",
     "history",
 }
-PROMPT_NAMES = {"ticket_triage_prompt", "response_review_prompt"}
+PROMPT_NAMES = {"ticket_triage_prompt"}
 
 
 class McpContractTests(unittest.TestCase):
@@ -117,6 +118,70 @@ class McpContractTests(unittest.TestCase):
         self.assertEqual(result["resultType"], "complete")
         self.assertGreaterEqual(result["ttlMs"], 0)
         self.assertIn(result["cacheScope"], {"private", "public"})
+
+    def test_updated_at_default_and_automatic_updates(self):
+        from sqlalchemy import DateTime, inspect
+
+        columns = inspect(self.database.engine).get_columns("tickets")
+        column = next(c for c in columns if c["name"] == "updatedAt")
+        self.assertIsInstance(column["type"], DateTime)
+        self.assertFalse(column["nullable"])
+        with self.database.SessionLocal() as db:
+            ticket = db.get(self.ticket_model, "MCP-TEST01")
+            self.assertIsInstance(ticket.updatedAt, datetime)
+            self.assertIsNone(ticket.updatedAt.tzinfo)
+            old_time = datetime(2020, 1, 1, 12)
+            ticket.updatedAt = old_time
+            db.commit()
+            db.refresh(ticket)
+            self.assertEqual(ticket.updatedAt, old_time)
+            ticket.owner = "New owner"
+            db.commit()
+            db.refresh(ticket)
+            self.assertGreater(ticket.updatedAt, old_time)
+            unchanged = ticket.updatedAt
+            db.commit()
+            db.refresh(ticket)
+            self.assertEqual(ticket.updatedAt, unchanged)
+
+    def test_ticket_and_dashboard_timestamp_responses(self):
+        from fastapi.testclient import TestClient
+
+        from app.api.routes import tickets
+        from app.app import app
+
+        payload = {
+            "subject": "Test ticket",
+            "body": "This is a timestamp test ticket.",
+            "customer": "Test Customer",
+            "customerEmail": "test@example.com",
+        }
+        with (
+            TestClient(app) as http,
+            patch.object(tickets, "run_ticket_analysis_background"),
+            patch.dict(os.environ, {"DEBUG": "True"}),
+        ):
+            single = http.post("/api/tickets", json=payload)
+            self.assertEqual(single.status_code, 201, single.text)
+            bulk = http.post("/api/tickets/bulk", json={
+                "tickets": [payload], "analyze": False,
+            })
+            self.assertEqual(bulk.status_code, 201, bulk.text)
+            for ticket in [single.json(), *bulk.json()["tickets"]]:
+                value = datetime.fromisoformat(ticket["updatedAt"])
+                self.assertIsNone(value.tzinfo)
+                detail = http.get(f'/api/tickets/{ticket["id"]}')
+                self.assertEqual(detail.status_code, 200)
+                self.assertEqual(
+                    detail.json()["updatedAt"], ticket["updatedAt"]
+                )
+            self.assertEqual(http.get("/api/tickets").status_code, 200)
+            dashboard = http.get("/api/dashboard/summary")
+            self.assertEqual(dashboard.status_code, 200, dashboard.text)
+            for item in dashboard.json()["workflowActivity"]:
+                self.assertIsNone(
+                    datetime.fromisoformat(item["time"]).tzinfo
+                )
 
     def test_modern_wire_discovery_and_version_errors(self):
         """Discover the server and validate JSON-RPC responses."""
@@ -258,14 +323,17 @@ class McpContractTests(unittest.TestCase):
                 )
                 self.assertEqual(index["tickets"][0]["id"], "MCP-TEST01")
                 for name in PROMPT_NAMES:
-                    result = await client.get_prompt(
+                    messages = await wrapper.get_prompt_messages(
                         name, {"ticket_id": "MCP-TEST01"}
                     )
-                    content = result.messages[0].content
+                    self.assertEqual(messages[0].role, "user")
+                    content = messages[0].content
                     assert isinstance(content, TextContent), (
                         "The prompt must contain text."
                     )
                     self.assertIn("MCP-TEST01", content.text)
+                    self.assertIn("Priority rules:", content.text)
+                    self.assertIn("- Very High: 1h", content.text)
             with self.assertRaisesRegex(RuntimeError, "not connected"):
                 wrapper.require_client()
 
@@ -281,7 +349,10 @@ class McpContractTests(unittest.TestCase):
                 self.workflow.analyze_ticket_with_mcp_workflow("MCP-TEST01")
             )
         llm.assert_called_once()
-        self.assertEqual(json.loads(llm.call_args.args[1])["id"], "MCP-TEST01")
+        message = llm.call_args.args[1][0]
+        self.assertEqual(message.role, "user")
+        ticket_json = message.content.text.split("Ticket JSON:\n", 1)[1]
+        self.assertEqual(json.loads(ticket_json)["id"], "MCP-TEST01")
         self.assertEqual(
             [item["tool"] for item in result.mcpToolResults], TOOL_NAMES
         )
@@ -305,6 +376,37 @@ class McpContractTests(unittest.TestCase):
             draft = db.query(self.draft_model).one()
             self.assertEqual(draft.draft, self.decision.responseDraft)
             self.assertIs(draft.requiresApproval, True)
+
+    def test_openai_request_preserves_mcp_prompt_content_and_roles(self):
+        from unittest.mock import Mock
+
+        from app.ai import openai_client
+        from app.ai.prompts import TRIAGE_SYSTEM_PROMPT
+
+        async def get_messages():
+            async with self.client_type() as wrapper:
+                return await wrapper.get_prompt_messages(
+                    "ticket_triage_prompt", {"ticket_id": "MCP-TEST01"}
+                )
+
+        messages = asyncio.run(get_messages())
+        client = Mock()
+        client.responses.parse.return_value = Mock(
+            output_parsed=self.decision, usage=None, id="test-response"
+        )
+        with patch.object(
+            openai_client, "get_openai_client", return_value=client
+        ):
+            result = openai_client.analyze_ticket_with_openai(
+                "MCP-TEST01", messages
+            )
+        self.assertEqual(result, self.decision)
+        request = client.responses.parse.call_args.kwargs
+        self.assertIs(request["text_format"], self.decision_type)
+        self.assertEqual(request["input"], [
+            {"role": "system", "content": TRIAGE_SYSTEM_PROMPT},
+            {"role": "user", "content": messages[0].content.text},
+        ])
 
     def test_tool_errors_stop_calls_and_enforce_human_approval(self):
         async def scenario():

@@ -13,6 +13,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.db.database import SessionLocal
+from app.mcp.prompts import build_ticket_triage_prompt
 from app.models.response_draft import ResponseDraftModel
 from app.models.ticket import TicketModel
 from app.schemas.types import (
@@ -55,7 +56,7 @@ def serialize_ticket(ticket: TicketModel) -> dict:
         "sla": ticket.sla,
         "slaState": ticket.slaState,
         "status": ticket.status,
-        "updatedAt": ticket.updatedAt,
+        "updatedAt": ticket.updatedAt.isoformat(),
         "owner": ticket.owner,
     }
 
@@ -207,7 +208,7 @@ def ticket_history_resource(ticket_id: str) -> str:
                 "ticketId": ticket.id,
                 "summary": (
                     f"Ticket {ticket.id} is currently {ticket.status}. "
-                    f"The latest update was {ticket.updatedAt}."
+                    f"The latest update was {ticket.updatedAt.isoformat()}."
                 ),
                 "events": [
                     {
@@ -240,7 +241,7 @@ def set_ticket_classification(
         ticket = get_ticket_or_raise(db, ticket_id)
 
         ticket.category = category
-        ticket.updatedAt = "Just now"
+        ticket.updatedAt = datetime.now(timezone.utc)
 
         db.commit()
         db.refresh(ticket)
@@ -266,7 +267,7 @@ def set_ticket_sentiment(
         ticket = get_ticket_or_raise(db, ticket_id)
 
         ticket.sentiment = sentiment
-        ticket.updatedAt = "Just now"
+        ticket.updatedAt = datetime.now(timezone.utc)
 
         db.commit()
         db.refresh(ticket)
@@ -319,7 +320,7 @@ def set_ticket_priority(
         ticket.priority = priority
         ticket.sla = sla
         ticket.slaState = sla_state
-        ticket.updatedAt = "Just now"
+        ticket.updatedAt = datetime.now(timezone.utc)
 
         db.commit()
         db.refresh(ticket)
@@ -370,29 +371,9 @@ def save_response_draft(
 
 @mcp.prompt()
 def ticket_triage_prompt(ticket_id: str) -> str:
-    """Create a reusable triage workflow prompt for a support ticket."""
+    """Build detailed triage instructions with stored ticket context."""
 
-    return (
-        f"Analyze support ticket {ticket_id}. "
-        f"First read ticket://{ticket_id}/raw. "
-        "Then decide the classification, sentiment, intent, priority, "
-        "and response draft. "
-        "Use MCP tools to save the resulting ticket state. "
-        "The response draft must require human approval before it can be sent."
-    )
-
-
-@mcp.prompt()
-def response_review_prompt(ticket_id: str) -> str:
-    """Create a reusable prompt for reviewing a generated response
-    draft.
-    """
-
-    return (
-        f"Review the saved response draft for ticket {ticket_id}. "
-        "Check whether it is accurate, polite, concise, "
-        "and safe to send to the customer."
-    )
+    return build_ticket_triage_prompt(ticket_raw_resource(ticket_id))
 
 
 def main() -> None:

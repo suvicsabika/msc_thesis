@@ -572,10 +572,6 @@ export default function TicketDashboard() {
             <div className="relative flex flex-col gap-6 xl:flex-row xl:items-center xl:justify-between">
               <div className="absolute -right-20 -top-24 h-56 w-56 animate-float rounded-full bg-gradient-to-br from-indigo-400/20 to-fuchsia-400/10 blur-3xl" />
               <div className="relative">
-                <div className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-white/70 px-3 py-1 text-xs font-black uppercase tracking-[0.2em] text-indigo-600 shadow-sm">
-                  <span className="h-2 w-2 animate-pulse rounded-full bg-indigo-500" />
-                  Ticket processing engineer view
-                </div>
                 <h2 className="mt-4 max-w-4xl text-4xl font-black tracking-tight text-slate-950 sm:text-5xl xl:text-6xl">
                   Ticket Overview
                   <span className="bg-gradient-to-r from-blue-600 via-violet-600 to-fuchsia-500 bg-clip-text text-transparent">
