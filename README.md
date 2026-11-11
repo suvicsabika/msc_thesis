@@ -1,160 +1,190 @@
-# MCP Ticket Analyzer Prototype
+# MCP Ticket Analyzer
 
-Full-stack prototype for an MCP-based customer support ticket analyzer.
-
-## Tech Stack
-
-- Frontend: React, Tailwind CSS, Vite
-- Backend: FastAPI, SQLAlchemy, SQLite, Pydantic
-- AI/MCP: official MCP Python SDK 2.3.0 (`MCPServer`, `Client`), MCP protocol 2026-07-28, OpenAI Responses API
+A support ticket triage prototype built with React, FastAPI, SQLite,
+OpenAI Responses API and MCP Python SDK 2.2.0 (protocol 2026-07-28).
+It assigns a category, sentiment, priority and SLA target, then saves a reply draft.
 
 ## Setup
 
+The commands below use Windows PowerShell. Install Python 3.11+ and a Node.js
+version supported by Vite: `^20.19.0 || >=22.12.0`.
+
 ### Backend
 
-```bash
+From the project root:
+
+```powershell
 cd backend
 py -m venv venv
-venv\Scripts\python.exe -m pip install -r requirements.txt
+.\venv\Scripts\python.exe -m pip install -r requirements-dev.txt
 ```
 
-Requires Python 3.10 or newer. Create backend/app/.env:
+This installs the app, notebook dependencies and lint tools.
+Create `app/.env` inside the `backend` folder with:
 
-```bash
+```dotenv
 OPENAI_API_KEY=your_openai_api_key_here
-OPENAI_MODEL=gpt-4.1-nano
+OPENAI_MODEL=gpt-6-luna
 ```
 
-Run backend manually:
+From the `backend` folder, start the API:
 
-```bash
-venv\Scripts\python.exe -m uvicorn app.app:app --reload --port 8000
+```powershell
+.\venv\Scripts\python.exe -m uvicorn app.app:app --reload --port 8000
 ```
 
-### API docs:
-
-```bash
-http://localhost:8000/docs
-```
+The API documentation is at [localhost:8000/docs](http://localhost:8000/docs).
 
 ### Frontend
 
-```bash
+Open another terminal at the project root:
+
+```powershell
 cd frontend
-npm install
-npm run dev
+npm.cmd ci
+npm.cmd run dev
 ```
 
-Frontend URL:
+Open [localhost:5173](http://localhost:5173). The frontend uses
+`http://localhost:8000` by default; `VITE_API_BASE_URL` overrides it.
 
-```bash
-http://localhost:5173
-```
+After setup, `run_all.ps1` starts the backend, frontend and MCP Inspector together:
 
-Run Everything from the project root:
-
-```bash
+```powershell
 .\run_all.ps1
 ```
 
-If PowerShell *blocks* the script:
-
-```bash
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\run_all.ps1
-```
+If PowerShell blocks the script, run
+`Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` in that terminal first.
 
 ### MCP Inspector
 
-From the backend folder:
+To start the Inspector separately, run from `backend`:
 
-```bash
-+.\venv\Scripts\Activate.ps1
-npx @modelcontextprotocol/inspector --config .\mcp.inspector.json --server ticket
- ```
- 
-The configuration selects the Inspector's **modern** protocol era. When launching
-the Inspector with a positional Python command instead, select **Protocol Era:
-modern** in Server Settings. A legacy connection uses the old initialization
-handshake and does not verify the 2026-07-28 protocol.
-
-Expected discovery: five tools, one fixed resource (`tickets://index`), five
-resource templates, and one prompt (`ticket_triage_prompt`). Ticket-specific resources appear under
-**Templates**, not the fixed URI list.
-
-
-### Main Workflow
-
-1. User creates a support ticket.
-2. FastAPI saves it into SQLite.
-3. The host workflow starts automatically and connects its SDK client over stdio.
- -  SDK v2 discovers the server with `server/discover`; the host verifies protocol 2026-07-28.
-4. The MCP client retrieves `ticket_triage_prompt` with `prompts/get`.
-   The server includes the detailed triage rules and raw ticket JSON in the
-   rendered prompt. The host sends its messages to OpenAI alongside the
-   host-level system instruction, preserving the MCP message roles.
-5. OpenAI returns a structured triage decision.
- -  Customer intent is returned by its existing tool but is not yet stored.
- -  A tool error stops the remaining workflow steps; drafts always require human approval.
-
-6. MCP tools persist category, sentiment, priority, SLA, and draft response.
-7. The dashboard and ticket detail page show the updated result.
-
-### Main Endpoints
-
-```bash
-GET  /api/health
-GET  /api/tickets
-POST /api/tickets
-POST /api/tickets/bulk  # DEBUG=True required
-GET  /api/tickets/{ticket_id}
-POST /api/tickets/{ticket_id}/analyze
-GET  /api/tickets/{ticket_id}/draft
-GET  /api/dashboard/summary
+```powershell
+.\venv\Scripts\Activate.ps1
+npx.cmd @modelcontextprotocol/inspector --config .\mcp.inspector.json --server mcp-ticket-analyzer
 ```
 
-#### Miscellaneous
+The config uses the modern protocol era. The server exposes four tools,
+`tickets://index`, five resource templates and `ticket_triage_prompt`.
+Ticket-specific resources appear under **Templates**.
 
-CLI commands that I frequently used during the Development: 
+## How analysis works
 
-1. Ruff checkings:
+1. Creating a ticket starts analysis in the background. Existing tickets can be
+   analyzed again from the dashboard or detail page.
+2. The host connects to the MCP server over stdio and discovers its tools,
+   resources and prompt.
+3. The model reads ticket data through `read_mcp_resource`, a host adapter for
+   MCP resource reads.
+4. The model chooses the order of the four saving tools: category, sentiment,
+   priority/SLA and reply draft.
+5. The host checks that the final decision matches the saved values and returns
+   the result to the frontend.
 
-```bash
-cd backend
+The host validates arguments, limits access to the current ticket and rejects
+repeated saves. The raw ticket resource must be read before any writes.
+If a step fails, the run stops; earlier writes remain saved.
 
-# Check for issues without changing files
-.\venv\Scripts\python.exe -m ruff check app
+Timeouts are defined in [timeouts.py](backend/app/core/timeouts.py):
 
-# Check formatting without changing files
-.\venv\Scripts\python.exe -m ruff format --check app
-To apply fixes and formatting:
-# Apply available safe lint fixes
-.\venv\Scripts\python.exe -m ruff check app --fix
+| Operation | Limit |
+| --- | --- |
+| MCP requests, model requests and workflow steps | 60 s |
+| SQLite lock waits and Git metadata lookup | 60 s |
+| Complete analysis | 300 s |
+| Evaluation HTTP connection / response read | 60 / 360 s |
 
-# Format the code
-.\venv\Scripts\python.exe -m ruff format app
+The MCP SDK has a separate 10-second discovery limit. Each analysis allows
+up to 12 model rounds, and bulk analysis runs at most three tickets concurrently.
+
+## Evaluation
+
+Open the notebooks in VS Code and select the backend virtual environment as
+the Python kernel.
+
+| Notebook | Purpose |
+| --- | --- |
+| [MCP evaluation](backend/app/validation/ticket_classification_evaluation.ipynb) | Three runs of the 100-ticket reference dataset through MCP |
+| [Direct evaluation](backend/app/validation/ticket_classification_evaluation_direct.ipynb) | The same workflow using Python calls without MCP transport |
+| [Comparison](backend/app/validation/ticket_classification_comparison.ipynb) | Compare the saved results from both methods |
+
+Leave `RUN_ANALYSIS=False` to rebuild reports without model requests.
+The comparison notebook only reads saved experiments.
+It compares accuracy, macro-F1, latency, token usage, estimated costs and
+recorded resource/write counts.
+
+[evaluation_runner.py](backend/app/validation/evaluation_runner.py) collects
+responses; [evaluation_reporting.py](backend/app/validation/evaluation_reporting.py)
+builds reports and estimates costs from recorded tokens.
+Responses are kept in each run's `results.json`. Missing token usage stays missing,
+and costs use standard uncached rates recorded in the reporting module.
+
+The saved runs do not contain exact model/API request counts or component timings.
+Latency covers a complete `/analyze` request, including model rounds and local
+processing. Differences between methods cannot be attributed entirely to MCP.
+
+### Collecting new runs
+
+Set `EXPERIMENT_DIR` to a new folder in the relevant evaluation notebook and
+check `OPENAI_MODEL` before collecting. Start the backend from the project root:
+
+```powershell
+$env:DEBUG = "True"
+.\backend\venv\Scripts\python.exe -m uvicorn app.app:app --app-dir backend --host 127.0.0.1 --port 8001
 ```
 
-2. Uploading maximum 100 test ticket data as a bulk creation (to populate the DB with data quickly):
+Set `RUN_ANALYSIS=True` in that notebook and run all cells. For direct evaluation,
+you can also run this command in another terminal at the project root:
 
-```bash
-Invoke-RestMethod `
-  -Uri "http://localhost:8000/api/tickets/bulk" `
-  -Method Post `
-  -ContentType "application/json" `
-  -InFile ".\backend\app\data\bulk_tickets_100.json"
+```powershell
+.\backend\venv\Scripts\python.exe backend/app/validation/run_direct_evaluation.py --collect
 ```
 
-3. Lint checks via npm
+Each evaluation notebook collects 3 x 100 analyses and makes paid model requests.
+Existing attempts are reused, and failed attempts are not retried automatically.
+Switch `RUN_ANALYSIS` back to `False` afterward. Update `EXPERIMENTS` in the
+comparison notebook to point to the new folders when comparing new runs.
 
-```bash
-npm.cmd run lint
-npm.cmd run format:check
-npm.cmd run format
-```
+## SLA rules and prototype limits
 
-4. Unit testing
+Priority sets the SLA target: Low = `1 day`, Medium = `12h`, High = `4h`,
+Very High = `1h`. Writes and final decisions reject mismatched values.
 
-```bash
+The frontend calculates deadlines from `createdAt` and the SLA duration.
+Unresolved tickets are **Due Soon** during the final 20% of their SLA window
+and **At Risk** once overdue. Counts and colors refresh every minute.
+High Priority counts include High and Very High tickets.
+
+The SLA trend uses currently unresolved tickets, rather than a historical breach
+log. `resolvedToday` uses the last update date as a proxy for resolution time.
+The history resource returns a creation/current-status summary, not an event log.
+Drafts require human review, but the **Approve draft** button has no action yet.
+
+## Development checks
+
+From the project root:
+
+```powershell
+.\backend\venv\Scripts\python.exe -m ruff check backend/app
+.\backend\venv\Scripts\python.exe -m ruff format --check backend/app
 .\backend\venv\Scripts\python.exe -m unittest discover -s backend/app/tests -v
 ```
+
+From `frontend`:
+
+```powershell
+npm.cmd run lint
+npm.cmd run format:check
+npm.cmd test
+npm.cmd run build
+```
+
+To apply formatting, remove `--check` from the Ruff formatting command above,
+or run `npm.cmd run format` from `frontend`.
+
+The sample bulk-upload payload is
+[bulk_tickets_100.json](backend/app/validation/bulk_tickets_100.json).
+`POST /api/tickets/bulk` requires `DEBUG=True`; the supplied payload uses
+`analyze=false`, so uploading it does not start model requests.

@@ -6,7 +6,7 @@ from pydantic import BaseModel
 class DashboardKpis(BaseModel):
     openTickets: int
     highPriorityTickets: int
-    slaAtRiskTickets: int
+    veryHighPriorityTickets: int
     negativeSentimentTickets: int
     resolvedToday: int
 
@@ -23,12 +23,6 @@ class SentimentBreakdown(BaseModel):
     neutral: int
     positive: int
     unknown: int
-
-
-class SlaCountdown(BaseModel):
-    atRisk: int
-    dueSoon: int
-    onTrack: int
 
 
 class WorkflowActivityItem(BaseModel):
@@ -48,7 +42,7 @@ class DashboardTrendMetric(BaseModel):
 class DashboardTrends(BaseModel):
     openTickets: DashboardTrendMetric
     highPriorityTickets: DashboardTrendMetric
-    slaAtRiskTickets: DashboardTrendMetric
+    veryHighPriorityTickets: DashboardTrendMetric
     negativeSentimentTickets: DashboardTrendMetric
 
 
@@ -56,6 +50,5 @@ class DashboardSummary(BaseModel):
     kpis: DashboardKpis
     priorityDistribution: PriorityDistribution
     sentimentBreakdown: SentimentBreakdown
-    slaCountdown: SlaCountdown
     workflowActivity: list[WorkflowActivityItem]
     trends: DashboardTrends

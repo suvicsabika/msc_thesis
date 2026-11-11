@@ -7,7 +7,6 @@ from pydantic import BaseModel, ConfigDict, EmailStr, Field
 from app.schemas.types import (
     TicketPriority,
     TicketSentiment,
-    TicketSlaState,
     TicketStatus,
 )
 
@@ -43,7 +42,6 @@ class TicketRead(BaseModel):
     priority: TicketPriority
     sentiment: TicketSentiment
     sla: str
-    slaState: TicketSlaState
     status: TicketStatus
     createdAt: datetime
     updatedAt: datetime

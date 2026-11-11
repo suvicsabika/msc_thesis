@@ -1,23 +1,27 @@
-"""OpenAI integration for ticket triage.
-
-This host-side AI module calls the OpenAI Responses API and returns
-structured ticket triage decisions to the application workflow.
-"""
+"""OpenAI requests for the host's model-directed MCP workflow."""
 
 import logging
 import os
 from pathlib import Path
+from typing import Any, cast
 
 from dotenv import load_dotenv
-from mcp.types import PromptMessage, TextContent
-from openai import OpenAI
-from openai.types.responses import ResponseInputParam
+from openai import AsyncOpenAI
+from openai.types.responses import (
+    FunctionToolParam,
+    Response,
+    ResponseInputItemParam,
+    ResponseInputParam,
+    ResponseOutputItem,
+)
 
-from app.ai.prompts import TRIAGE_SYSTEM_PROMPT
 from app.ai.schemas import TicketTriageDecision
+from app.core.timeouts import OPERATION_TIMEOUT_SECONDS
 
 
 logger = logging.getLogger(__name__)
+
+Conversation = list[ResponseInputItemParam | ResponseOutputItem]
 
 APP_DIR = Path(__file__).resolve().parents[1]
 try:
@@ -28,8 +32,8 @@ except (OSError, ValueError):
     )
 
 
-def get_openai_client() -> OpenAI:
-    """Create an OpenAI client using configured credentials."""
+def get_openai_client() -> AsyncOpenAI:
+    """Create an asynchronous client with explicit workflow timeouts."""
 
     api_key = os.getenv("OPENAI_API_KEY") or os.getenv("OPENAI_ADMIN_KEY")
     if not api_key:
@@ -38,83 +42,63 @@ def get_openai_client() -> OpenAI:
             "Configure OPENAI_API_KEY on the server."
         )
 
-    return OpenAI(api_key=api_key)
+    return AsyncOpenAI(
+        api_key=api_key, max_retries=0, timeout=OPERATION_TIMEOUT_SECONDS
+    )
 
 
 def get_analysis_model() -> str:
-    """Return the OpenAI model name to use for ticket analysis."""
+    """Return the configured ticket analysis model."""
 
-    return os.getenv("OPENAI_MODEL", "gpt-4.1-nano")
+    return os.getenv("OPENAI_MODEL", "gpt-6-luna")
 
 
-def analyze_ticket_with_openai(
-    ticket_id: str, prompt_messages: list[PromptMessage]
-) -> TicketTriageDecision:
-    messages: ResponseInputParam = [
-        {"role": "system", "content": TRIAGE_SYSTEM_PROMPT}
+def to_openai_tools(tools: list[dict[str, Any]]) -> list[FunctionToolParam]:
+    """Adapt discovered MCP definitions to OpenAI function tools."""
+
+    return [
+        {
+            "type": "function",
+            "name": tool["name"],
+            "description": tool.get("description", ""),
+            "parameters": tool["inputSchema"],
+            # Keep arbitrary MCP schemas; the host validates arguments.
+            "strict": False,
+        }
+        for tool in tools
     ]
-    for message in prompt_messages:
-        if not isinstance(message.content, TextContent):
-            raise ValueError(
-                "Ticket triage requires text MCP prompt messages."
-            )
-        messages.append({
-            "role": message.role,
-            "content": message.content.text,
-        })
 
-    model = get_analysis_model()
-    client = get_openai_client()
 
+async def request_ticket_step(
+    client: AsyncOpenAI,
+    ticket_id: str,
+    messages: Conversation,
+    tools: list[FunctionToolParam],
+) -> Response:
+    """Request calls or a final decision in the same conversation."""
+
+    response = await client.responses.create(
+        model=get_analysis_model(),
+        # Output models are valid inputs despite the dict-only SDK type.
+        input=cast(ResponseInputParam, messages),
+        tools=tools,
+        tool_choice="auto",
+        parallel_tool_calls=True,
+        text={
+            "format": {
+                "type": "json_schema",
+                "name": "ticket_triage_decision",
+                "schema": TicketTriageDecision.model_json_schema(),
+                "strict": True,
+            }
+        },
+    )
+    usage = response.usage
     logger.info(
-        "Sending ticket triage request to OpenAI | ticket_id=%s | model=%s",
+        "OpenAI workflow step completed | ticket_id=%s | response_id=%s "
+        "| total_tokens=%s",
         ticket_id,
-        model,
+        response.id,
+        usage.total_tokens if usage is not None else None,
     )
-
-    response = client.responses.parse(
-        model=model,
-        input=messages,
-        text_format=TicketTriageDecision,
-    )
-
-    usage = getattr(response, "usage", None)
-
-    if usage is not None:
-        logger.info(
-            "OpenAI response received | ticket_id=%s | response_id=%s "
-            "| input_tokens=%s | output_tokens=%s | total_tokens=%s",
-            ticket_id,
-            getattr(response, "id", None),
-            getattr(usage, "input_tokens", None),
-            getattr(usage, "output_tokens", None),
-            getattr(usage, "total_tokens", None),
-        )
-    else:
-        logger.info(
-            "OpenAI response received | ticket_id=%s | response_id=%s "
-            "| usage=unavailable",
-            ticket_id,
-            getattr(response, "id", None),
-        )
-
-    if response.output_parsed is None:
-        logger.error(
-            "OpenAI response did not contain parsed structured output "
-            "| ticket_id=%s",
-            ticket_id,
-        )
-        raise RuntimeError(
-            "OpenAI response did not contain parsed structured output."
-        )
-
-    logger.info(
-        "OpenAI structured triage parsed | ticket_id=%s | category=%s "
-        "| sentiment=%s | priority=%s",
-        ticket_id,
-        response.output_parsed.category,
-        response.output_parsed.sentiment,
-        response.output_parsed.priority,
-    )
-
-    return response.output_parsed
+    return response

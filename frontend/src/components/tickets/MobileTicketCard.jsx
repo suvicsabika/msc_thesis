@@ -4,7 +4,7 @@ import { PriorityBadge } from "./PriorityBadge";
 import { SentimentBadge } from "./SentimentBadge";
 import { StatusBadge } from "./StatusBadge";
 import { SlaTimer } from "./SlaTimer";
-export function MobileTicketCard({ ticket }) {
+export function MobileTicketCard({ ticket, now }) {
   return (
     <article className="relative overflow-hidden rounded-3xl border border-white/70 bg-white/80 p-4 shadow-lg shadow-slate-200/70 transition duration-300 hover:-translate-y-1 hover:shadow-xl md:hidden">
       <div className="absolute -right-10 -top-12 h-28 w-28 rounded-full bg-gradient-to-br from-blue-400/20 to-violet-400/10 blur-2xl" />
@@ -33,7 +33,7 @@ export function MobileTicketCard({ ticket }) {
         <SentimentBadge value={ticket.sentiment} />
         <StatusBadge value={ticket.status} />
         <span className="ml-auto">
-          <SlaTimer value={ticket.sla} state={ticket.slaState} />
+          <SlaTimer ticket={ticket} now={now} />
         </span>
       </div>
     </article>

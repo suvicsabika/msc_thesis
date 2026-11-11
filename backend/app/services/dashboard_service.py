@@ -13,7 +13,6 @@ from app.schemas.dashboard import (
     DashboardTrends,
     PriorityDistribution,
     SentimentBreakdown,
-    SlaCountdown,
     WorkflowActivityItem,
 )
 
@@ -169,10 +168,10 @@ def build_trend_metric(
     )
 
 
-def build_dashboard_trends(tickets: Sequence[TicketModel]) -> DashboardTrends:
+def build_dashboard_trends(
+    tickets: Sequence[TicketModel], now: datetime
+) -> DashboardTrends:
     """Build dashboard trends from ticket counts over time."""
-
-    now = datetime.now(timezone.utc)
 
     return DashboardTrends(
         openTickets=build_trend_metric(
@@ -185,10 +184,10 @@ def build_dashboard_trends(tickets: Sequence[TicketModel]) -> DashboardTrends:
             now=now,
             predicate=lambda ticket: ticket.priority in ["High", "Very High"],
         ),
-        slaAtRiskTickets=build_trend_metric(
+        veryHighPriorityTickets=build_trend_metric(
             tickets=tickets,
             now=now,
-            predicate=lambda ticket: ticket.slaState == "critical",
+            predicate=lambda ticket: ticket.priority == "Very High",
         ),
         negativeSentimentTickets=build_trend_metric(
             tickets=tickets,
@@ -200,12 +199,20 @@ def build_dashboard_trends(tickets: Sequence[TicketModel]) -> DashboardTrends:
 
 def build_dashboard_summary(
     tickets: Sequence[TicketModel],
+    now: datetime | None = None,
 ) -> DashboardSummary:
     """Aggregate tickets into the dashboard response."""
 
+    now = normalize_datetime(now or datetime.now(timezone.utc))
+    day_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
+    # There is no separate resolution timestamp in the current model.
+    resolved_today = sum(
+        ticket.status == "Resolved"
+        and day_start <= normalize_datetime(ticket.updatedAt) <= now
+        for ticket in tickets
+    )
     priorities = Counter(ticket.priority for ticket in tickets)
     sentiments = Counter(ticket.sentiment for ticket in tickets)
-    sla_states = Counter(ticket.slaState for ticket in tickets)
     statuses = Counter(ticket.status for ticket in tickets)
 
     priority_distribution = PriorityDistribution(
@@ -222,12 +229,6 @@ def build_dashboard_summary(
         unknown=0,
     )
 
-    sla_countdown = SlaCountdown(
-        atRisk=sla_states["critical"],
-        dueSoon=sla_states["warning"],
-        onTrack=sla_states["safe"],
-    )
-
     workflow_activity = [
         WorkflowActivityItem(
             ticket=ticket.id,
@@ -241,14 +242,13 @@ def build_dashboard_summary(
     return DashboardSummary(
         kpis=DashboardKpis(
             openTickets=len(tickets) - statuses["Resolved"],
-            highPriorityTickets=priorities["High"],
-            slaAtRiskTickets=sla_states["critical"],
+            highPriorityTickets=priorities["High"] + priorities["Very High"],
+            veryHighPriorityTickets=priorities["Very High"],
             negativeSentimentTickets=sentiments["Negative"],
-            resolvedToday=statuses["Resolved"],
+            resolvedToday=resolved_today,
         ),
         priorityDistribution=priority_distribution,
         sentimentBreakdown=sentiment_breakdown,
-        slaCountdown=sla_countdown,
         workflowActivity=workflow_activity,
-        trends=build_dashboard_trends(tickets),
+        trends=build_dashboard_trends(tickets, now),
     )

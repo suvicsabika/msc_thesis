@@ -1,14 +1,10 @@
-"""Host-side MCP client for the local Ticket MCP Server over stdio.
-
-The SDK manages server discovery and subprocess lifetime. This wrapper
-validates server capabilities and exposes text resources and tool
-results.
-"""
+"""MCP client for the local ticket server over stdio."""
 
 import logging
 import os
 import sys
 from pathlib import Path
+from types import TracebackType
 from typing import Any
 
 from dotenv import load_dotenv
@@ -20,6 +16,8 @@ from mcp.types import (
     TextContent,
     TextResourceContents,
 )
+
+from app.core.timeouts import OPERATION_TIMEOUT_SECONDS
 
 
 logger = logging.getLogger(__name__)
@@ -64,7 +62,7 @@ class TicketMcpClient:
         client = Client(
             server_params,
             mode="auto",
-            read_timeout_seconds=25.0,
+            read_timeout_seconds=OPERATION_TIMEOUT_SECONDS,
             client_info=Implementation(
                 name="mcp-ticket-analyzer-host", version="0.1.0"
             ),
@@ -102,7 +100,12 @@ class TicketMcpClient:
 
         return self
 
-    async def __aexit__(self, exc_type, exc_value, traceback) -> None:
+    async def __aexit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc_value: BaseException | None,
+        traceback: TracebackType | None,
+    ) -> None:
         """Close the SDK client in the task that opened it."""
 
         client = self.require_client()
@@ -117,15 +120,36 @@ class TicketMcpClient:
         logger.info("MCP client connection closed")
 
     def require_client(self) -> Client:
-        """Return the connected SDK client or fail before issuing a
-        request.
-        """
         if self.client is None:
             raise RuntimeError("MCP client is not connected.")
         return self.client
 
+    async def discover_catalog(self) -> dict[str, list[dict[str, Any]]]:
+        """Read all pages of tool and resource definitions."""
+
+        client = self.require_client()
+        catalog = {}
+        for key, method in (
+            ("tools", client.list_tools),
+            ("resources", client.list_resources),
+            ("resourceTemplates", client.list_resource_templates),
+        ):
+            items = []
+            cursor = None
+            while True:
+                result = await method(cursor=cursor)
+                payload = result.model_dump(
+                    mode="json", by_alias=True, exclude_none=True
+                )
+                items.extend(payload[key])
+                if result.next_cursor is None:
+                    break
+                cursor = result.next_cursor
+            catalog[key] = items
+        return catalog
+
     async def read_resource_text(self, uri: str) -> str:
-        """Read a string URI and return the resource's text contents."""
+        """Return the resource's text contents."""
 
         logger.info("Reading MCP resource | uri=%s", uri)
 
@@ -173,7 +197,5 @@ class TicketMcpClient:
 
     @staticmethod
     def serialize_tool_result(result: CallToolResult) -> dict[str, Any]:
-        """Keep MCP's camelCase JSON aliases for the REST API and
-        frontend.
-        """
+        """Keep MCP's JSON aliases for the REST API."""
         return result.model_dump(mode="json", by_alias=True, exclude_none=True)

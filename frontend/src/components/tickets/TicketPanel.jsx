@@ -8,6 +8,7 @@ import { StatusBadge } from "./StatusBadge";
 import { SlaTimer } from "./SlaTimer";
 export function TicketPanel({
   tickets,
+  now,
   query,
   onQueryChange,
   activeFilter,
@@ -97,7 +98,7 @@ export function TicketPanel({
         <>
           <div className="space-y-3 md:hidden">
             {tickets.map((ticket) => (
-              <MobileTicketCard key={ticket.id} ticket={ticket} />
+              <MobileTicketCard key={ticket.id} ticket={ticket} now={now} />
             ))}
           </div>
 
@@ -153,7 +154,7 @@ export function TicketPanel({
                     </td>
 
                     <td className="whitespace-nowrap px-3 py-4">
-                      <SlaTimer value={ticket.sla} state={ticket.slaState} />
+                      <SlaTimer ticket={ticket} now={now} />
                     </td>
 
                     <td className="whitespace-nowrap px-3 py-4">

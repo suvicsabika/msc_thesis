@@ -6,6 +6,7 @@ import { useTickets } from "../hooks/useTickets";
 import { useDashboardSummary } from "../hooks/useDashboardSummary";
 import { usePageTitle } from "../hooks/usePageTitle";
 import { formatRelativeTime } from "../utils/relativeTime";
+import { buildSlaSummary } from "../utils/sla";
 import { cn } from "../utils/cn";
 import "./TicketDashboard.css";
 
@@ -20,7 +21,7 @@ const fallbackDashboardSummary = {
   kpis: {
     openTickets: 0,
     highPriorityTickets: 0,
-    slaAtRiskTickets: 0,
+    veryHighPriorityTickets: 0,
     negativeSentimentTickets: 0,
     resolvedToday: 0,
   },
@@ -36,15 +37,10 @@ const fallbackDashboardSummary = {
     positive: 0,
     unknown: 0,
   },
-  slaCountdown: {
-    atRisk: 0,
-    dueSoon: 0,
-    onTrack: 0,
-  },
   trends: {
     openTickets: emptyTrend,
     highPriorityTickets: emptyTrend,
-    slaAtRiskTickets: emptyTrend,
+    veryHighPriorityTickets: emptyTrend,
     negativeSentimentTickets: emptyTrend,
   },
 };
@@ -420,7 +416,10 @@ export default function TicketDashboard() {
     ...(dashboardSummary.priorityDistribution ?? {}),
   };
   const sentimentStats = dashboardSummary.sentimentBreakdown;
-  const slaCountdown = dashboardSummary.slaCountdown;
+  const { countdown: slaCountdown, riskTrend: slaRiskTrend } = useMemo(
+    () => buildSlaSummary(tickets, now),
+    [tickets, now],
+  );
   // The tickets endpoint already orders submissions newest first.
   const workflowActivity = tickets.slice(0, 4).map((ticket) => ({
     ticket: ticket.id,
@@ -468,21 +467,21 @@ export default function TicketDashboard() {
       },
       {
         title: "Very High Priority",
-        value: dashboardSummary.priorityDistribution.veryHigh.toLocaleString(),
-        change: formatTrendChange(trends.highPriorityTickets),
-        helper: trends.highPriorityTickets.label,
+        value: dashboardSummary.kpis.veryHighPriorityTickets.toLocaleString(),
+        change: formatTrendChange(trends.veryHighPriorityTickets),
+        helper: trends.veryHighPriorityTickets.label,
         icon: Star,
         tone: "rose",
-        sparkline: trends.highPriorityTickets.sparkline,
+        sparkline: trends.veryHighPriorityTickets.sparkline,
       },
       {
         title: "SLA Risk Overview",
-        value: dashboardSummary.kpis.slaAtRiskTickets.toLocaleString(),
-        change: formatTrendChange(trends.slaAtRiskTickets),
-        helper: trends.slaAtRiskTickets.label,
+        value: slaCountdown.atRisk.toLocaleString(),
+        change: formatTrendChange(slaRiskTrend),
+        helper: slaRiskTrend.label,
         icon: AlertTriangle,
         tone: "amber",
-        sparkline: trends.slaAtRiskTickets.sparkline,
+        sparkline: slaRiskTrend.sparkline,
       },
       {
         title: "Negative Sentiment",
@@ -494,7 +493,7 @@ export default function TicketDashboard() {
         sparkline: trends.negativeSentimentTickets.sparkline,
       },
     ];
-  }, [dashboardSummary]);
+  }, [dashboardSummary, slaCountdown.atRisk, slaRiskTrend]);
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-[radial-gradient(circle_at_top_left,#dbeafe_0,transparent_30%),radial-gradient(circle_at_top_right,#f5d0fe_0,transparent_28%),linear-gradient(135deg,#f8fafc_0%,#eef2ff_44%,#fff7ed_100%)] text-slate-900">
@@ -586,7 +585,10 @@ export default function TicketDashboard() {
                 </p>
               </div>
 
-              <Panel title="SLA Countdown" subtitle="Risk-sensitive workload">
+              <Panel
+                title="SLA Countdown"
+                subtitle="Open tickets: overdue, final 20%, within target"
+              >
                 <div className="grid grid-cols-3 gap-3">
                   <SlaBox
                     value={slaCountdown.atRisk}
@@ -631,6 +633,7 @@ export default function TicketDashboard() {
           <div className="mt-5 min-w-0">
             <TicketPanel
               tickets={filteredTickets}
+              now={now}
               query={query}
               onQueryChange={setQuery}
               activeFilter={activeFilter}

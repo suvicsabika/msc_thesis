@@ -3,6 +3,7 @@
 import asyncio
 import logging
 import os
+from typing import Literal
 from uuid import uuid4
 
 from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, status
@@ -10,6 +11,8 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.ai.schemas import TicketAnalysisWorkflowResult
+from app.core.ticket_policy import SLA_BY_PRIORITY
+from app.core.timeouts import ANALYSIS_TIMEOUT_SECONDS
 from app.db.database import get_db
 from app.models.response_draft import ResponseDraftModel
 from app.models.ticket import TicketModel
@@ -29,7 +32,6 @@ logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/tickets", tags=["tickets"])
 
-ANALYSIS_TIMEOUT_SECONDS = 90
 BULK_ANALYSIS_CONCURRENCY = 3
 
 
@@ -61,8 +63,7 @@ def build_ticket(payload: TicketCreate) -> TicketModel:
         category=payload.category,
         priority="Low",
         sentiment="Neutral",
-        sla="1 day",
-        slaState="safe",
+        sla=SLA_BY_PRIORITY["Low"],
         status="Open",
         owner="Unassigned",
     )
@@ -227,18 +228,31 @@ def create_tickets_bulk(
 @router.post(
     "/{ticket_id}/analyze",
     response_model=TicketAnalysisWorkflowResult,
-    summary="Analyze a ticket with MCP",
-    description="Runs the MCP Host workflow manually for a selected ticket.",
+    summary="Analyze a ticket",
+    description=(
+        "Runs the model-directed workflow for a selected ticket. "
+        "Select transport=direct for Python calls without MCP."
+    ),
 )
 async def analyze_ticket(
     ticket_id: str,
     db: Session = Depends(get_db),
+    transport: Literal["mcp", "direct"] = "mcp",
 ) -> TicketAnalysisWorkflowResult:
-    """Run MCP analysis synchronously for one ticket."""
+    """Run analysis using the selected operation transport."""
 
     get_ticket_or_404(ticket_id, db)
 
     try:
+        if transport == "direct":
+            from app.services.direct_ticket_client import (
+                analyze_ticket_with_direct_workflow,
+            )
+
+            return await asyncio.wait_for(
+                analyze_ticket_with_direct_workflow(ticket_id),
+                timeout=ANALYSIS_TIMEOUT_SECONDS,
+            )
         return await run_ticket_analysis(ticket_id)
     except asyncio.TimeoutError as exc:
         raise HTTPException(

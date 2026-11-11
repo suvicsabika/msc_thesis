@@ -3,6 +3,7 @@ from datetime import datetime, timezone
 from sqlalchemy import DateTime, String, Text
 from sqlalchemy.orm import Mapped, mapped_column
 
+from app.core.ticket_policy import SLA_BY_PRIORITY
 from app.db.database import Base
 
 
@@ -26,9 +27,8 @@ class TicketModel(Base):
         String(20), nullable=False, default="Neutral"
     )
 
-    sla: Mapped[str] = mapped_column(String(40), nullable=False, default="1d")
-    slaState: Mapped[str] = mapped_column(
-        String(20), nullable=False, default="safe"
+    sla: Mapped[str] = mapped_column(
+        String(40), nullable=False, default=SLA_BY_PRIORITY["Low"]
     )
 
     status: Mapped[str] = mapped_column(

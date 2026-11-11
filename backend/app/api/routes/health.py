@@ -13,5 +13,5 @@ def health_check() -> dict[str, str]:
     return {
         "status": "ok",
         "service": "mcp-ticket-analyzer-api",
-        "version": "2.2.0",  # Second Semester - 2nd version (based on the commits)
+        "version": "2.2.0",
     }

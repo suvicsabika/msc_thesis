@@ -10,6 +10,11 @@ from pathlib import Path
 from sqlalchemy import create_engine, event
 from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 
+from app.core.timeouts import (
+    OPERATION_TIMEOUT_SECONDS,
+    SQLITE_BUSY_TIMEOUT_MILLISECONDS,
+)
+
 
 APP_DIR = Path(__file__).resolve().parents[1]
 DATABASE_PATH = APP_DIR / "mcp_ticket_analyzer.db"
@@ -24,18 +29,18 @@ engine = create_engine(
     DATABASE_URL,
     connect_args={
         "check_same_thread": False,
-        "timeout": 30,
+        "timeout": OPERATION_TIMEOUT_SECONDS,
     },
 )
 
 
 @event.listens_for(engine, "connect")
 def configure_sqlite_connection(dbapi_connection, connection_record) -> None:
-    """Enable WAL and wait up to 30 seconds for concurrent writes."""
+    """Enable WAL and apply the shared operation limit to lock waits."""
 
     cursor = dbapi_connection.cursor()
     cursor.execute("PRAGMA journal_mode=WAL")
-    cursor.execute("PRAGMA busy_timeout=30000")
+    cursor.execute(f"PRAGMA busy_timeout={SQLITE_BUSY_TIMEOUT_MILLISECONDS}")
     cursor.close()
 
 

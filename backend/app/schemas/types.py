@@ -14,12 +14,5 @@ TicketCategory = Literal[
 ]
 TicketSentiment = Literal["Negative", "Neutral", "Positive"]
 TicketPriority = Literal["Low", "Medium", "High", "Very High"]
-TicketSlaState = Literal["critical", "warning", "safe"]
+TicketSla = Literal["1 day", "12h", "4h", "1h"]
 TicketStatus = Literal["Open", "In Progress", "Resolved"]
-TicketIntent = Literal[
-    "Issue report",
-    "Billing question",
-    "How-to request",
-    "Feature request",
-    "General inquiry",
-]

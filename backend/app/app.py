@@ -37,7 +37,7 @@ def create_app() -> FastAPI:
             "FastAPI backend for the MCP-based "
             "customer support ticket analyzer."
         ),
-        version="2.2.0",  # Second Semester - 2nd version (based on the commits)
+        version="2.2.0",
         lifespan=lifespan,
     )
 

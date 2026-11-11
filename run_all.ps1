@@ -17,6 +17,8 @@ if (-not (Test-Path $pythonPath)) {
     exit 1
 }
 
+$pythonDirectory = Split-Path -Parent $pythonPath
+
 Start-Process powershell -ArgumentList @(
     "-NoExit",
     "-Command",
@@ -26,7 +28,7 @@ Start-Process powershell -ArgumentList @(
 Start-Process powershell -ArgumentList @(
     "-NoExit",
     "-Command",
-    "Set-Location -LiteralPath '$backendPath'; `$env:PATH = '$pythonDirectory' + [IO.Path]::PathSeparator + `$env:PATH; npx @modelcontextprotocol/inspector --config .\mcp.inspector.json --server ticket"
+    "Set-Location -LiteralPath '$backendPath'; `$env:PATH = '$pythonDirectory' + [IO.Path]::PathSeparator + `$env:PATH; npx @modelcontextprotocol/inspector --config .\mcp.inspector.json --server mcp-ticket-analyzer"
 )
 
 Start-Process powershell -ArgumentList @(
