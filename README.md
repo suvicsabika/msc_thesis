@@ -187,4 +187,12 @@ or run `npm.cmd run format` from `frontend`.
 The sample bulk-upload payload is
 [bulk_tickets_100.json](backend/app/validation/bulk_tickets_100.json).
 `POST /api/tickets/bulk` requires `DEBUG=True`; the supplied payload uses
-`analyze=false`, so uploading it does not start model requests.
+`analyze=false`, so uploading it does not start model requests:
+
+```powershell
+Invoke-RestMethod `
+  -Uri "http://localhost:8000/api/tickets/bulk" `
+  -Method Post `
+  -ContentType "application/json" `
+  -InFile ".\backend\app\data\bulk_tickets_100.json"
+```
