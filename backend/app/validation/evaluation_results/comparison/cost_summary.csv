@@ -1,0 +1,2 @@
+method,runs,tickets_with_usage,tickets_without_usage,estimated_total_cost_usd,mean_run_cost_usd,std_run_cost_usd,mean_ticket_cost_usd
+MCP,3,300,0,0.4284966,0.1428322,0.0010071822625523205,0.001428322

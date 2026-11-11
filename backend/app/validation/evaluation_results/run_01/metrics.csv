@@ -1,0 +1,4 @@
+run,task,total,successful,coverage,accuracy,macro_precision,macro_recall,macro_f1,correct_over_total
+run_01,category,100,100,1.0,0.94,0.9367521367521369,0.9345238095238094,0.9323295769920872,0.94
+run_01,sentiment,100,100,1.0,1.0,1.0,1.0,1.0,1.0
+run_01,priority,100,100,1.0,0.87,0.8959256796690307,0.874124649859944,0.8788443876018233,0.87

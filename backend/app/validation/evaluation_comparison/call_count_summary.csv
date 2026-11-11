@@ -1,0 +1,3 @@
+method,successful_tickets,resource_reads,saving_operations,reads_per_ticket,saves_per_ticket
+Direct Python,300,305,1200,1.0166666666666666,4.0
+MCP,300,305,1200,1.0166666666666666,4.0

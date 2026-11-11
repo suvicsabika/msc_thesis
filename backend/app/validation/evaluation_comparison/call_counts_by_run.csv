@@ -1,0 +1,7 @@
+method,run,successful_tickets,resource_reads,saving_operations
+MCP,run_01,100,102,400
+MCP,run_02,100,102,400
+MCP,run_03,100,101,400
+Direct Python,run_01,100,101,400
+Direct Python,run_02,100,103,400
+Direct Python,run_03,100,101,400

@@ -1,0 +1,4 @@
+method,run,usage_available_tickets,usage_missing_tickets,observed_input_tokens,observed_output_tokens,pricing_model,pricing_date,input_usd_per_million,output_usd_per_million,estimated_input_cost_usd,estimated_output_cost_usd,estimated_total_cost_usd,mean_ticket_cost_usd
+Direct Python,run_01,100,0,901055,104993,gpt-6-luna,2026-11-11,0.1,0.5,0.0901055,0.0524965,0.142602,0.00142602
+Direct Python,run_02,100,0,909148,105618,gpt-6-luna,2026-11-11,0.1,0.5,0.0909148,0.052809,0.1437238,0.0014372380000000002
+Direct Python,run_03,100,0,903591,106306,gpt-6-luna,2026-11-11,0.1,0.5,0.09035910000000001,0.053153,0.1435121,0.0014351210000000001

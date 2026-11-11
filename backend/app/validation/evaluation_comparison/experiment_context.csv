@@ -1,0 +1,3 @@
+method,model,collection_date_utc,concurrency,retained_runs,original_runs,retained_successes,attempts_in_retained_runs,previous_failed_attempts,source_hash
+MCP,gpt-6-luna,2026-11-10,3,3,3,300,300,0,4ab33f4ef6a0
+Direct Python,gpt-6-luna,2026-11-10,3,3,3,300,301,1,4ab33f4ef6a0

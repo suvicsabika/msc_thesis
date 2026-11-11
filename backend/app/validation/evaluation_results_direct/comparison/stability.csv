@@ -1,0 +1,4 @@
+task,all_runs_agree,changed_between_runs,agreement_rate
+category,96,4,0.96
+sentiment,100,0,1.0
+priority,95,5,0.95

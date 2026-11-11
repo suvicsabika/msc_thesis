@@ -1,0 +1,2 @@
+run,successful,failed,missing_or_interrupted,run_wall_seconds,wall_time_complete,timed_tickets,latency_mean_seconds,latency_std_seconds,latency_median_seconds,latency_p95_seconds,usage_available_tickets,usage_missing_tickets,observed_input_tokens,mean_input_tokens_where_available,observed_output_tokens,mean_output_tokens_where_available,observed_total_tokens,mean_total_tokens_where_available
+run_03,100,0,0,675.9855749999988,True,100,19.93695115199991,7.901613119235553,17.069233299999723,35.83204999500112,100,0,899367,8993.67,103553,1035.53,1002920,10029.2

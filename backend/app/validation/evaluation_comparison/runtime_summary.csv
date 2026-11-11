@@ -1,0 +1,5 @@
+,Latency per attempt (s),Latency per attempt (s),Tickets with token usage,Tickets with token usage,Tickets without token usage,Tickets without token usage,Run wall time (s),Run wall time (s),Input tokens per ticket,Input tokens per ticket,Output tokens per ticket,Output tokens per ticket,Total tokens per ticket,Total tokens per ticket
+,mean,std,mean,std,mean,std,mean,std,mean,std,mean,std,mean,std
+method,,,,,,,,,,,,,,
+Direct Python,15.558161667999988,0.5472113713443982,100.0,0.0,0.0,0.0,531.8135555333332,8.107811948577666,9045.98,41.39408049467952,1056.39,6.567518557263377,10102.37,43.68933622750536
+MCP,17.616624519999927,2.0173962458966166,100.0,0.0,0.0,0.0,594.2697638666663,71.2450642197976,9033.519999999999,35.38489932160344,1049.9399999999998,13.08211374358137,10083.460000000001,48.43488721985412

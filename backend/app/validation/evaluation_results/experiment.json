@@ -1,0 +1,35 @@
+{
+  "settings": {
+    "dataset_hash": "8f508500f562a5fa32ee16fa58cf39bc3cc623f4e44240cd6e0a65a6cadffd8c",
+    "backend_source_hash": "4ab33f4ef6a0e13338d253da8a0677ff4057e92530368be803fcd13a149bacdf",
+    "backend_commit": "d82bbbb930be4b725119f0406195e5ac6ba932af",
+    "model": "gpt-6-luna",
+    "experiment_note": "Revised 100-ticket dataset; three fresh MCP runs; no automatic retries",
+    "labels": {
+      "category": [
+        "General",
+        "Access",
+        "Billing",
+        "API",
+        "Bug",
+        "Feature Request",
+        "Performance"
+      ],
+      "sentiment": [
+        "Negative",
+        "Neutral",
+        "Positive"
+      ],
+      "priority": [
+        "Low",
+        "Medium",
+        "High",
+        "Very High"
+      ]
+    },
+    "base_url": "http://127.0.0.1:8001",
+    "concurrency": 3,
+    "n_runs": 3
+  },
+  "created_at": "2026-11-10T22:19:45.555792+00:00"
+}

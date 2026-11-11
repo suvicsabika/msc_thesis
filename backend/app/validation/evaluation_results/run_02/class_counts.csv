@@ -1,0 +1,15 @@
+task,label,count
+category,General,12
+category,Access,16
+category,Billing,16
+category,API,16
+category,Bug,16
+category,Feature Request,12
+category,Performance,12
+sentiment,Negative,28
+sentiment,Neutral,54
+sentiment,Positive,18
+priority,Low,42
+priority,Medium,34
+priority,High,16
+priority,Very High,8

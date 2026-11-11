@@ -1,0 +1,1202 @@
+[
+  {
+    "id": "SCORE-001",
+    "subject": "Login redirects back to the sign-in page",
+    "body": "Since this morning, three members of our finance team are redirected to sign-in after entering a valid password. We have tried another browser and a password reset without success. We cannot access the reporting workspace needed for daily reconciliation, although colleagues in other departments can sign in. This has become very frustrating.",
+    "customer": "Evaluation Customer 001",
+    "customerEmail": "evaluation.customer.001@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-002",
+    "subject": "Email verification codes arrive after they expire",
+    "body": "The email verification code for my account arrives about fifteen minutes after I request it, when it has already expired. I can still sign in using a recovery code and have enough codes for the next few days. Could you check email delivery for my account?",
+    "customer": "Evaluation Customer 002",
+    "customerEmail": "evaluation.customer.002@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Neutral",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-003",
+    "subject": "Invite an external accountant with read-only access",
+    "body": "We would like to invite our accountant to view the billing workspace without allowing changes to records. Which role should we choose, and can that role be limited to one workspace?",
+    "customer": "Evaluation Customer 003",
+    "customerEmail": "evaluation.customer.003@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-004",
+    "subject": "Shared report opens with permission denied",
+    "body": "I am disappointed that I still cannot open the report my manager shared yesterday. I can open our other reports, and my manager has sent me a PDF so I can continue reviewing the figures. Could you check the sharing permission on this report?",
+    "customer": "Evaluation Customer 004",
+    "customerEmail": "evaluation.customer.004@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-005",
+    "subject": "Subscription payment appears twice on my statement",
+    "body": "I am unhappy to see two settled payments of EUR 29 for the same subscription period. Our account is active and the payment dates are both visible on the bank statement. Please review the duplicate and explain how it will be corrected.",
+    "customer": "Evaluation Customer 005",
+    "customerEmail": "evaluation.customer.005@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-006",
+    "subject": "Download an older invoice",
+    "body": "Our accountant needs the invoice issued in August. The billing page currently shows the last three invoices. Is there an archive where I can download the older PDF?",
+    "customer": "Evaluation Customer 006",
+    "customerEmail": "evaluation.customer.006@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-007",
+    "subject": "Compare storage allowances before upgrading",
+    "body": "We are very happy with the current plan, especially how clearly storage usage is displayed. Could you explain whether the next tier increases storage per user or per workspace? We are considering an upgrade next quarter.",
+    "customer": "Evaluation Customer 007",
+    "customerEmail": "evaluation.customer.007@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Positive",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-008",
+    "subject": "Review a renewal after a cancellation request",
+    "body": "The subscription renewed on November 1, and a cancellation request appears in our account history from October 28. I would like someone to check whether the cancellation was submitted for the correct renewal date. The service is still available while we review this.",
+    "customer": "Evaluation Customer 008",
+    "customerEmail": "evaluation.customer.008@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Neutral",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-009",
+    "subject": "Active API key now returns 401 for reporting integration",
+    "body": "Our reporting integration has received HTTP 401 on every request since yesterday despite the key remaining active in the console. Rotating the key and checking its scopes did not help. Customer account reports are no longer being refreshed, and we have no alternative way to retrieve the required data. I am frustrated by this regression.",
+    "customer": "Evaluation Customer 009",
+    "customerEmail": "evaluation.customer.009@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-010",
+    "subject": "Production order webhooks have stopped arriving",
+    "body": "No order.created webhooks have reached either of our two production receivers for the last hour. Both receivers pass their health checks, and the delivery log shows no attempts. Our order-processing queue is stopped because it depends on these events. Please investigate the production delivery service.",
+    "customer": "Evaluation Customer 010",
+    "customerEmail": "evaluation.customer.010@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Neutral",
+      "priority": "Very High"
+    }
+  },
+  {
+    "id": "SCORE-011",
+    "subject": "Use a continuation cursor with a filtered API request",
+    "body": "I can retrieve the first page of contacts with a status filter. When following the continuation cursor, should I send the same filter parameters again or only the cursor? An example request would help.",
+    "customer": "Evaluation Customer 011",
+    "customerEmail": "evaluation.customer.011@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-012",
+    "subject": "Unexpected 429 responses during a small batch import",
+    "body": "We are frustrated that a batch of forty requests receives HTTP 429 even though the documented allowance is much higher. The requests succeed when we send smaller batches with a delay, so the import can continue that way. Please check the limit applied to this endpoint.",
+    "customer": "Evaluation Customer 012",
+    "customerEmail": "evaluation.customer.012@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-013",
+    "subject": "Changes to an optional note do not persist",
+    "body": "When I edit the internal note on an archived contact, the form closes but the old note reappears when I reopen it. Changes to the contact name and phone number save correctly. I can add the information as a comment in the meantime; this affects one record.",
+    "customer": "Evaluation Customer 013",
+    "customerEmail": "evaluation.customer.013@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Neutral",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-014",
+    "subject": "CSV export fails for everyone in our workspace",
+    "body": "CSV export now fails with an error for every user and every report in our workspace. The same reports open normally, but neither a smaller date range nor another browser produces a download. We need these files for customer analysis and cannot obtain them elsewhere. I am disappointed that this essential function has stopped working.",
+    "customer": "Evaluation Customer 014",
+    "customerEmail": "evaluation.customer.014@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-015",
+    "subject": "Spelling mistake in a notification setting",
+    "body": "The description below the weekly summary toggle says recieve instead of receive. The toggle saves normally and the emails arrive as expected. I wanted to report the wording issue.",
+    "customer": "Evaluation Customer 015",
+    "customerEmail": "evaluation.customer.015@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-016",
+    "subject": "Record updates disappear for an entire project",
+    "body": "For the customer onboarding project, edits to any record disappear as soon as the page refreshes. All six project members can reproduce this with both new and existing records, and neither another browser nor the bulk editor saves the changes. We can still view the existing records and work in our other projects. Please investigate the project save operation.",
+    "customer": "Evaluation Customer 016",
+    "customerEmail": "evaluation.customer.016@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Neutral",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-017",
+    "subject": "Dark theme for evening use",
+    "body": "The application has been excellent for our team, and I particularly like the clear layout. A dark theme would make evening use more comfortable. Please consider it for a future release.",
+    "customer": "Evaluation Customer 017",
+    "customerEmail": "evaluation.customer.017@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Positive",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-018",
+    "subject": "Export only the records selected in a list",
+    "body": "Please consider an option to export the checked records instead of the entire filtered list. At present we export the list and remove the extra rows in a spreadsheet. This is a convenience request for occasional use.",
+    "customer": "Evaluation Customer 018",
+    "customerEmail": "evaluation.customer.018@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-019",
+    "subject": "Support another SAML identity provider",
+    "body": "We are exploring a different identity provider for a possible rollout next year. Our existing sign-in method works for the current team. Is native support for that provider something you would consider adding?",
+    "customer": "Evaluation Customer 019",
+    "customerEmail": "evaluation.customer.019@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-020",
+    "subject": "Dashboard takes twenty seconds to open",
+    "body": "I am frustrated by the dashboard taking around twenty seconds to load on each first visit. The record lists and editor open normally, and returning to the dashboard in the same session is faster. We can still use the application, but switching to the dashboard interrupts our work.",
+    "customer": "Evaluation Customer 020",
+    "customerEmail": "evaluation.customer.020@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-021",
+    "subject": "All production integration requests are timing out",
+    "body": "Every request from our production integration has timed out for the last twenty minutes, including simple reads. This is happening from both of our network locations, and the business workflow using this integration has stopped. We are extremely dissatisfied with the interruption and need the service investigated immediately.",
+    "customer": "Evaluation Customer 021",
+    "customerEmail": "evaluation.customer.021@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Negative",
+      "priority": "Very High"
+    }
+  },
+  {
+    "id": "SCORE-022",
+    "subject": "Monthly report generation takes five minutes",
+    "body": "The monthly report with about 80,000 rows takes between five and six minutes to finish. It completes with the correct totals, and we can continue using other pages while it runs. We currently schedule it before our review meeting; could you check whether the generation time can be reduced?",
+    "customer": "Evaluation Customer 022",
+    "customerEmail": "evaluation.customer.022@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Neutral",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-023",
+    "subject": "Change the company address on the account profile",
+    "body": "Where can a workspace administrator update the company address displayed on our account profile? This is a change of office location rather than a request to alter an existing invoice.",
+    "customer": "Evaluation Customer 023",
+    "customerEmail": "evaluation.customer.023@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-024",
+    "subject": "Keep security notices but stop weekly summaries",
+    "body": "I really appreciate having separate notification controls; they have made our inbox much easier to manage. Could you point me to the setting that disables weekly summaries while keeping sign-in security notices enabled?",
+    "customer": "Evaluation Customer 024",
+    "customerEmail": "evaluation.customer.024@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Positive",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-025",
+    "subject": "Confirmation that the login issue is resolved",
+    "body": "The login problem from my previous ticket is resolved, and I have signed in successfully several times today. I am very pleased with how quickly you helped. Thank you for the clear explanation as well.",
+    "customer": "Evaluation Customer 025",
+    "customerEmail": "evaluation.customer.025@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Positive",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-026",
+    "subject": "Project access changed unexpectedly after a role update",
+    "body": "I am frustrated that changing my department role removed access to one project I still work on. My other projects remain available, and a teammate can provide the files needed for this week while we sort out the permissions. Could you check which group grants access to that project?",
+    "customer": "Evaluation Customer 026",
+    "customerEmail": "evaluation.customer.026@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-027",
+    "subject": "Administrator account shows an unfamiliar MFA device",
+    "body": "Our administrator account now lists an MFA device that nobody on our team registered. The audit page also shows a successful sign-in from an unfamiliar location followed by changes to workspace permissions. We still have a second administrator account. Please help us contain the suspected account compromise.",
+    "customer": "Evaluation Customer 027",
+    "customerEmail": "evaluation.customer.027@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Neutral",
+      "priority": "Very High"
+    }
+  },
+  {
+    "id": "SCORE-028",
+    "subject": "Choose a guest role for a short collaboration",
+    "body": "The guest-access guide was very helpful, and we are pleased that we can limit what collaborators see. For a two-week review, can a guest comment on a shared project without being able to invite other users?",
+    "customer": "Evaluation Customer 028",
+    "customerEmail": "evaluation.customer.028@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Positive",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-029",
+    "subject": "One invitation link is already expired when opened",
+    "body": "A new colleague receives an expired-link message when opening the invitation sent yesterday. Invitations to the other new starters worked. The administrator can issue a fresh invitation, but we would like to know why this particular link expired before it was used.",
+    "customer": "Evaluation Customer 029",
+    "customerEmail": "evaluation.customer.029@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Neutral",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-030",
+    "subject": "VAT number is missing from a new invoice",
+    "body": "The invoice issued today uses the correct company name but does not show the VAT number stored in our billing profile. The amount is correct and our payment has gone through. Please check whether the PDF can be reissued with the existing VAT number.",
+    "customer": "Evaluation Customer 030",
+    "customerEmail": "evaluation.customer.030@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Neutral",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-031",
+    "subject": "Replace the card used for future renewals",
+    "body": "Our company card will expire in two months. Where should the billing administrator enter its replacement so that future renewals use the new card?",
+    "customer": "Evaluation Customer 031",
+    "customerEmail": "evaluation.customer.031@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-032",
+    "subject": "Question about moving to annual billing",
+    "body": "We are comparing monthly and annual subscriptions for next year. Could you explain when the annual payment would be collected and how the unused part of the current monthly period is handled?",
+    "customer": "Evaluation Customer 032",
+    "customerEmail": "evaluation.customer.032@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-033",
+    "subject": "Renewal invoice is ten times the agreed amount",
+    "body": "I am very concerned that the renewal invoice shows EUR 18,000 instead of the EUR 1,800 in our signed order. The same incorrect amount is scheduled for collection in two days. Our account is working, but this is a substantial billing discrepancy and we need the amount checked before collection.",
+    "customer": "Evaluation Customer 033",
+    "customerEmail": "evaluation.customer.033@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-034",
+    "subject": "Webhook retries produce duplicate deliveries",
+    "body": "When our receiver returns HTTP 503 once, the same event can later arrive twice with the same event ID. We can handle this by deduplicating IDs, so processing continues. Could you confirm whether this retry behavior is expected and check the delivery log for the example event?",
+    "customer": "Evaluation Customer 034",
+    "customerEmail": "evaluation.customer.034@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Neutral",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-035",
+    "subject": "Contact creation endpoint fails for every request",
+    "body": "The contact creation endpoint returns HTTP 500 for every valid request in our account, including the minimal example from your documentation. Reads and the other endpoints still work. Our customer-import service cannot create any contacts, and there is no supported alternative for this integration. Please investigate this endpoint.",
+    "customer": "Evaluation Customer 035",
+    "customerEmail": "evaluation.customer.035@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Neutral",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-036",
+    "subject": "Clarify which header carries the next-page cursor",
+    "body": "The API examples have been excellent and helped us get our integration running smoothly. In the new list endpoint, should the next-page cursor be read from the response body or from a header? I would appreciate one clarification before finishing the client.",
+    "customer": "Evaluation Customer 036",
+    "customerEmail": "evaluation.customer.036@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Positive",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-037",
+    "subject": "Sandbox rate limit appears lower than documented",
+    "body": "I am disappointed that our sandbox receives rate-limit responses after only a few test requests. Sending one request every two seconds works, and our live integration is unaffected. Please check the allowance associated with this sandbox key.",
+    "customer": "Evaluation Customer 037",
+    "customerEmail": "evaluation.customer.037@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-038",
+    "subject": "Chart groups records under the wrong local date",
+    "body": "I am frustrated that the activity chart places late-evening records under the following day. The record timestamps and CSV export are correct, so we can use the export for now. The issue occurs when the workspace display timezone is set to Europe/Budapest.",
+    "customer": "Evaluation Customer 038",
+    "customerEmail": "evaluation.customer.038@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-039",
+    "subject": "Attachments cannot be opened by any workspace user",
+    "body": "Every attachment in our document-review workspace returns an error when opened or downloaded. All reviewers are affected, including administrators, and the original files are not available through another application. Record text and comments remain accessible. Please investigate access to the stored attachments.",
+    "customer": "Evaluation Customer 039",
+    "customerEmail": "evaluation.customer.039@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Neutral",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-040",
+    "subject": "Calendar button displays the wrong icon",
+    "body": "The button that opens the date picker now shows a folder icon. It still opens the calendar, and selecting a date saves correctly. I noticed this on the desktop version after the latest update.",
+    "customer": "Evaluation Customer 040",
+    "customerEmail": "evaluation.customer.040@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-041",
+    "subject": "Sorting by amount puts some rows in the wrong order",
+    "body": "I am unhappy that sorting the invoice list by amount produces an inconsistent order when values contain decimals. The amounts themselves are correct, and exporting the rows and sorting them in a spreadsheet works. Could you check the list sorting behavior?",
+    "customer": "Evaluation Customer 041",
+    "customerEmail": "evaluation.customer.041@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-042",
+    "subject": "Schedule a report to be emailed each Monday",
+    "body": "We would like an option to email a saved report automatically each Monday morning. At the moment we generate and email it manually, which works for our small team. Please consider scheduled delivery as an enhancement.",
+    "customer": "Evaluation Customer 042",
+    "customerEmail": "evaluation.customer.042@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-043",
+    "subject": "Keyboard shortcuts for moving between tabs",
+    "body": "I love how quickly we can navigate the new layout. Keyboard shortcuts for moving between record tabs would make it even more convenient. This is a suggestion for a future usability update.",
+    "customer": "Evaluation Customer 043",
+    "customerEmail": "evaluation.customer.043@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Positive",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-044",
+    "subject": "Group-based role assignment for recurring onboarding",
+    "body": "Our administrators currently assign roles individually to about fifty new colleagues each month. The manual process works, but it takes several hours and delays the onboarding team. We would like group-based role assignment to reduce that recurring workload.",
+    "customer": "Evaluation Customer 044",
+    "customerEmail": "evaluation.customer.044@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Neutral",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-045",
+    "subject": "Search takes forty seconds during customer calls",
+    "body": "I am very dissatisfied with every customer search taking thirty to forty seconds across our support team. Searching is our main way to locate the account during a call, and there is no equivalent lookup available to us. Results do eventually arrive, but the delay is seriously affecting customer conversations.",
+    "customer": "Evaluation Customer 045",
+    "customerEmail": "evaluation.customer.045@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-046",
+    "subject": "Production document retrieval times out across regions",
+    "body": "Document retrieval requests from both production regions have timed out continuously for fifteen minutes. Our customer portal cannot display any documents and the related customer-service operation has stopped. The same small test document times out from both regions. Please investigate the retrieval service.",
+    "customer": "Evaluation Customer 046",
+    "customerEmail": "evaluation.customer.046@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Neutral",
+      "priority": "Very High"
+    }
+  },
+  {
+    "id": "SCORE-047",
+    "subject": "Large export is slower than several smaller exports",
+    "body": "Exporting a full year of audit records takes about eight minutes, while exporting one month takes under twenty seconds. The annual export finishes and the files contain the expected records. We can combine monthly files for now; could you check whether the larger export can be optimized?",
+    "customer": "Evaluation Customer 047",
+    "customerEmail": "evaluation.customer.047@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Neutral",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-048",
+    "subject": "Find the workspace branding settings",
+    "body": "The onboarding materials were excellent and made our setup straightforward. We are very pleased with the workspace so far. Where can an administrator upload the company logo shown on the home page?",
+    "customer": "Evaluation Customer 048",
+    "customerEmail": "evaluation.customer.048@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Positive",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-049",
+    "subject": "Where are support hours and holiday dates listed?",
+    "body": "We are preparing an internal contact guide for colleagues in several countries. Where can we find your standard support hours and the published holiday schedule?",
+    "customer": "Evaluation Customer 049",
+    "customerEmail": "evaluation.customer.049@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-050",
+    "subject": "Thanks for explaining the invoice adjustment",
+    "body": "Your explanation of the invoice adjustment answered our accountant's questions, and the corrected PDF is now on file. We are very happy with the assistance and do not need any further changes to that invoice.",
+    "customer": "Evaluation Customer 050",
+    "customerEmail": "evaluation.customer.050@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Positive",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-051",
+    "subject": "Tablet session ends while the desktop session stays active",
+    "body": "My account signs out on the tablet after a few minutes, although the desktop session remains active. I can finish the same tasks on the desktop. Please check whether the tablet session is subject to a different session policy.",
+    "customer": "Evaluation Customer 051",
+    "customerEmail": "evaluation.customer.051@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Neutral",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-052",
+    "subject": "Password reset links fail for the billing operators",
+    "body": "All three of our billing operators receive an invalid-token message when using a newly issued password reset link. They cannot access the billing administration console, while other roles sign in normally. We have retried from separate browsers without success. This is frustrating because the operators have no alternative access to their account-management work.",
+    "customer": "Evaluation Customer 052",
+    "customerEmail": "evaluation.customer.052@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-053",
+    "subject": "Understand the difference between editor and reviewer roles",
+    "body": "We are documenting our internal permission policy. Could you explain whether a reviewer can change record fields or only leave comments, and whether an editor can manage workspace membership?",
+    "customer": "Evaluation Customer 053",
+    "customerEmail": "evaluation.customer.053@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-054",
+    "subject": "Access to one new project has not appeared yet",
+    "body": "We are very happy with how easy the new project setup has been. My membership appears on the administrator page, but one newly created project still does not appear in my project list. I can use the other projects and a colleague has shared the information I need for today. Could you check that membership?",
+    "customer": "Evaluation Customer 054",
+    "customerEmail": "evaluation.customer.054@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Positive",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-055",
+    "subject": "Removed seats are still included on this month's invoice",
+    "body": "I am disappointed to see three seats that we removed last month still listed on the new invoice. The removal dates are visible in the account history. Our subscription remains usable, but please review the seat calculation before the next invoice is issued.",
+    "customer": "Evaluation Customer 055",
+    "customerEmail": "evaluation.customer.055@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-056",
+    "subject": "Understand a prorated credit on an upgrade",
+    "body": "We are pleased with how clearly the billing page explains our plan changes. Could you help us understand which dates are included in the prorated credit shown after yesterday's upgrade? The total is not being disputed; our accountant wants to record it correctly.",
+    "customer": "Evaluation Customer 056",
+    "customerEmail": "evaluation.customer.056@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Positive",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-057",
+    "subject": "Change the person receiving billing emails",
+    "body": "Our finance contact has changed. How can the account administrator replace the email address that receives invoice and renewal notifications without changing the address used to sign in?",
+    "customer": "Evaluation Customer 057",
+    "customerEmail": "evaluation.customer.057@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-058",
+    "subject": "Incorrect seat rate affects several open invoices",
+    "body": "Four open invoices use a per-seat rate of EUR 150 instead of the EUR 15 stated in our order. Together the difference is over EUR 20,000, and the first invoice is due this week. The seat counts are correct. Please review the rate applied to these invoices before our finance team approves them.",
+    "customer": "Evaluation Customer 058",
+    "customerEmail": "evaluation.customer.058@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Neutral",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-059",
+    "subject": "Documented timestamp format receives HTTP 400",
+    "body": "I am frustrated that the timestamp example in the API guide is rejected with HTTP 400 on the activity endpoint. Removing the fractional seconds makes the request succeed, so we can continue importing data. Please check the accepted format and the example in the guide.",
+    "customer": "Evaluation Customer 059",
+    "customerEmail": "evaluation.customer.059@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-060",
+    "subject": "API response contains records from another organization",
+    "body": "We are very concerned that a request authenticated with our organization's API key returned customer records belonging to a different organization. We reproduced this twice with different record IDs and have stopped our integration to avoid processing those records. This appears to expose tenant-private data and needs immediate investigation.",
+    "customer": "Evaluation Customer 060",
+    "customerEmail": "evaluation.customer.060@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Negative",
+      "priority": "Very High"
+    }
+  },
+  {
+    "id": "SCORE-061",
+    "subject": "Plan for a future API version change",
+    "body": "We are planning next year's integration maintenance. Where can we find the published retirement dates for older API versions and the migration guide for the current version?",
+    "customer": "Evaluation Customer 061",
+    "customerEmail": "evaluation.customer.061@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-062",
+    "subject": "Webhook signature check fails only with compressed requests",
+    "body": "Signature verification succeeds when our receiver requests an uncompressed webhook body, but fails when compression is enabled. We currently receive uncompressed deliveries successfully. Could you clarify whether the signature should be calculated before or after decompression?",
+    "customer": "Evaluation Customer 062",
+    "customerEmail": "evaluation.customer.062@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Neutral",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-063",
+    "subject": "Generated report PDFs omit the final section",
+    "body": "I am very dissatisfied that every newly generated report PDF omits its final section. The preview contains the complete report, but all PDF generation options produce the same incomplete document for every user in our workspace. We need the complete reports for customer reviews and cannot obtain them through another export format. The report editor still works.",
+    "customer": "Evaluation Customer 063",
+    "customerEmail": "evaluation.customer.063@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-064",
+    "subject": "Calendar event displays on the previous day",
+    "body": "A calendar event entered for November 18 appears on November 17 in the week view. Its details panel shows November 18, and switching to the list view shows the correct date. We can use that view while you check the calendar rendering.",
+    "customer": "Evaluation Customer 064",
+    "customerEmail": "evaluation.customer.064@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Neutral",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-065",
+    "subject": "Help tooltip covers part of a settings label",
+    "body": "On a narrow screen, the help tooltip overlaps the last word of the timezone setting label. The setting is still readable when the tooltip is closed and the selected timezone saves correctly.",
+    "customer": "Evaluation Customer 065",
+    "customerEmail": "evaluation.customer.065@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-066",
+    "subject": "Dismissed notification returns after opening another page",
+    "body": "An in-app notice returns whenever I change pages, even after I dismiss it. The underlying task is complete and no duplicate emails are being sent. The notice covers the first part of the editor, so we have to dismiss it before working on each record. Could you check whether its dismissed state is being stored?",
+    "customer": "Evaluation Customer 066",
+    "customerEmail": "evaluation.customer.066@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Neutral",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-067",
+    "subject": "Add a choice of larger interface text",
+    "body": "Please consider adding an interface text-size setting so users can choose a larger default. Browser zoom currently works for our team; an application setting would make the preference easier to keep across devices.",
+    "customer": "Evaluation Customer 067",
+    "customerEmail": "evaluation.customer.067@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-068",
+    "subject": "Custom colors for saved list tabs",
+    "body": "The saved-list tabs have been a great improvement, and we are very happy with them. Being able to choose a color for each tab would make our personal layouts even easier to scan. Please consider this small enhancement.",
+    "customer": "Evaluation Customer 068",
+    "customerEmail": "evaluation.customer.068@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Positive",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-069",
+    "subject": "Add a supported connector for our accounting system",
+    "body": "I am disappointed that there is no supported connector for our accounting system. Our team currently copies about fifty entries each day, which works but consumes roughly an hour. A connector would remove that recurring manual step; we can continue with the present process while it is considered.",
+    "customer": "Evaluation Customer 069",
+    "customerEmail": "evaluation.customer.069@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-070",
+    "subject": "First page is slow after reopening a large workspace",
+    "body": "Opening our largest workspace after signing in takes about twenty seconds, then subsequent pages respond normally. A smaller workspace on the same account opens in two seconds. The slower page does finish loading, and the records are available afterward.",
+    "customer": "Evaluation Customer 070",
+    "customerEmail": "evaluation.customer.070@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Neutral",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-071",
+    "subject": "Production checkout requests exceed the gateway deadline",
+    "body": "Every checkout submission in our production store now exceeds the gateway deadline. We have confirmed the same result from two locations and with a small test order. Customers cannot complete purchases and the sales operation is stopped. Please investigate the production request latency immediately.",
+    "customer": "Evaluation Customer 071",
+    "customerEmail": "evaluation.customer.071@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Neutral",
+      "priority": "Very High"
+    }
+  },
+  {
+    "id": "SCORE-072",
+    "subject": "Editor pauses for thirty seconds on every field change",
+    "body": "I am frustrated that changing any field in our main customer-record workspace freezes the editor for about thirty seconds. Every agent sees the delay, and it prevents us from updating records at a usable pace during calls. The records eventually save, but there is no alternate editor or import method available to the agents.",
+    "customer": "Evaluation Customer 072",
+    "customerEmail": "evaluation.customer.072@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-073",
+    "subject": "Set the default display language for new colleagues",
+    "body": "Can a workspace administrator set the initial display language for new users, or does each person choose it after signing in? We are preparing a short onboarding guide.",
+    "customer": "Evaluation Customer 073",
+    "customerEmail": "evaluation.customer.073@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-074",
+    "subject": "Find the published data-retention policy",
+    "body": "Our procurement team needs your published data-retention policy for its annual supplier review. Could you point us to the relevant public documentation and the section covering deleted workspaces?",
+    "customer": "Evaluation Customer 074",
+    "customerEmail": "evaluation.customer.074@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-075",
+    "subject": "Search performance is back to normal",
+    "body": "Search results now appear promptly throughout our workspace, and our team is delighted with the improvement. Thank you for explaining the cause of the delay and keeping us updated until it was resolved.",
+    "customer": "Evaluation Customer 075",
+    "customerEmail": "evaluation.customer.075@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Positive",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-076",
+    "subject": "SSO fails for one analyst group after certificate rotation",
+    "body": "After our SSO certificate rotation, the eight users in the analyst group receive a signature-validation error and cannot enter their reporting workspace. Other groups sign in normally. We checked the uploaded certificate and retried the documented setup steps, but these users have no alternative sign-in method. Please check the group-specific SSO configuration.",
+    "customer": "Evaluation Customer 076",
+    "customerEmail": "evaluation.customer.076@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Neutral",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-077",
+    "subject": "New group members receive the wrong project role",
+    "body": "I am unhappy that colleagues added to the new directory group receive viewer access rather than the editor access configured for it. Existing users keep their correct roles. Our administrator can assign editor access manually, so the new colleagues can work while you investigate the mapping.",
+    "customer": "Evaluation Customer 077",
+    "customerEmail": "evaluation.customer.077@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-078",
+    "subject": "Remove a guest from one project only",
+    "body": "How can I remove an external guest from a single project while retaining their access to another project? I want to avoid deleting the guest account entirely.",
+    "customer": "Evaluation Customer 078",
+    "customerEmail": "evaluation.customer.078@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-079",
+    "subject": "Unknown account has been granted workspace ownership",
+    "body": "We are alarmed to see an email address outside our company listed as a new workspace owner. Nobody authorized the change, and the audit log shows it was made using an administrator account overnight. That account has also changed recovery settings. Please help us secure the workspace immediately.",
+    "customer": "Evaluation Customer 079",
+    "customerEmail": "evaluation.customer.079@example.com",
+    "expected": {
+      "category": "Access",
+      "sentiment": "Negative",
+      "priority": "Very High"
+    }
+  },
+  {
+    "id": "SCORE-080",
+    "subject": "Credit after a seat reduction is smaller than expected",
+    "body": "I am disappointed that the credit for reducing our seat count appears to cover only part of the remaining month. The account stays active and the seat count is now correct. Please explain the dates used in the calculation and check whether the adjustment is accurate.",
+    "customer": "Evaluation Customer 080",
+    "customerEmail": "evaluation.customer.080@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-081",
+    "subject": "Download a statement of payments for the financial year",
+    "body": "Our accountant would like a statement listing all payments made during this financial year. Is this available in the billing portal, or should we request it from the billing team?",
+    "customer": "Evaluation Customer 081",
+    "customerEmail": "evaluation.customer.081@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-082",
+    "subject": "Add a backup payment method",
+    "body": "We have been very pleased with the clear renewal reminders and straightforward billing process. Is it possible to add a second company card as a backup while keeping the current card as the primary payment method?",
+    "customer": "Evaluation Customer 082",
+    "customerEmail": "evaluation.customer.082@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Positive",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-083",
+    "subject": "Renewal card was declined while the account is in grace period",
+    "body": "The renewal payment was declined because our company card expired. The portal shows seven days remaining in the grace period and our workspace is still available. We have entered a replacement card; please check when the payment will be retried.",
+    "customer": "Evaluation Customer 083",
+    "customerEmail": "evaluation.customer.083@example.com",
+    "expected": {
+      "category": "Billing",
+      "sentiment": "Neutral",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-084",
+    "subject": "API sends stale record versions after an update",
+    "body": "After a successful record update, the next GET sometimes returns the previous version token. An update using that token then receives HTTP 412; fetching again with Cache-Control: no-cache gives the latest token and the update succeeds. This affects our batch client, which can use the fresh-fetch workaround. Could you check the returned version metadata?",
+    "customer": "Evaluation Customer 084",
+    "customerEmail": "evaluation.customer.084@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Neutral",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-085",
+    "subject": "Live API credential was included in a public build",
+    "body": "We discovered that a live API credential for our account was included in a publicly accessible build artifact. Its usage page now shows requests that our team does not recognize. Please assist with revocation and review of the exposed credential; we have removed the artifact from public access.",
+    "customer": "Evaluation Customer 085",
+    "customerEmail": "evaluation.customer.085@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Neutral",
+      "priority": "Very High"
+    }
+  },
+  {
+    "id": "SCORE-086",
+    "subject": "Choose the timezone used by an API date filter",
+    "body": "For the list-events endpoint, are date-only filter values interpreted in UTC or in the workspace timezone? We are writing the client before putting this integration into use and would like to follow the documented convention.",
+    "customer": "Evaluation Customer 086",
+    "customerEmail": "evaluation.customer.086@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-087",
+    "subject": "API key scopes no longer allow the documented update",
+    "body": "We are frustrated that our existing integration can no longer update customer addresses: every request returns a scope error despite the required write scope being enabled. A freshly created key with the same scope also fails. Reads work, but the address synchronization function is unavailable and we have no other supported update path.",
+    "customer": "Evaluation Customer 087",
+    "customerEmail": "evaluation.customer.087@example.com",
+    "expected": {
+      "category": "API",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-088",
+    "subject": "Dragging a card shows it in the wrong column until refresh",
+    "body": "When I drag a card from Review to Approved, it briefly appears back in Review. Refreshing shows that it was saved in Approved, and the activity log records the correct move. We can use the status menu instead of dragging while this display issue is checked.",
+    "customer": "Evaluation Customer 088",
+    "customerEmail": "evaluation.customer.088@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Neutral",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-089",
+    "subject": "Document preview is blank for all reviewers",
+    "body": "I am disappointed that every document preview in our review workspace is blank for all users. Downloading the same documents also returns an error, so reviewers cannot inspect the files through either available option. The document list and discussion threads still work, but the main review function is unavailable.",
+    "customer": "Evaluation Customer 089",
+    "customerEmail": "evaluation.customer.089@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Negative",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-090",
+    "subject": "Mobile settings label wraps onto an extra line",
+    "body": "On my phone, the display-name label wraps onto two lines while the neighboring labels use one line. The full label is visible and the field works normally. I am reporting a small layout inconsistency.",
+    "customer": "Evaluation Customer 090",
+    "customerEmail": "evaluation.customer.090@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-091",
+    "subject": "Recurring event loses its selected display color",
+    "body": "I really like the new calendar and am pleased with how well it organizes our week. One recurring event returns to the default color after each edit, although its date, participants and reminders stay correct. I can choose the color again manually; could you check why that preference resets?",
+    "customer": "Evaluation Customer 091",
+    "customerEmail": "evaluation.customer.091@example.com",
+    "expected": {
+      "category": "Bug",
+      "sentiment": "Positive",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-092",
+    "subject": "Option to include a UTF-8 marker in CSV downloads",
+    "body": "Please consider an export option that includes a UTF-8 byte-order marker for spreadsheet compatibility. Our current workaround is to import the existing CSV using the spreadsheet's text-import dialog, which preserves the accented characters.",
+    "customer": "Evaluation Customer 092",
+    "customerEmail": "evaluation.customer.092@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-093",
+    "subject": "Pin frequently used actions to the record toolbar",
+    "body": "The customizable workspace has been excellent for our team. We would love an option to pin a few frequently used actions to the record toolbar as well. The current menu works; this would simply make those actions easier to reach.",
+    "customer": "Evaluation Customer 093",
+    "customerEmail": "evaluation.customer.093@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Positive",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-094",
+    "subject": "Bulk edit a shared field during weekly maintenance",
+    "body": "Our team updates the same review-date field on around 250 records every week. Editing each record individually is possible but takes more than an hour of routine work. Please consider bulk editing for this field to reduce that repeated workload.",
+    "customer": "Evaluation Customer 094",
+    "customerEmail": "evaluation.customer.094@example.com",
+    "expected": {
+      "category": "Feature Request",
+      "sentiment": "Neutral",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-095",
+    "subject": "Attachment uploads are slow in one project",
+    "body": "I am frustrated that a 15 MB attachment takes about two minutes to upload in our largest project. The same file uploads in ten seconds in a smaller project on the same connection. The upload finishes successfully, so we can continue, but adding several files takes much longer than before.",
+    "customer": "Evaluation Customer 095",
+    "customerEmail": "evaluation.customer.095@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-096",
+    "subject": "Historical account lookup takes nearly a minute",
+    "body": "Looking up a historical account by its exact ID takes forty to fifty seconds for every user in our customer-service workspace. This lookup is needed repeatedly during customer calls, and neither the list search nor the direct ID lookup is faster. Other pages respond normally. Please investigate the account lookup latency.",
+    "customer": "Evaluation Customer 096",
+    "customerEmail": "evaluation.customer.096@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Neutral",
+      "priority": "High"
+    }
+  },
+  {
+    "id": "SCORE-097",
+    "subject": "Nightly report arrives twenty minutes later than usual",
+    "body": "I am disappointed that the nightly report now arrives about twenty minutes later than its usual delivery time. It still arrives before our morning review and contains the complete data. Please check the generation delay before it grows further.",
+    "customer": "Evaluation Customer 097",
+    "customerEmail": "evaluation.customer.097@example.com",
+    "expected": {
+      "category": "Performance",
+      "sentiment": "Negative",
+      "priority": "Medium"
+    }
+  },
+  {
+    "id": "SCORE-098",
+    "subject": "Show dates in the workspace timezone",
+    "body": "Where can I choose the timezone used to display dates in our workspace? I am looking for the display preference rather than a change to any stored record timestamps.",
+    "customer": "Evaluation Customer 098",
+    "customerEmail": "evaluation.customer.098@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Neutral",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-099",
+    "subject": "Find the recording from the administrator training",
+    "body": "The administrator training was excellent, and I am very happy with the practical examples your team covered. Could you share where registered attendees can find the recording and the slides?",
+    "customer": "Evaluation Customer 099",
+    "customerEmail": "evaluation.customer.099@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Positive",
+      "priority": "Low"
+    }
+  },
+  {
+    "id": "SCORE-100",
+    "subject": "MFA recovery is complete and access is restored",
+    "body": "I have completed the recovery steps from my earlier ticket and can sign in using the replacement device. I am delighted that access is restored and grateful for the patient guidance. You can close the previous request.",
+    "customer": "Evaluation Customer 100",
+    "customerEmail": "evaluation.customer.100@example.com",
+    "expected": {
+      "category": "General",
+      "sentiment": "Positive",
+      "priority": "Low"
+    }
+  }
+]

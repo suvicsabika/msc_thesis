@@ -1,0 +1,204 @@
+{
+  "tools": [
+    {
+      "name": "set_ticket_classification",
+      "description": "Save the analyzed ticket category to the database.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ticket_id": {
+            "title": "Ticket Id",
+            "type": "string"
+          },
+          "category": {
+            "enum": [
+              "General",
+              "Access",
+              "Billing",
+              "API",
+              "Bug",
+              "Feature Request",
+              "Performance"
+            ],
+            "title": "Category",
+            "type": "string"
+          },
+          "confidence": {
+            "title": "Confidence",
+            "type": "number"
+          },
+          "reason": {
+            "title": "Reason",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ticket_id",
+          "category",
+          "confidence",
+          "reason"
+        ],
+        "title": "set_ticket_classificationArguments"
+      }
+    },
+    {
+      "name": "set_ticket_sentiment",
+      "description": "Save the analyzed customer sentiment to the ticket database.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ticket_id": {
+            "title": "Ticket Id",
+            "type": "string"
+          },
+          "sentiment": {
+            "enum": [
+              "Negative",
+              "Neutral",
+              "Positive"
+            ],
+            "title": "Sentiment",
+            "type": "string"
+          },
+          "score": {
+            "title": "Score",
+            "type": "number"
+          },
+          "reason": {
+            "title": "Reason",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ticket_id",
+          "sentiment",
+          "score",
+          "reason"
+        ],
+        "title": "set_ticket_sentimentArguments"
+      }
+    },
+    {
+      "name": "set_ticket_priority",
+      "description": "Save the analyzed priority and SLA label.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ticket_id": {
+            "title": "Ticket Id",
+            "type": "string"
+          },
+          "priority": {
+            "enum": [
+              "Low",
+              "Medium",
+              "High",
+              "Very High"
+            ],
+            "title": "Priority",
+            "type": "string"
+          },
+          "sla": {
+            "enum": [
+              "1 day",
+              "12h",
+              "4h",
+              "1h"
+            ],
+            "title": "Sla",
+            "type": "string"
+          },
+          "confidence": {
+            "title": "Confidence",
+            "type": "number"
+          },
+          "reason": {
+            "title": "Reason",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ticket_id",
+          "priority",
+          "sla",
+          "confidence",
+          "reason"
+        ],
+        "title": "set_ticket_priorityArguments"
+      }
+    },
+    {
+      "name": "save_response_draft",
+      "description": "Save a customer response draft for human review.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ticket_id": {
+            "title": "Ticket Id",
+            "type": "string"
+          },
+          "draft": {
+            "title": "Draft",
+            "type": "string"
+          },
+          "requires_approval": {
+            "const": true,
+            "title": "Requires Approval",
+            "type": "boolean"
+          },
+          "reason": {
+            "title": "Reason",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ticket_id",
+          "draft",
+          "requires_approval",
+          "reason"
+        ],
+        "title": "save_response_draftArguments"
+      }
+    }
+  ],
+  "resources": [
+    {
+      "name": "tickets_index_resource",
+      "uri": "tickets://index",
+      "description": "Read the available ticket resource index as JSON.",
+      "mimeType": "text/plain"
+    }
+  ],
+  "resourceTemplates": [
+    {
+      "name": "ticket_raw_resource",
+      "uriTemplate": "ticket://{ticket_id}/raw",
+      "description": "Read the raw ticket content and metadata as JSON.",
+      "mimeType": "text/plain"
+    },
+    {
+      "name": "ticket_classification_resource",
+      "uriTemplate": "ticket://{ticket_id}/classification",
+      "description": "Read the current classification-related ticket fields as JSON.",
+      "mimeType": "text/plain"
+    },
+    {
+      "name": "ticket_priority_resource",
+      "uriTemplate": "ticket://{ticket_id}/priority",
+      "description": "Read the current priority and SLA status of a ticket as JSON.",
+      "mimeType": "text/plain"
+    },
+    {
+      "name": "ticket_draft_response_resource",
+      "uriTemplate": "ticket://{ticket_id}/draft_response",
+      "description": "Read the latest saved response draft for a ticket as JSON.",
+      "mimeType": "text/plain"
+    },
+    {
+      "name": "ticket_history_resource",
+      "uriTemplate": "ticket://{ticket_id}/history",
+      "description": "Read a compact ticket history as JSON.",
+      "mimeType": "text/plain"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+run,successful,failed,missing_or_interrupted,run_wall_seconds,wall_time_complete,timed_tickets,latency_mean_seconds,latency_std_seconds,latency_median_seconds,latency_p95_seconds,usage_available_tickets,usage_missing_tickets,observed_input_tokens,mean_input_tokens_where_available,observed_output_tokens,mean_output_tokens_where_available,observed_total_tokens,mean_total_tokens_where_available
+run_01,100,0,0,545.1805865999995,True,100,16.277713186999843,3.286639151708929,15.763588999999229,24.008623610000267,100,0,906126,9061.26,106107,1061.07,1012233,10122.33
+run_02,100,0,0,561.6431300000004,True,100,16.63520922100002,4.183793248274943,15.541622799999459,24.086923964999546,100,0,904563,9045.63,105322,1053.22,1009885,10098.85
+run_03,100,0,0,675.9855749999988,True,100,19.93695115199991,7.901613119235553,17.069233299999723,35.83204999500112,100,0,899367,8993.67,103553,1035.53,1002920,10029.2
